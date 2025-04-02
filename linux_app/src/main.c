@@ -73,6 +73,7 @@ int main() {
 
     const float threshold = 0.1f;
     const char* lastDirection = "";
+    time_t lastPrint = time(NULL);  // Track last time we printed x/y
 
     while (true) {
         int16_t rawX, rawY, rawZ;
@@ -83,15 +84,20 @@ int main() {
 
         float x = normalize(rawX);
         float y = normalize(rawY);
-
         float dx = targetX - x;
         float dy = targetY - y;
+
+        time_t now = time(NULL);
+        if (now != lastPrint) {
+            printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", x, y, targetX, targetY);
+            lastPrint = now;
+        }
 
         const char* direction;
         if (fabs(dx) <= threshold && fabs(dy) <= threshold) {
             direction = "🎯 On Target!";
         } else if (fabs(dx) > fabs(dy)) {
-            direction = (dx > 0) ? "⬅️  Tilt Left" : "➡️  Tilt Right";
+            direction = (dx > 0) ? "➡️  Tilt Right" : "⬅️  Tilt Left";
         } else {
             direction = (dy > 0) ? "⬆️  Tilt Up" : "⬇️  Tilt Down";
         }
