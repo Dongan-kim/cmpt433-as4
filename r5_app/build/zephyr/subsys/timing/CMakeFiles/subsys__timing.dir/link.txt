@@ -1,0 +1,2 @@
+/usr/bin/arm-none-eabi-ar qc libsubsys__timing.a CMakeFiles/subsys__timing.dir/timing.c.obj
+/usr/bin/arm-none-eabi-ranlib libsubsys__timing.a
