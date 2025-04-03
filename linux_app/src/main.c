@@ -96,19 +96,9 @@ int main() {
     srand(time(NULL));
     accelerometer_init();
 
-    // ✅ Store mapped address globally
-    // pSharedMem = map_shared_memory();
-    // if (pSharedMem == NULL) {
-    //     fprintf(stderr, "Shared memory not mapped!\n");
-    //     exit(EXIT_FAILURE);
-    // }
-
     pSharedMem = map_shared_memory();
-
-    // // ✅ Print R5 debug values to confirm R5 is alive
-    // volatile uint32_t* debugStart = (volatile uint32_t *)((volatile uint8_t *)pSharedMem + DEBUG_START_OFFSET);
-    // volatile uint32_t* debugEnd   = (volatile uint32_t *)((volatile uint8_t *)pSharedMem + DEBUG_END_OFFSET);
-    // printf("DEBUG_START: 0x%08X | LOOP COUNT: %u\n", *debugStart, *debugEnd);
+    // Set LED update delay (in milliseconds) for R5
+    *((volatile uint32_t *)((uint8_t *)pSharedMem + LED_DELAY_MS_OFFSET)) = 10; // 10ms
 
     float targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
     float targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
@@ -118,30 +108,53 @@ int main() {
 
     while (true) {
         Direction dir = process_accel_and_target(&targetX, &targetY, threshold, &dx, &dy);
+        //printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", dx, dy, targetX, targetY);
         printf("Direction: %s\n", direction_to_string(dir));
-
-        for (int i = 0; i < NUM_LEDS; i++) {
-            uint32_t color;
     
-            // Choose color based on direction
-            if (dir == DIRECTION_LEFT) {
-                color = 0xFF000000;  // Red-ish (but note: high byte may be unused)
-            } else if (dir == DIRECTION_RIGHT) {
-                color = 0x0000FF00;  // Green
-            } else {
-                color = 0x00FF0000;  // Blue
-            }
+        //float errorX = targetX - dx;
     
-            write_led_color(i, color);
-    
-            // Optional: print the actual value written to shared memory
-            uint32_t readback = *((volatile uint32_t *)((uint8_t *)pSharedMem + SHARED_RGB_OFFSET + (i * 4)));
-            printf("  LED[%d] = 0x%08X\n", i, readback);
+        uint32_t color;
+        if (dir == DIRECTION_LEFT) {
+            color = RED_BRIGHT; // target is to the left → need to tilt left
+        } else if (dir == DIRECTION_RIGHT) {
+            color = GREEN_BRIGHT; // target is to the right → need to tilt right
+        } else if (dir == DIRECTION_ON_TARGET){
+            color = WHITE_BRIGHT; // centered
+        }else{
+            color = BLUE_BRIGHT;
         }
-
-        struct timespec ts = {0, 100000000};  // 100ms
-        nanosleep(&ts, NULL);
-        //usleep(100000); // 10Hz update
+    
+        for (int i = 0; i < NUM_LEDS; i++) {
+            if (dir == DIRECTION_ON_TARGET) {
+                //On Target — light all LEDs bright white
+                write_led_color(i, WHITE_BRIGHT);
+            } else if (i == 2 || i == 4) {
+                // Middle left/right → dim color
+                uint32_t dimColor;
+                if (color == RED_BRIGHT)
+                    dimColor = RED_DIM;
+                else if (color == GREEN_BRIGHT)
+                    dimColor = GREEN_DIM;
+                else
+                    dimColor = BLUE_DIM;
+        
+                write_led_color(i, dimColor);
+            } else if (i == 3) {
+                // Center LED → bright
+                write_led_color(i, color);
+            } else {
+                // All others off
+                write_led_color(i, 0x00000000);
+            }
+        }
+    
+        if (dir == DIRECTION_ON_TARGET) {
+            struct timespec pause = {1, 0};  // 1 second
+            nanosleep(&pause, NULL);
+        } else {
+            struct timespec ts = {0, 100000000};  // 100 ms
+            nanosleep(&ts, NULL);
+        }
     }
 
     return 0;

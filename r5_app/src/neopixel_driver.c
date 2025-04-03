@@ -69,7 +69,7 @@ int main(void) {
 		// SHARED_MEM[DEBUG_START_OFFSET / 4] = 0xDEADBEEF;
 		// SHARED_MEM[DEBUG_END_OFFSET / 4]   = loopCounter++;
 		gpio_pin_set_dt(&neopixel, 0);
-		//NEO_DELAY_RESET();
+		DELAY_NS(NEO_RESET_NS);
 
 		for (int j = 0; j < NEO_NUM_LEDS; j++) {
 			uint32_t* sharedRgbBase = (uint32_t*)((uint8_t*)pSharedMem + SHARED_RGB_OFFSET);
@@ -89,26 +89,9 @@ int main(void) {
 			}
 		}
 
-		// for (int j = 0; j < NEO_NUM_LEDS; j++) {
-		// 	uint32_t color = SHARED_MEM[(SHARED_RGB_OFFSET / 4) + j];
-		// 	printf("LED[%d] = 0x%08X\n", j, color);
-		// 	for (int i = 31; i >= 0; i--) {
-		// 		if (color & ((uint32_t)1 << i)) {
-		// 			gpio_pin_set_dt(&neopixel, 1);
-		// 			NEO_DELAY_ONE_ON();
-		// 			gpio_pin_set_dt(&neopixel, 0);
-		// 			NEO_DELAY_ONE_OFF();
-		// 		} else {
-		// 			gpio_pin_set_dt(&neopixel, 1);
-		// 			NEO_DELAY_ZERO_ON();
-		// 			gpio_pin_set_dt(&neopixel, 0);
-		// 			NEO_DELAY_ZERO_OFF();
-		// 		}
-		// 	}
-		// }
 		gpio_pin_set_dt(&neopixel, 0);
-		//NEO_DELAY_RESET();
-		k_busy_wait(10000); // Refresh every 10ms
+		NEO_DELAY_RESET();
+		//k_busy_wait(10000); // Refresh every 10ms
 	}
 	return 0;
 }
