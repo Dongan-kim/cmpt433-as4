@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "accelerometer.h": "c"
+        "accelerometer.h": "c",
+        "mman.h": "c",
+        "fcntl.h": "c"
     }
 }

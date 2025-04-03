@@ -1,1 +1,0 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/find_dot_linux_app.dir/link.d CMakeFiles/find_dot_linux_app.dir/src/main.c.o CMakeFiles/find_dot_linux_app.dir/src/accelerometer.c.o -o find_dot_linux_app  -lpthread

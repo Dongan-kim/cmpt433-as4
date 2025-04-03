@@ -2349,7 +2349,7 @@ rom_start       0x00000000       0x3c
  *(SORT_BY_ALIGNMENT(.vectors))
                 0x0000003c                        _vector_end = .
 
-text            0x00000040     0x2f90
+text            0x00000040     0x2f80
                 0x00000040                        . = ALIGN (_region_min_align)
                 0x00000040                        __text_region_start = .
                 0x00000040                        z_mapped_start = .
@@ -2364,1002 +2364,1002 @@ text            0x00000040     0x2f90
  *(SORT_BY_ALIGNMENT(.text.*))
  .text.gpio_pin_set_dt.constprop.0.isra.0
                 0x00000428       0x24 ../app/libapp.a(neopixel_driver.c.obj)
- .text.main     0x0000044c      0x108 ../app/libapp.a(neopixel_driver.c.obj)
+ .text.main     0x0000044c       0xfc ../app/libapp.a(neopixel_driver.c.obj)
                 0x0000044c                main
  .text.char_out
-                0x00000554        0xc libzephyr.a(printk.c.obj)
+                0x00000548        0xc libzephyr.a(printk.c.obj)
  .text.__printk_hook_install
-                0x00000560        0xc libzephyr.a(printk.c.obj)
-                0x00000560                __printk_hook_install
- .text.vprintk  0x0000056c       0x1c libzephyr.a(printk.c.obj)
-                0x0000056c                vprintk
+                0x00000554        0xc libzephyr.a(printk.c.obj)
+                0x00000554                __printk_hook_install
+ .text.vprintk  0x00000560       0x1c libzephyr.a(printk.c.obj)
+                0x00000560                vprintk
  .text.z_cbvprintf_impl
-                0x00000588      0xd54 libzephyr.a(cbprintf_complete.c.obj)
-                0x00000588                z_cbvprintf_impl
+                0x0000057c      0xd54 libzephyr.a(cbprintf_complete.c.obj)
+                0x0000057c                z_cbvprintf_impl
  .text.z_arm_nmi
-                0x000012dc       0x14 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
-                0x000012dc                z_arm_nmi
+                0x000012d0       0x14 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+                0x000012d0                z_arm_nmi
  .text.z_SysNmiOnReset
-                0x000012f0        0x8 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
-                0x000012f0                z_SysNmiOnReset
- .text.__exc    0x000012f8      0x11c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
-                0x000012f8                z_arm_undef_instruction
-                0x00001368                z_arm_prefetch_abort
-                0x000013b8                z_arm_data_abort
+                0x000012e4        0x8 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
+                0x000012e4                z_SysNmiOnReset
+ .text.__exc    0x000012ec      0x11c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
+                0x000012ec                z_arm_undef_instruction
+                0x0000135c                z_arm_prefetch_abort
+                0x000013ac                z_arm_data_abort
  .text.z_arm_fault_undef_instruction_fp
-                0x00001414       0x60 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
-                0x00001414                z_arm_fault_undef_instruction_fp
+                0x00001408       0x60 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+                0x00001408                z_arm_fault_undef_instruction_fp
  .text._reset_section
-                0x00001474       0x78 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
-                0x00001474                z_arm_reset
-                0x00001474                __start
+                0x00001468       0x78 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
+                0x00001468                z_arm_reset
+                0x00001468                __start
  .text.z_prep_c
-                0x000014ec       0x30 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
-                0x000014ec                z_prep_c
+                0x000014e0       0x30 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+                0x000014e0                z_prep_c
  .text.arch_new_thread
-                0x0000151c       0x44 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
-                0x0000151c                arch_new_thread
+                0x00001510       0x44 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+                0x00001510                arch_new_thread
  .text.arch_float_disable
-                0x00001560       0x40 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
-                0x00001560                arch_float_disable
+                0x00001554       0x40 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+                0x00001554                arch_float_disable
  .text.arch_cpu_idle
-                0x000015a0       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
-                0x000015a0                arch_cpu_idle
+                0x00001594       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
+                0x00001594                arch_cpu_idle
  .text._isr_wrapper
-                0x000015b4       0xb8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
-                0x000015b4                _isr_wrapper
+                0x000015a8       0xb8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
+                0x000015a8                _isr_wrapper
  .text.z_arm_do_swap
-                0x0000166c       0xbc arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
-                0x0000166c                z_arm_do_swap
+                0x00001660       0xbc arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+                0x00001660                z_arm_do_swap
  .text.z_arm_svc
-                0x00001728       0xc0 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
-                0x00001728                z_arm_svc
+                0x0000171c       0xc0 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+                0x0000171c                z_arm_svc
  .text.z_arm_cortex_r_svc
-                0x000017e8        0x8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
-                0x000017e8                z_arm_cortex_r_svc
+                0x000017dc        0x8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+                0x000017dc                z_arm_cortex_r_svc
  .text._HandlerModeExit
-                0x000017f0      0x164 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
-                0x000017f0                z_arm_int_exit
-                0x00001898                z_arm_exc_exit
- .text._exit    0x00001954       0x10 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
-                0x00001954                _exit
+                0x000017e4      0x164 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
+                0x000017e4                z_arm_int_exit
+                0x0000188c                z_arm_exc_exit
+ .text._exit    0x00001948       0x10 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+                0x00001948                _exit
  .text.__stdout_hook_install
-                0x00001964        0xc lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
-                0x00001964                __stdout_hook_install
+                0x00001958        0xc lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+                0x00001958                __stdout_hook_install
  .text.z_impl_zephyr_fputc
-                0x00001970       0x18 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
-                0x00001970                z_impl_zephyr_fputc
- .text.printf   0x00001988       0x28 lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
-                0x00001988                printf
+                0x00001964       0x18 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+                0x00001964                z_impl_zephyr_fputc
+ .text.printf   0x0000197c       0x28 lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+                0x0000197c                printf
  .text.z_vim_irq_get_active
-                0x000019b0       0x48 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
-                0x000019b0                z_vim_irq_get_active
+                0x000019a4       0x48 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+                0x000019a4                z_vim_irq_get_active
  .text.z_vim_irq_eoi
-                0x000019f8       0x10 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
-                0x000019f8                z_vim_irq_eoi
+                0x000019ec       0x10 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+                0x000019ec                z_vim_irq_eoi
  .text.z_vim_irq_priority_set
-                0x00001a08       0x50 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
-                0x00001a08                z_vim_irq_priority_set
+                0x000019fc       0x50 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+                0x000019fc                z_vim_irq_priority_set
  .text.z_vim_irq_enable
-                0x00001a58       0x24 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
-                0x00001a58                z_vim_irq_enable
+                0x00001a4c       0x24 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+                0x00001a4c                z_vim_irq_enable
  .text.uart_console_init
-                0x00001a7c       0x28 drivers/console/libdrivers__console.a(uart_console.c.obj)
+                0x00001a70       0x28 drivers/console/libdrivers__console.a(uart_console.c.obj)
  .text.console_out
-                0x00001aa4       0x28 drivers/console/libdrivers__console.a(uart_console.c.obj)
+                0x00001a98       0x28 drivers/console/libdrivers__console.a(uart_console.c.obj)
  .text.pinctrl_configure_pins
-                0x00001acc       0x2c drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
-                0x00001acc                pinctrl_configure_pins
+                0x00001ac0       0x2c drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x00001ac0                pinctrl_configure_pins
  .text.ti_dmtimer_isr
-                0x00001af8       0x68 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00001aec       0x68 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  .text.sys_clock_driver_init
-                0x00001b60       0xe8 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00001b54       0xe8 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  .text.sys_clock_set_timeout
-                0x00001c48       0x5c drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
-                0x00001c48                sys_clock_set_timeout
+                0x00001c3c       0x5c drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00001c3c                sys_clock_set_timeout
  .text.sys_clock_cycle_get_32
-                0x00001ca4       0x24 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
-                0x00001ca4                sys_clock_cycle_get_32
+                0x00001c98       0x24 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00001c98                sys_clock_cycle_get_32
  .text.sys_clock_elapsed
-                0x00001cc8       0x34 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
-                0x00001cc8                sys_clock_elapsed
+                0x00001cbc       0x34 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00001cbc                sys_clock_elapsed
  .text.z_impl_k_busy_wait
-                0x00001cfc       0x3c kernel/libkernel.a(busy_wait.c.obj)
-                0x00001cfc                z_impl_k_busy_wait
+                0x00001cf0       0x3c kernel/libkernel.a(busy_wait.c.obj)
+                0x00001cf0                z_impl_k_busy_wait
  .text.z_fatal_error
-                0x00001d38       0x38 kernel/libkernel.a(fatal.c.obj)
-                0x00001d38                z_fatal_error
+                0x00001d2c       0x38 kernel/libkernel.a(fatal.c.obj)
+                0x00001d2c                z_fatal_error
  .text.z_sys_init_run_level
-                0x00001d70       0x30 kernel/libkernel.a(init.c.obj)
+                0x00001d64       0x30 kernel/libkernel.a(init.c.obj)
  .text.bg_thread_main
-                0x00001da0       0xc0 kernel/libkernel.a(init.c.obj)
+                0x00001d94       0xc0 kernel/libkernel.a(init.c.obj)
  .text.z_bss_zero
-                0x00001e60       0x18 kernel/libkernel.a(init.c.obj)
-                0x00001e60                z_bss_zero
+                0x00001e54       0x18 kernel/libkernel.a(init.c.obj)
+                0x00001e54                z_bss_zero
  .text.z_init_cpu
-                0x00001e78       0x68 kernel/libkernel.a(init.c.obj)
-                0x00001e78                z_init_cpu
+                0x00001e6c       0x68 kernel/libkernel.a(init.c.obj)
+                0x00001e6c                z_init_cpu
  .text.z_cstart
-                0x00001ee0       0x94 kernel/libkernel.a(init.c.obj)
-                0x00001ee0                z_cstart
+                0x00001ed4       0x94 kernel/libkernel.a(init.c.obj)
+                0x00001ed4                z_cstart
  .text.z_setup_new_thread
-                0x00001f74       0x50 kernel/libkernel.a(thread.c.obj)
-                0x00001f74                z_setup_new_thread
+                0x00001f68       0x50 kernel/libkernel.a(thread.c.obj)
+                0x00001f68                z_setup_new_thread
  .text.z_dummy_thread_init
-                0x00001fc4       0x14 kernel/libkernel.a(thread.c.obj)
-                0x00001fc4                z_dummy_thread_init
+                0x00001fb8       0x14 kernel/libkernel.a(thread.c.obj)
+                0x00001fb8                z_dummy_thread_init
  .text.ready_thread
-                0x00001fd8       0x7c kernel/libkernel.a(sched.c.obj)
+                0x00001fcc       0x7c kernel/libkernel.a(sched.c.obj)
  .text.z_swap_irqlock
-                0x00002054       0x24 kernel/libkernel.a(sched.c.obj)
+                0x00002048       0x24 kernel/libkernel.a(sched.c.obj)
  .text.move_thread_to_end_of_prio_q
-                0x00002078       0x88 kernel/libkernel.a(sched.c.obj)
-                0x00002078                move_thread_to_end_of_prio_q
+                0x0000206c       0x88 kernel/libkernel.a(sched.c.obj)
+                0x0000206c                move_thread_to_end_of_prio_q
  .text.z_reschedule
-                0x00002100       0x24 kernel/libkernel.a(sched.c.obj)
-                0x00002100                z_reschedule
+                0x000020f4       0x24 kernel/libkernel.a(sched.c.obj)
+                0x000020f4                z_reschedule
  .text.z_reschedule_irqlock
-                0x00002124       0x24 kernel/libkernel.a(sched.c.obj)
-                0x00002124                z_reschedule_irqlock
+                0x00002118       0x24 kernel/libkernel.a(sched.c.obj)
+                0x00002118                z_reschedule_irqlock
  .text.k_sched_lock
-                0x00002148       0x20 kernel/libkernel.a(sched.c.obj)
-                0x00002148                k_sched_lock
+                0x0000213c       0x20 kernel/libkernel.a(sched.c.obj)
+                0x0000213c                k_sched_lock
  .text.k_sched_unlock
-                0x00002168       0x50 kernel/libkernel.a(sched.c.obj)
-                0x00002168                k_sched_unlock
+                0x0000215c       0x50 kernel/libkernel.a(sched.c.obj)
+                0x0000215c                k_sched_unlock
  .text.z_sched_init
-                0x000021b8       0x10 kernel/libkernel.a(sched.c.obj)
-                0x000021b8                z_sched_init
+                0x000021ac       0x10 kernel/libkernel.a(sched.c.obj)
+                0x000021ac                z_sched_init
  .text.z_impl_k_wakeup
-                0x000021c8       0x40 kernel/libkernel.a(sched.c.obj)
-                0x000021c8                z_impl_k_wakeup
+                0x000021bc       0x40 kernel/libkernel.a(sched.c.obj)
+                0x000021bc                z_impl_k_wakeup
  .text.z_impl_k_sched_current_thread_query
-                0x00002208        0xc kernel/libkernel.a(sched.c.obj)
-                0x00002208                z_impl_k_sched_current_thread_query
+                0x000021fc        0xc kernel/libkernel.a(sched.c.obj)
+                0x000021fc                z_impl_k_sched_current_thread_query
  .text.z_thread_abort
-                0x00002214      0x138 kernel/libkernel.a(sched.c.obj)
-                0x00002214                z_thread_abort
+                0x00002208      0x138 kernel/libkernel.a(sched.c.obj)
+                0x00002208                z_thread_abort
  .text.slice_timeout
-                0x0000234c       0x20 kernel/libkernel.a(timeslicing.c.obj)
+                0x00002340       0x20 kernel/libkernel.a(timeslicing.c.obj)
  .text.thread_is_sliceable
-                0x0000236c       0x3c kernel/libkernel.a(timeslicing.c.obj)
-                0x0000236c                thread_is_sliceable
+                0x00002360       0x3c kernel/libkernel.a(timeslicing.c.obj)
+                0x00002360                thread_is_sliceable
  .text.z_reset_time_slice
-                0x000023a8       0x50 kernel/libkernel.a(timeslicing.c.obj)
-                0x000023a8                z_reset_time_slice
+                0x0000239c       0x50 kernel/libkernel.a(timeslicing.c.obj)
+                0x0000239c                z_reset_time_slice
  .text.z_time_slice
-                0x000023f8       0x40 kernel/libkernel.a(timeslicing.c.obj)
-                0x000023f8                z_time_slice
- .text.first    0x00002438       0x10 kernel/libkernel.a(timeout.c.obj)
- .text.elapsed  0x00002448       0x14 kernel/libkernel.a(timeout.c.obj)
+                0x000023ec       0x40 kernel/libkernel.a(timeslicing.c.obj)
+                0x000023ec                z_time_slice
+ .text.first    0x0000242c       0x10 kernel/libkernel.a(timeout.c.obj)
+ .text.elapsed  0x0000243c       0x14 kernel/libkernel.a(timeout.c.obj)
  .text.remove_timeout
-                0x0000245c       0x38 kernel/libkernel.a(timeout.c.obj)
+                0x00002450       0x38 kernel/libkernel.a(timeout.c.obj)
  .text.z_add_timeout
-                0x00002494       0xdc kernel/libkernel.a(timeout.c.obj)
-                0x00002494                z_add_timeout
+                0x00002488       0xdc kernel/libkernel.a(timeout.c.obj)
+                0x00002488                z_add_timeout
  .text.sys_clock_announce
-                0x00002570       0xa0 kernel/libkernel.a(timeout.c.obj)
-                0x00002570                sys_clock_announce
+                0x00002564       0xa0 kernel/libkernel.a(timeout.c.obj)
+                0x00002564                sys_clock_announce
  .text.boot_banner
-                0x00002610        0xc kernel/libkernel.a(banner.c.obj)
-                0x00002610                boot_banner
+                0x00002604        0xc kernel/libkernel.a(banner.c.obj)
+                0x00002604                boot_banner
  .text._OffsetAbsSyms
-                0x0000261c        0x2 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
-                0x0000261c                _OffsetAbsSyms
+                0x00002610        0x2 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+                0x00002610                _OffsetAbsSyms
  .text.arch_printk_char_out
-                0x0000261e        0x4 libzephyr.a(printk.c.obj)
-                0x0000261e                arch_printk_char_out
- .text.printk   0x00002622       0x1a libzephyr.a(printk.c.obj)
-                0x00002622                printk
+                0x00002612        0x4 libzephyr.a(printk.c.obj)
+                0x00002612                arch_printk_char_out
+ .text.printk   0x00002616       0x1a libzephyr.a(printk.c.obj)
+                0x00002616                printk
  .text.z_thread_entry
-                0x0000263c       0x14 libzephyr.a(thread_entry.c.obj)
-                0x0000263c                z_thread_entry
- .text._ldiv5   0x00002650       0x30 libzephyr.a(cbprintf_complete.c.obj)
+                0x00002630       0x14 libzephyr.a(thread_entry.c.obj)
+                0x00002630                z_thread_entry
+ .text._ldiv5   0x00002644       0x30 libzephyr.a(cbprintf_complete.c.obj)
  .text.encode_uint
-                0x00002680       0x90 libzephyr.a(cbprintf_complete.c.obj)
- .text.outs     0x00002710       0x2e libzephyr.a(cbprintf_complete.c.obj)
+                0x00002674       0x90 libzephyr.a(cbprintf_complete.c.obj)
+ .text.outs     0x00002704       0x2e libzephyr.a(cbprintf_complete.c.obj)
  .text._ConfigAbsSyms
-                0x0000273e        0x2 libzephyr.a(configs.c.obj)
-                0x0000273e                _ConfigAbsSyms
+                0x00002732        0x2 libzephyr.a(configs.c.obj)
+                0x00002732                _ConfigAbsSyms
  .text.k3_unlock_all_ctrl_partitions
-                0x00002740        0x2 libzephyr.a(ctrl_partitions.c.obj)
-                0x00002740                k3_unlock_all_ctrl_partitions
+                0x00002734        0x2 libzephyr.a(ctrl_partitions.c.obj)
+                0x00002734                k3_unlock_all_ctrl_partitions
  .text.z_soc_irq_get_active
-                0x00002742        0x4 libzephyr.a(soc.c.obj)
-                0x00002742                z_soc_irq_get_active
+                0x00002736        0x4 libzephyr.a(soc.c.obj)
+                0x00002736                z_soc_irq_get_active
  .text.z_soc_irq_eoi
-                0x00002746        0x4 libzephyr.a(soc.c.obj)
-                0x00002746                z_soc_irq_eoi
+                0x0000273a        0x4 libzephyr.a(soc.c.obj)
+                0x0000273a                z_soc_irq_eoi
  .text.z_soc_irq_init
-                0x0000274a        0x4 libzephyr.a(soc.c.obj)
-                0x0000274a                z_soc_irq_init
+                0x0000273e        0x4 libzephyr.a(soc.c.obj)
+                0x0000273e                z_soc_irq_init
  .text.z_soc_irq_priority_set
-                0x0000274e        0x4 libzephyr.a(soc.c.obj)
-                0x0000274e                z_soc_irq_priority_set
+                0x00002742        0x4 libzephyr.a(soc.c.obj)
+                0x00002742                z_soc_irq_priority_set
  .text.z_soc_irq_enable
-                0x00002752        0x4 libzephyr.a(soc.c.obj)
-                0x00002752                z_soc_irq_enable
+                0x00002746        0x4 libzephyr.a(soc.c.obj)
+                0x00002746                z_soc_irq_enable
  .text.soc_early_init_hook
-                0x00002756        0x4 libzephyr.a(soc.c.obj)
-                0x00002756                soc_early_init_hook
+                0x0000274a        0x4 libzephyr.a(soc.c.obj)
+                0x0000274a                soc_early_init_hook
  .text.z_arm_fatal_error
-                0x0000275a        0x4 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
-                0x0000275a                z_arm_fatal_error
+                0x0000274e        0x4 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+                0x0000274e                z_arm_fatal_error
  .text.z_do_kernel_oops
-                0x0000275e        0x8 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
-                0x0000275e                z_do_kernel_oops
+                0x00002752        0x8 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+                0x00002752                z_do_kernel_oops
  .text.dump_fault.isra.0
-                0x00002766       0x50 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+                0x0000275a       0x50 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
  .text.z_arm_fault_undef_instruction
-                0x000027b6       0x1e arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
-                0x000027b6                z_arm_fault_undef_instruction
+                0x000027aa       0x1e arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+                0x000027aa                z_arm_fault_undef_instruction
  .text.z_arm_fault_prefetch
-                0x000027d4       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
-                0x000027d4                z_arm_fault_prefetch
+                0x000027c8       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+                0x000027c8                z_arm_fault_prefetch
  .text.z_arm_fault_data
-                0x000027f8       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
-                0x000027f8                z_arm_fault_data
+                0x000027ec       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+                0x000027ec                z_arm_fault_data
  .text.z_arm_interrupt_init
-                0x0000281c        0x4 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
-                0x0000281c                z_arm_interrupt_init
+                0x00002810        0x4 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+                0x00002810                z_arm_interrupt_init
  .text.relocate_vector_table
-                0x00002820        0x2 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
-                0x00002820                relocate_vector_table
+                0x00002814        0x2 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+                0x00002814                relocate_vector_table
  .text.z_arm_relocate_vector_table
-                0x00002822        0x8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
-                0x00002822                z_arm_relocate_vector_table
+                0x00002816        0x8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+                0x00002816                z_arm_relocate_vector_table
  .text.z_irq_spurious
-                0x0000282a        0x8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
-                0x0000282a                z_irq_spurious
- .text.strlen   0x00002832        0xe lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
-                0x00002832                strlen
- .text.memset   0x00002840       0x12 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
-                0x00002840                memset
+                0x0000281e        0x8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+                0x0000281e                z_irq_spurious
+ .text.strlen   0x00002826        0xe lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+                0x00002826                strlen
+ .text.memset   0x00002834       0x12 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+                0x00002834                memset
  .text._stdout_hook_default
-                0x00002852        0x6 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .text.fputc    0x00002858        0x4 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
-                0x00002858                fputc
- .text.strnlen  0x0000285c       0x12 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
-                0x0000285c                strnlen
+                0x00002846        0x6 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .text.fputc    0x0000284c        0x4 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+                0x0000284c                fputc
+ .text.strnlen  0x00002850       0x12 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+                0x00002850                strnlen
  .text.z_vim_irq_init
-                0x0000286e        0xc drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
-                0x0000286e                z_vim_irq_init
+                0x00002862        0xc drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+                0x00002862                z_vim_irq_init
  .text.gpio_davinci_configure
-                0x0000287a       0x34 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x0000286e       0x34 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_port_get_raw
-                0x000028ae        0xc drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028a2        0xc drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_port_set_masked_raw
-                0x000028ba       0x12 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028ae       0x12 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_port_set_bits_raw
-                0x000028cc        0xe drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028c0        0xe drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_port_clear_bits_raw
-                0x000028da        0xe drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028ce        0xe drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_port_toggle_bits
-                0x000028e8        0xe drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028dc        0xe drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_bank_0_config
-                0x000028f6        0x2 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028ea        0x2 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.gpio_davinci_init
-                0x000028f8       0x32 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000028ec       0x32 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .text.pinctrl_lookup_state
-                0x0000292a       0x26 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
-                0x0000292a                pinctrl_lookup_state
+                0x0000291e       0x26 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+                0x0000291e                pinctrl_lookup_state
  .text.pinctrl_ti_k3_init
-                0x00002950        0x4 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x00002944        0x4 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
  .text.ns16550_read_char
-                0x00002954       0x2e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002948       0x2e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_config_get
-                0x00002982       0x1a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002976       0x1a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_poll_in
-                0x0000299c       0x16 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002990       0x16 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_poll_out
-                0x000029b2       0x32 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x000029a6       0x32 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_err_check
-                0x000029e4       0x26 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x000029d8       0x26 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_fifo_fill
-                0x00002a0a       0x34 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x000029fe       0x34 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_fifo_read
-                0x00002a3e       0x3a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002a32       0x3a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_tx_enable
-                0x00002a78       0x2a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002a6c       0x2a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_tx_disable
-                0x00002aa2       0x28 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002a96       0x28 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_tx_ready
-                0x00002aca       0x1e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002abe       0x1e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_tx_complete
-                0x00002ae8       0x2e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002adc       0x2e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_rx_enable
-                0x00002b16       0x2a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002b0a       0x2a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_rx_disable
-                0x00002b40       0x28 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002b34       0x28 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_rx_ready
-                0x00002b68       0x1e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002b5c       0x1e drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_err_enable
-                0x00002b86       0x2a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002b7a       0x2a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_err_disable
-                0x00002bb0       0x28 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002ba4       0x28 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_is_pending
-                0x00002bd8       0x1a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002bcc       0x1a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_update
-                0x00002bf2       0x26 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002be6       0x26 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_callback_set
-                0x00002c18       0x16 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002c0c       0x16 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_isr
-                0x00002c2e        0xc drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002c22        0xc drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_irq_config_func0
-                0x00002c3a       0x16 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002c2e       0x16 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_configure
-                0x00002c50      0x1f6 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002c44      0x1f6 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.uart_ns16550_init
-                0x00002e46       0x1a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002e3a       0x1a drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .text.z_device_state_init
-                0x00002e60        0x2 kernel/libkernel.a(device.c.obj)
-                0x00002e60                z_device_state_init
+                0x00002e54        0x2 kernel/libkernel.a(device.c.obj)
+                0x00002e54                z_device_state_init
  .text.z_impl_device_is_ready
-                0x00002e62       0x16 kernel/libkernel.a(device.c.obj)
-                0x00002e62                z_impl_device_is_ready
+                0x00002e56       0x16 kernel/libkernel.a(device.c.obj)
+                0x00002e56                z_impl_device_is_ready
  .text.arch_system_halt
-                0x00002e78        0xc kernel/libkernel.a(fatal.c.obj)
-                0x00002e78                arch_system_halt
+                0x00002e6c        0xc kernel/libkernel.a(fatal.c.obj)
+                0x00002e6c                arch_system_halt
  .text.k_sys_fatal_error_handler
-                0x00002e84        0x6 kernel/libkernel.a(fatal.c.obj)
-                0x00002e84                k_sys_fatal_error_handler
+                0x00002e78        0x6 kernel/libkernel.a(fatal.c.obj)
+                0x00002e78                k_sys_fatal_error_handler
  .text.do_device_init
-                0x00002e8a       0x2e kernel/libkernel.a(init.c.obj)
+                0x00002e7e       0x2e kernel/libkernel.a(init.c.obj)
  .text.z_early_memset
-                0x00002eb8        0x4 kernel/libkernel.a(init.c.obj)
-                0x00002eb8                z_early_memset
+                0x00002eac        0x4 kernel/libkernel.a(init.c.obj)
+                0x00002eac                z_early_memset
  .text.z_init_static
-                0x00002ebc        0x2 kernel/libkernel.a(init_static.c.obj)
-                0x00002ebc                z_init_static
- .text.idle     0x00002ebe       0x12 kernel/libkernel.a(idle.c.obj)
-                0x00002ebe                idle
+                0x00002eb0        0x2 kernel/libkernel.a(init_static.c.obj)
+                0x00002eb0                z_init_static
+ .text.idle     0x00002eb2       0x12 kernel/libkernel.a(idle.c.obj)
+                0x00002eb2                idle
  .text.sys_dlist_remove
-                0x00002ed0       0x10 kernel/libkernel.a(sched.c.obj)
+                0x00002ec4       0x10 kernel/libkernel.a(sched.c.obj)
  .text.unpend_thread_no_timeout
-                0x00002ee0       0x14 kernel/libkernel.a(sched.c.obj)
+                0x00002ed4       0x14 kernel/libkernel.a(sched.c.obj)
  .text.z_ready_thread
-                0x00002ef4       0x16 kernel/libkernel.a(sched.c.obj)
-                0x00002ef4                z_ready_thread
+                0x00002ee8       0x16 kernel/libkernel.a(sched.c.obj)
+                0x00002ee8                z_ready_thread
  .text.z_sched_wake_thread
-                0x00002f0a       0x32 kernel/libkernel.a(sched.c.obj)
-                0x00002f0a                z_sched_wake_thread
+                0x00002efe       0x32 kernel/libkernel.a(sched.c.obj)
+                0x00002efe                z_sched_wake_thread
  .text.z_thread_timeout
-                0x00002f3c        0x8 kernel/libkernel.a(sched.c.obj)
-                0x00002f3c                z_thread_timeout
+                0x00002f30        0x8 kernel/libkernel.a(sched.c.obj)
+                0x00002f30                z_thread_timeout
  .text.z_reschedule_unlocked
-                0x00002f44        0xe kernel/libkernel.a(sched.c.obj)
+                0x00002f38        0xe kernel/libkernel.a(sched.c.obj)
  .text.z_impl_k_thread_abort
-                0x00002f52        0x4 kernel/libkernel.a(sched.c.obj)
-                0x00002f52                z_impl_k_thread_abort
+                0x00002f46        0x4 kernel/libkernel.a(sched.c.obj)
+                0x00002f46                z_impl_k_thread_abort
  .text.next_timeout
-                0x00002f56       0x32 kernel/libkernel.a(timeout.c.obj)
+                0x00002f4a       0x32 kernel/libkernel.a(timeout.c.obj)
  .text.z_abort_timeout
-                0x00002f88       0x3a kernel/libkernel.a(timeout.c.obj)
-                0x00002f88                z_abort_timeout
- *fill*         0x00002fc2        0x6 
+                0x00002f7c       0x3a kernel/libkernel.a(timeout.c.obj)
+                0x00002f7c                z_abort_timeout
+ *fill*         0x00002fb6        0x2 
  .text.z_abort_timeout.__stub
-                0x00002fc8        0x8 linker stubs
+                0x00002fb8        0x8 linker stubs
  *(SORT_BY_ALIGNMENT(.gnu.linkonce.t.*))
  *(SORT_BY_ALIGNMENT(.glue_7t))
- .glue_7t       0x00002fd0        0x0 linker stubs
+ .glue_7t       0x00002fc0        0x0 linker stubs
  *(SORT_BY_ALIGNMENT(.glue_7))
- .glue_7        0x00002fd0        0x0 linker stubs
+ .glue_7        0x00002fc0        0x0 linker stubs
  *(SORT_BY_ALIGNMENT(.vfp11_veneer))
- .vfp11_veneer  0x00002fd0        0x0 linker stubs
+ .vfp11_veneer  0x00002fc0        0x0 linker stubs
  *(SORT_BY_ALIGNMENT(.v4_bx))
- .v4_bx         0x00002fd0        0x0 linker stubs
-                0x00002fd0                        __text_region_end = .
-                0x00002fd0                        . = ALIGN (_region_min_align)
- *fill*         0x00002fd0        0x0 
+ .v4_bx         0x00002fc0        0x0 linker stubs
+                0x00002fc0                        __text_region_end = .
+                0x00002fc0                        . = ALIGN (_region_min_align)
+ *fill*         0x00002fc0        0x0 
 
-.ARM.exidx      0x00002fd0        0x8
-                0x00002fd0                        __exidx_start = .
+.ARM.exidx      0x00002fc0        0x8
+                0x00002fc0                        __exidx_start = .
  *(SORT_BY_ALIGNMENT(.ARM.exidx*) SORT_BY_ALIGNMENT(gnu.linkonce.armexidx.*))
- .ARM.exidx     0x00002fd0        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
-                0x00002fd8                        __exidx_end = .
+ .ARM.exidx     0x00002fc0        0x8 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
+                0x00002fc8                        __exidx_end = .
 
-rodata_start    0x00002fd8        0x0
-                0x00002fd8                        . = ALIGN (_region_min_align)
-                0x00002fd8                        __rodata_region_start = .
+rodata_start    0x00002fc8        0x0
+                0x00002fc8                        . = ALIGN (_region_min_align)
+                0x00002fc8                        __rodata_region_start = .
 
-initlevel       0x00002fd8       0x30
-                0x00002fd8                        __init_start = .
-                0x00002fd8                        __init_EARLY_start = .
+initlevel       0x00002fc8       0x30
+                0x00002fc8                        __init_start = .
+                0x00002fc8                        __init_EARLY_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_EARLY_P_?_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_EARLY_P_??_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_EARLY_P_???_*)))
-                0x00002fd8                        __init_PRE_KERNEL_1_start = .
+                0x00002fc8                        __init_PRE_KERNEL_1_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_PRE_KERNEL_1_P_?_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_PRE_KERNEL_1_P_??_*)))
  .z_init_PRE_KERNEL_1_P_40_SUB_00014_
-                0x00002fd8        0x8 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x00002fc8        0x8 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
  .z_init_PRE_KERNEL_1_P_50_SUB_00017_
-                0x00002fe0        0x8 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00002fd0        0x8 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .z_init_PRE_KERNEL_1_P_60_SUB_0_
-                0x00002fe8        0x8 drivers/console/libdrivers__console.a(uart_console.c.obj)
+                0x00002fd8        0x8 drivers/console/libdrivers__console.a(uart_console.c.obj)
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_PRE_KERNEL_1_P_???_*)))
-                0x00002ff0                        __init_PRE_KERNEL_2_start = .
+                0x00002fe0                        __init_PRE_KERNEL_2_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_PRE_KERNEL_2_P_?_*)))
  .z_init_PRE_KERNEL_2_P_0_SUB_00012_
-                0x00002ff0        0x8 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00002fe0        0x8 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  .z_init_PRE_KERNEL_2_P_0_SUB_0_
-                0x00002ff8        0x8 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00002fe8        0x8 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_PRE_KERNEL_2_P_??_*)))
  .z_init_PRE_KERNEL_2_P_40_SUB_00028_
-                0x00003000        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x00002ff0        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_PRE_KERNEL_2_P_???_*)))
-                0x00003008                        __init_POST_KERNEL_start = .
+                0x00002ff8                        __init_POST_KERNEL_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_POST_KERNEL_P_?_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_POST_KERNEL_P_??_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_POST_KERNEL_P_???_*)))
-                0x00003008                        __init_APPLICATION_start = .
+                0x00002ff8                        __init_APPLICATION_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_APPLICATION_P_?_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_APPLICATION_P_??_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_APPLICATION_P_???_*)))
-                0x00003008                        __init_SMP_start = .
+                0x00002ff8                        __init_SMP_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_SMP_P_?_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_SMP_P_??_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_SMP_P_???_*)))
-                0x00003008                        __init_end = .
+                0x00002ff8                        __init_end = .
 
-device_area     0x00003008       0x80
-                0x00003008                        _device_list_start = .
+device_area     0x00002ff8       0x80
+                0x00002ff8                        _device_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._device.static.*_?_*)))
  ._device.static.2_0_
-                0x00003008       0x20 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
-                0x00003008                __device_dts_ord_12
+                0x00002ff8       0x20 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00002ff8                __device_dts_ord_12
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._device.static.*_??_*)))
  ._device.static.1_40_
-                0x00003028       0x20 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
-                0x00003028                __device_dts_ord_14
+                0x00003018       0x20 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x00003018                __device_dts_ord_14
  ._device.static.1_50_
-                0x00003048       0x20 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
-                0x00003048                __device_dts_ord_17
+                0x00003038       0x20 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00003038                __device_dts_ord_17
  ._device.static.2_40_
-                0x00003068       0x20 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
-                0x00003068                __device_dts_ord_28
+                0x00003058       0x20 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x00003058                __device_dts_ord_28
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._device.static.*_???_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._device.static.*_????_*)))
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._device.static.*_?????_*)))
-                0x00003088                        _device_list_end = .
+                0x00003078                        _device_list_end = .
 
-sw_isr_table    0x00003088     0x1000
-                0x00003088                        . = ALIGN (0x4)
+sw_isr_table    0x00003078     0x1000
+                0x00003078                        . = ALIGN (0x4)
  *(SORT_BY_ALIGNMENT(.gnu.linkonce.sw_isr_table*))
  .gnu.linkonce.sw_isr_table
-                0x00003088     0x1000 arch/common/libisr_tables.a(isr_tables.c.obj)
-                0x00003088                _sw_isr_table
+                0x00003078     0x1000 arch/common/libisr_tables.a(isr_tables.c.obj)
+                0x00003078                _sw_isr_table
 
 initlevel_error
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.z_init_*)))
                 0x00000001                        ASSERT ((SIZEOF (initlevel_error) == 0x0), Undefined initialization levels used.)
 
 app_shmem_regions
-                0x00004088        0x0
-                0x00004088                        __app_shmem_regions_start = .
+                0x00004078        0x0
+                0x00004078                        __app_shmem_regions_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.app_regions.*)))
-                0x00004088                        __app_shmem_regions_end = .
+                0x00004078                        __app_shmem_regions_end = .
 
 k_p4wq_initparam_area
-                0x00004088        0x0
-                0x00004088                        _k_p4wq_initparam_list_start = .
+                0x00004078        0x0
+                0x00004078                        _k_p4wq_initparam_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_p4wq_initparam.static.*)))
-                0x00004088                        _k_p4wq_initparam_list_end = .
+                0x00004078                        _k_p4wq_initparam_list_end = .
 
 _static_thread_data_area
-                0x00004088        0x0
-                0x00004088                        __static_thread_data_list_start = .
+                0x00004078        0x0
+                0x00004078                        __static_thread_data_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.__static_thread_data.static.*)))
-                0x00004088                        __static_thread_data_list_end = .
+                0x00004078                        __static_thread_data_list_end = .
 
-device_deps     0x00004088        0x0
-                0x00004088                        __device_deps_start = .
+device_deps     0x00004078        0x0
+                0x00004078                        __device_deps_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.__device_deps_pass2*)))
-                0x00004088                        __device_deps_end = .
+                0x00004078                        __device_deps_end = .
 
 gpio_driver_api_area
-                0x00004088       0x24
-                0x00004088                        _gpio_driver_api_list_start = .
+                0x00004078       0x24
+                0x00004078                        _gpio_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._gpio_driver_api.static.*)))
  ._gpio_driver_api.static.gpio_davinci_driver_api_
-                0x00004088       0x24 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
-                0x000040ac                        _gpio_driver_api_list_end = .
+                0x00004078       0x24 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x0000409c                        _gpio_driver_api_list_end = .
 
 shared_irq_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _shared_irq_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _shared_irq_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._shared_irq_driver_api.static.*)))
-                0x000040ac                        _shared_irq_driver_api_list_end = .
+                0x0000409c                        _shared_irq_driver_api_list_end = .
 
 crypto_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _crypto_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _crypto_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._crypto_driver_api.static.*)))
-                0x000040ac                        _crypto_driver_api_list_end = .
+                0x0000409c                        _crypto_driver_api_list_end = .
 
 adc_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _adc_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _adc_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._adc_driver_api.static.*)))
-                0x000040ac                        _adc_driver_api_list_end = .
+                0x0000409c                        _adc_driver_api_list_end = .
 
 auxdisplay_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _auxdisplay_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _auxdisplay_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._auxdisplay_driver_api.static.*)))
-                0x000040ac                        _auxdisplay_driver_api_list_end = .
+                0x0000409c                        _auxdisplay_driver_api_list_end = .
 
 bbram_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _bbram_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _bbram_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._bbram_driver_api.static.*)))
-                0x000040ac                        _bbram_driver_api_list_end = .
+                0x0000409c                        _bbram_driver_api_list_end = .
 
 bt_hci_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _bt_hci_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _bt_hci_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._bt_hci_driver_api.static.*)))
-                0x000040ac                        _bt_hci_driver_api_list_end = .
+                0x0000409c                        _bt_hci_driver_api_list_end = .
 
 can_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _can_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _can_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._can_driver_api.static.*)))
-                0x000040ac                        _can_driver_api_list_end = .
+                0x0000409c                        _can_driver_api_list_end = .
 
 cellular_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _cellular_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _cellular_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._cellular_driver_api.static.*)))
-                0x000040ac                        _cellular_driver_api_list_end = .
+                0x0000409c                        _cellular_driver_api_list_end = .
 
 charger_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _charger_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _charger_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._charger_driver_api.static.*)))
-                0x000040ac                        _charger_driver_api_list_end = .
+                0x0000409c                        _charger_driver_api_list_end = .
 
 clock_control_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _clock_control_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _clock_control_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._clock_control_driver_api.static.*)))
-                0x000040ac                        _clock_control_driver_api_list_end = .
+                0x0000409c                        _clock_control_driver_api_list_end = .
 
 comparator_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _comparator_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _comparator_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._comparator_driver_api.static.*)))
-                0x000040ac                        _comparator_driver_api_list_end = .
+                0x0000409c                        _comparator_driver_api_list_end = .
 
 coredump_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _coredump_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _coredump_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._coredump_driver_api.static.*)))
-                0x000040ac                        _coredump_driver_api_list_end = .
+                0x0000409c                        _coredump_driver_api_list_end = .
 
 counter_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _counter_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _counter_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._counter_driver_api.static.*)))
-                0x000040ac                        _counter_driver_api_list_end = .
+                0x0000409c                        _counter_driver_api_list_end = .
 
 dac_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _dac_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _dac_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._dac_driver_api.static.*)))
-                0x000040ac                        _dac_driver_api_list_end = .
+                0x0000409c                        _dac_driver_api_list_end = .
 
 dai_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _dai_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _dai_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._dai_driver_api.static.*)))
-                0x000040ac                        _dai_driver_api_list_end = .
+                0x0000409c                        _dai_driver_api_list_end = .
 
 display_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _display_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _display_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._display_driver_api.static.*)))
-                0x000040ac                        _display_driver_api_list_end = .
+                0x0000409c                        _display_driver_api_list_end = .
 
 dma_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _dma_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _dma_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._dma_driver_api.static.*)))
-                0x000040ac                        _dma_driver_api_list_end = .
+                0x0000409c                        _dma_driver_api_list_end = .
 
 edac_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _edac_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _edac_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._edac_driver_api.static.*)))
-                0x000040ac                        _edac_driver_api_list_end = .
+                0x0000409c                        _edac_driver_api_list_end = .
 
 eeprom_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _eeprom_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _eeprom_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._eeprom_driver_api.static.*)))
-                0x000040ac                        _eeprom_driver_api_list_end = .
+                0x0000409c                        _eeprom_driver_api_list_end = .
 
 emul_bbram_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _emul_bbram_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _emul_bbram_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._emul_bbram_driver_api.static.*)))
-                0x000040ac                        _emul_bbram_driver_api_list_end = .
+                0x0000409c                        _emul_bbram_driver_api_list_end = .
 
 fuel_gauge_emul_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _fuel_gauge_emul_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _fuel_gauge_emul_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._fuel_gauge_emul_driver_api.static.*)))
-                0x000040ac                        _fuel_gauge_emul_driver_api_list_end = .
+                0x0000409c                        _fuel_gauge_emul_driver_api_list_end = .
 
 emul_sensor_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _emul_sensor_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _emul_sensor_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._emul_sensor_driver_api.static.*)))
-                0x000040ac                        _emul_sensor_driver_api_list_end = .
+                0x0000409c                        _emul_sensor_driver_api_list_end = .
 
 entropy_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _entropy_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _entropy_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._entropy_driver_api.static.*)))
-                0x000040ac                        _entropy_driver_api_list_end = .
+                0x0000409c                        _entropy_driver_api_list_end = .
 
 espi_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _espi_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _espi_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._espi_driver_api.static.*)))
-                0x000040ac                        _espi_driver_api_list_end = .
+                0x0000409c                        _espi_driver_api_list_end = .
 
 espi_saf_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _espi_saf_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _espi_saf_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._espi_saf_driver_api.static.*)))
-                0x000040ac                        _espi_saf_driver_api_list_end = .
+                0x0000409c                        _espi_saf_driver_api_list_end = .
 
 flash_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _flash_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _flash_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._flash_driver_api.static.*)))
-                0x000040ac                        _flash_driver_api_list_end = .
+                0x0000409c                        _flash_driver_api_list_end = .
 
 fpga_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _fpga_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _fpga_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._fpga_driver_api.static.*)))
-                0x000040ac                        _fpga_driver_api_list_end = .
+                0x0000409c                        _fpga_driver_api_list_end = .
 
 fuel_gauge_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _fuel_gauge_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _fuel_gauge_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._fuel_gauge_driver_api.static.*)))
-                0x000040ac                        _fuel_gauge_driver_api_list_end = .
+                0x0000409c                        _fuel_gauge_driver_api_list_end = .
 
 gnss_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _gnss_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _gnss_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._gnss_driver_api.static.*)))
-                0x000040ac                        _gnss_driver_api_list_end = .
+                0x0000409c                        _gnss_driver_api_list_end = .
 
 haptics_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _haptics_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _haptics_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._haptics_driver_api.static.*)))
-                0x000040ac                        _haptics_driver_api_list_end = .
+                0x0000409c                        _haptics_driver_api_list_end = .
 
 hwspinlock_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _hwspinlock_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _hwspinlock_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._hwspinlock_driver_api.static.*)))
-                0x000040ac                        _hwspinlock_driver_api_list_end = .
+                0x0000409c                        _hwspinlock_driver_api_list_end = .
 
 i2c_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _i2c_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _i2c_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._i2c_driver_api.static.*)))
-                0x000040ac                        _i2c_driver_api_list_end = .
+                0x0000409c                        _i2c_driver_api_list_end = .
 
 i2c_target_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _i2c_target_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _i2c_target_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._i2c_target_driver_api.static.*)))
-                0x000040ac                        _i2c_target_driver_api_list_end = .
+                0x0000409c                        _i2c_target_driver_api_list_end = .
 
 i2s_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _i2s_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _i2s_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._i2s_driver_api.static.*)))
-                0x000040ac                        _i2s_driver_api_list_end = .
+                0x0000409c                        _i2s_driver_api_list_end = .
 
 i3c_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _i3c_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _i3c_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._i3c_driver_api.static.*)))
-                0x000040ac                        _i3c_driver_api_list_end = .
+                0x0000409c                        _i3c_driver_api_list_end = .
 
 ipm_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _ipm_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _ipm_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ipm_driver_api.static.*)))
-                0x000040ac                        _ipm_driver_api_list_end = .
+                0x0000409c                        _ipm_driver_api_list_end = .
 
 led_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _led_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _led_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._led_driver_api.static.*)))
-                0x000040ac                        _led_driver_api_list_end = .
+                0x0000409c                        _led_driver_api_list_end = .
 
 led_strip_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _led_strip_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _led_strip_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._led_strip_driver_api.static.*)))
-                0x000040ac                        _led_strip_driver_api_list_end = .
+                0x0000409c                        _led_strip_driver_api_list_end = .
 
 lora_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _lora_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _lora_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._lora_driver_api.static.*)))
-                0x000040ac                        _lora_driver_api_list_end = .
+                0x0000409c                        _lora_driver_api_list_end = .
 
 mbox_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _mbox_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _mbox_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._mbox_driver_api.static.*)))
-                0x000040ac                        _mbox_driver_api_list_end = .
+                0x0000409c                        _mbox_driver_api_list_end = .
 
 mdio_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _mdio_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _mdio_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._mdio_driver_api.static.*)))
-                0x000040ac                        _mdio_driver_api_list_end = .
+                0x0000409c                        _mdio_driver_api_list_end = .
 
 mipi_dbi_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _mipi_dbi_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _mipi_dbi_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._mipi_dbi_driver_api.static.*)))
-                0x000040ac                        _mipi_dbi_driver_api_list_end = .
+                0x0000409c                        _mipi_dbi_driver_api_list_end = .
 
 mipi_dsi_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _mipi_dsi_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _mipi_dsi_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._mipi_dsi_driver_api.static.*)))
-                0x000040ac                        _mipi_dsi_driver_api_list_end = .
+                0x0000409c                        _mipi_dsi_driver_api_list_end = .
 
 mspi_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _mspi_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _mspi_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._mspi_driver_api.static.*)))
-                0x000040ac                        _mspi_driver_api_list_end = .
+                0x0000409c                        _mspi_driver_api_list_end = .
 
 peci_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _peci_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _peci_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._peci_driver_api.static.*)))
-                0x000040ac                        _peci_driver_api_list_end = .
+                0x0000409c                        _peci_driver_api_list_end = .
 
 ps2_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _ps2_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _ps2_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ps2_driver_api.static.*)))
-                0x000040ac                        _ps2_driver_api_list_end = .
+                0x0000409c                        _ps2_driver_api_list_end = .
 
 ptp_clock_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _ptp_clock_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _ptp_clock_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ptp_clock_driver_api.static.*)))
-                0x000040ac                        _ptp_clock_driver_api_list_end = .
+                0x0000409c                        _ptp_clock_driver_api_list_end = .
 
 pwm_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _pwm_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _pwm_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._pwm_driver_api.static.*)))
-                0x000040ac                        _pwm_driver_api_list_end = .
+                0x0000409c                        _pwm_driver_api_list_end = .
 
 regulator_parent_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _regulator_parent_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _regulator_parent_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._regulator_parent_driver_api.static.*)))
-                0x000040ac                        _regulator_parent_driver_api_list_end = .
+                0x0000409c                        _regulator_parent_driver_api_list_end = .
 
 regulator_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _regulator_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _regulator_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._regulator_driver_api.static.*)))
-                0x000040ac                        _regulator_driver_api_list_end = .
+                0x0000409c                        _regulator_driver_api_list_end = .
 
 reset_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _reset_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _reset_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._reset_driver_api.static.*)))
-                0x000040ac                        _reset_driver_api_list_end = .
+                0x0000409c                        _reset_driver_api_list_end = .
 
 retained_mem_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _retained_mem_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _retained_mem_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._retained_mem_driver_api.static.*)))
-                0x000040ac                        _retained_mem_driver_api_list_end = .
+                0x0000409c                        _retained_mem_driver_api_list_end = .
 
 rtc_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _rtc_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _rtc_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._rtc_driver_api.static.*)))
-                0x000040ac                        _rtc_driver_api_list_end = .
+                0x0000409c                        _rtc_driver_api_list_end = .
 
 sdhc_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _sdhc_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _sdhc_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._sdhc_driver_api.static.*)))
-                0x000040ac                        _sdhc_driver_api_list_end = .
+                0x0000409c                        _sdhc_driver_api_list_end = .
 
 sensor_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _sensor_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _sensor_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._sensor_driver_api.static.*)))
-                0x000040ac                        _sensor_driver_api_list_end = .
+                0x0000409c                        _sensor_driver_api_list_end = .
 
 smbus_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _smbus_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _smbus_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._smbus_driver_api.static.*)))
-                0x000040ac                        _smbus_driver_api_list_end = .
+                0x0000409c                        _smbus_driver_api_list_end = .
 
 spi_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _spi_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _spi_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._spi_driver_api.static.*)))
-                0x000040ac                        _spi_driver_api_list_end = .
+                0x0000409c                        _spi_driver_api_list_end = .
 
 stepper_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _stepper_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _stepper_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._stepper_driver_api.static.*)))
-                0x000040ac                        _stepper_driver_api_list_end = .
+                0x0000409c                        _stepper_driver_api_list_end = .
 
 syscon_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _syscon_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _syscon_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._syscon_driver_api.static.*)))
-                0x000040ac                        _syscon_driver_api_list_end = .
+                0x0000409c                        _syscon_driver_api_list_end = .
 
 tee_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _tee_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _tee_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._tee_driver_api.static.*)))
-                0x000040ac                        _tee_driver_api_list_end = .
+                0x0000409c                        _tee_driver_api_list_end = .
 
 video_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _video_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _video_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._video_driver_api.static.*)))
-                0x000040ac                        _video_driver_api_list_end = .
+                0x0000409c                        _video_driver_api_list_end = .
 
 w1_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _w1_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _w1_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._w1_driver_api.static.*)))
-                0x000040ac                        _w1_driver_api_list_end = .
+                0x0000409c                        _w1_driver_api_list_end = .
 
 wdt_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _wdt_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _wdt_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._wdt_driver_api.static.*)))
-                0x000040ac                        _wdt_driver_api_list_end = .
+                0x0000409c                        _wdt_driver_api_list_end = .
 
 can_transceiver_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _can_transceiver_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _can_transceiver_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._can_transceiver_driver_api.static.*)))
-                0x000040ac                        _can_transceiver_driver_api_list_end = .
+                0x0000409c                        _can_transceiver_driver_api_list_end = .
 
 nrf_clock_control_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _nrf_clock_control_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _nrf_clock_control_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._nrf_clock_control_driver_api.static.*)))
-                0x000040ac                        _nrf_clock_control_driver_api_list_end = .
+                0x0000409c                        _nrf_clock_control_driver_api_list_end = .
 
 i3c_target_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _i3c_target_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _i3c_target_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._i3c_target_driver_api.static.*)))
-                0x000040ac                        _i3c_target_driver_api_list_end = .
+                0x0000409c                        _i3c_target_driver_api_list_end = .
 
 its_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _its_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _its_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._its_driver_api.static.*)))
-                0x000040ac                        _its_driver_api_list_end = .
+                0x0000409c                        _its_driver_api_list_end = .
 
 vtd_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _vtd_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _vtd_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._vtd_driver_api.static.*)))
-                0x000040ac                        _vtd_driver_api_list_end = .
+                0x0000409c                        _vtd_driver_api_list_end = .
 
 tgpio_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _tgpio_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _tgpio_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._tgpio_driver_api.static.*)))
-                0x000040ac                        _tgpio_driver_api_list_end = .
+                0x0000409c                        _tgpio_driver_api_list_end = .
 
 pcie_ctrl_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _pcie_ctrl_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _pcie_ctrl_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._pcie_ctrl_driver_api.static.*)))
-                0x000040ac                        _pcie_ctrl_driver_api_list_end = .
+                0x0000409c                        _pcie_ctrl_driver_api_list_end = .
 
 pcie_ep_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _pcie_ep_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _pcie_ep_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._pcie_ep_driver_api.static.*)))
-                0x000040ac                        _pcie_ep_driver_api_list_end = .
+                0x0000409c                        _pcie_ep_driver_api_list_end = .
 
 svc_driver_api_area
-                0x000040ac        0x0
-                0x000040ac                        _svc_driver_api_list_start = .
+                0x0000409c        0x0
+                0x0000409c                        _svc_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._svc_driver_api.static.*)))
-                0x000040ac                        _svc_driver_api_list_end = .
+                0x0000409c                        _svc_driver_api_list_end = .
 
 uart_driver_api_area
-                0x000040ac       0x4c
-                0x000040ac                        _uart_driver_api_list_start = .
+                0x0000409c       0x4c
+                0x0000409c                        _uart_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._uart_driver_api.static.*)))
  ._uart_driver_api.static.uart_ns16550_driver_api_
-                0x000040ac       0x4c drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
-                0x000040f8                        _uart_driver_api_list_end = .
+                0x0000409c       0x4c drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x000040e8                        _uart_driver_api_list_end = .
 
 bc12_emul_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _bc12_emul_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _bc12_emul_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._bc12_emul_driver_api.static.*)))
-                0x000040f8                        _bc12_emul_driver_api_list_end = .
+                0x000040e8                        _bc12_emul_driver_api_list_end = .
 
 bc12_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _bc12_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _bc12_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._bc12_driver_api.static.*)))
-                0x000040f8                        _bc12_driver_api_list_end = .
+                0x000040e8                        _bc12_driver_api_list_end = .
 
 usbc_ppc_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _usbc_ppc_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _usbc_ppc_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._usbc_ppc_driver_api.static.*)))
-                0x000040f8                        _usbc_ppc_driver_api_list_end = .
+                0x000040e8                        _usbc_ppc_driver_api_list_end = .
 
 tcpc_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _tcpc_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _tcpc_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._tcpc_driver_api.static.*)))
-                0x000040f8                        _tcpc_driver_api_list_end = .
+                0x000040e8                        _tcpc_driver_api_list_end = .
 
 usbc_vbus_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _usbc_vbus_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _usbc_vbus_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._usbc_vbus_driver_api.static.*)))
-                0x000040f8                        _usbc_vbus_driver_api_list_end = .
+                0x000040e8                        _usbc_vbus_driver_api_list_end = .
 
 ivshmem_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _ivshmem_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _ivshmem_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ivshmem_driver_api.static.*)))
-                0x000040f8                        _ivshmem_driver_api_list_end = .
+                0x000040e8                        _ivshmem_driver_api_list_end = .
 
 ethphy_driver_api_area
-                0x000040f8        0x0
-                0x000040f8                        _ethphy_driver_api_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _ethphy_driver_api_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ethphy_driver_api.static.*)))
-                0x000040f8                        _ethphy_driver_api_list_end = .
+                0x000040e8                        _ethphy_driver_api_list_end = .
 
-ztest           0x000040f8        0x0
-                0x000040f8                        _ztest_expected_result_entry_list_start = .
+ztest           0x000040e8        0x0
+                0x000040e8                        _ztest_expected_result_entry_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ztest_expected_result_entry.static.*)))
-                0x000040f8                        _ztest_expected_result_entry_list_end = .
-                0x000040f8                        _ztest_suite_node_list_start = .
+                0x000040e8                        _ztest_expected_result_entry_list_end = .
+                0x000040e8                        _ztest_suite_node_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ztest_suite_node.static.*)))
-                0x000040f8                        _ztest_suite_node_list_end = .
-                0x000040f8                        _ztest_unit_test_list_start = .
+                0x000040e8                        _ztest_suite_node_list_end = .
+                0x000040e8                        _ztest_unit_test_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ztest_unit_test.static.*)))
-                0x000040f8                        _ztest_unit_test_list_end = .
-                0x000040f8                        _ztest_test_rule_list_start = .
+                0x000040e8                        _ztest_unit_test_list_end = .
+                0x000040e8                        _ztest_test_rule_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._ztest_test_rule.static.*)))
-                0x000040f8                        _ztest_test_rule_list_end = .
+                0x000040e8                        _ztest_test_rule_list_end = .
 
 init_array
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.ctors*)))
@@ -3367,373 +3367,373 @@ init_array
                 0x00000001                        ASSERT ((SIZEOF (init_array) == 0x0), GNU-style constructors required but STATIC_INIT_GNU not enabled)
 
 bt_l2cap_fixed_chan_area
-                0x000040f8        0x0
-                0x000040f8                        _bt_l2cap_fixed_chan_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _bt_l2cap_fixed_chan_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._bt_l2cap_fixed_chan.static.*)))
-                0x000040f8                        _bt_l2cap_fixed_chan_list_end = .
+                0x000040e8                        _bt_l2cap_fixed_chan_list_end = .
 
 bt_gatt_service_static_area
-                0x000040f8        0x0
-                0x000040f8                        _bt_gatt_service_static_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _bt_gatt_service_static_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._bt_gatt_service_static.static.*)))
-                0x000040f8                        _bt_gatt_service_static_list_end = .
+                0x000040e8                        _bt_gatt_service_static_list_end = .
 
 log_strings_area
-                0x000040f8        0x0
-                0x000040f8                        _log_strings_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _log_strings_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_strings.static.*)))
-                0x000040f8                        _log_strings_list_end = .
+                0x000040e8                        _log_strings_list_end = .
 
 log_stmesp_ptr_area
-                0x000040f8        0x0
-                0x000040f8                        _log_stmesp_ptr_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _log_stmesp_ptr_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_stmesp_ptr.static.*)))
-                0x000040f8                        _log_stmesp_ptr_list_end = .
+                0x000040e8                        _log_stmesp_ptr_list_end = .
 
 log_stmesp_str_area
-                0x000040f8        0x0
-                0x000040f8                        _log_stmesp_str_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _log_stmesp_str_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_stmesp_str.static.*)))
-                0x000040f8                        _log_stmesp_str_list_end = .
+                0x000040e8                        _log_stmesp_str_list_end = .
 
-log_const_area  0x000040f8        0x0
-                0x000040f8                        _log_const_list_start = .
+log_const_area  0x000040e8        0x0
+                0x000040e8                        _log_const_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_const.static.*)))
-                0x000040f8                        _log_const_list_end = .
+                0x000040e8                        _log_const_list_end = .
 
 log_backend_area
-                0x000040f8        0x0
-                0x000040f8                        _log_backend_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _log_backend_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_backend.static.*)))
-                0x000040f8                        _log_backend_list_end = .
+                0x000040e8                        _log_backend_list_end = .
 
-log_link_area   0x000040f8        0x0
-                0x000040f8                        _log_link_list_start = .
+log_link_area   0x000040e8        0x0
+                0x000040e8                        _log_link_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_link.static.*)))
-                0x000040f8                        _log_link_list_end = .
+                0x000040e8                        _log_link_list_end = .
 
 tracing_backend_area
-                0x000040f8        0x0
-                0x000040f8                        _tracing_backend_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _tracing_backend_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._tracing_backend.static.*)))
-                0x000040f8                        _tracing_backend_list_end = .
+                0x000040e8                        _tracing_backend_list_end = .
 
 zephyr_dbg_info
  *(SORT_BY_ALIGNMENT(.dbg_thread_info))
 
 intc_table_area
-                0x000040f8        0x0
-                0x000040f8                        _intc_table_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _intc_table_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._intc_table.static.*)))
-                0x000040f8                        _intc_table_list_end = .
+                0x000040e8                        _intc_table_list_end = .
 
-symbol_to_keep  0x000040f8        0x0
-                0x000040f8                        __symbol_to_keep_start = .
+symbol_to_keep  0x000040e8        0x0
+                0x000040e8                        __symbol_to_keep_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(.symbol_to_keep*)))
-                0x000040f8                        __symbol_to_keep_end = .
+                0x000040e8                        __symbol_to_keep_end = .
 
-shell_area      0x000040f8        0x0
-                0x000040f8                        _shell_list_start = .
+shell_area      0x000040e8        0x0
+                0x000040e8                        _shell_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._shell.static.*)))
-                0x000040f8                        _shell_list_end = .
+                0x000040e8                        _shell_list_end = .
 
 shell_root_cmds_area
-                0x000040f8        0x0
-                0x000040f8                        _shell_root_cmds_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _shell_root_cmds_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._shell_root_cmds.static.*)))
-                0x000040f8                        _shell_root_cmds_list_end = .
+                0x000040e8                        _shell_root_cmds_list_end = .
 
 shell_subcmds_area
-                0x000040f8        0x0
-                0x000040f8                        _shell_subcmds_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _shell_subcmds_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._shell_subcmds.static.*)))
-                0x000040f8                        _shell_subcmds_list_end = .
+                0x000040e8                        _shell_subcmds_list_end = .
 
 shell_dynamic_subcmds_area
-                0x000040f8        0x0
-                0x000040f8                        _shell_dynamic_subcmds_list_start = .
+                0x000040e8        0x0
+                0x000040e8                        _shell_dynamic_subcmds_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._shell_dynamic_subcmds.static.*)))
-                0x000040f8                        _shell_dynamic_subcmds_list_end = .
+                0x000040e8                        _shell_dynamic_subcmds_list_end = .
 
-cfb_font_area   0x000040f8        0x0
-                0x000040f8                        _cfb_font_list_start = .
+cfb_font_area   0x000040e8        0x0
+                0x000040e8                        _cfb_font_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._cfb_font.static.*)))
-                0x000040f8                        _cfb_font_list_end = .
+                0x000040e8                        _cfb_font_list_end = .
 
-rodata          0x000040f8      0x160
+rodata          0x000040e8      0x194
  *(SORT_BY_ALIGNMENT(.rodata))
  *(SORT_BY_ALIGNMENT(.rodata.*))
  .rodata.gpio_davinci_0_config
-                0x000040f8       0x14 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000040e8       0x14 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .rodata.__pinctrl_dev_config__device_dts_ord_28
-                0x0000410c        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000040fc        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .rodata.__pinctrl_states__device_dts_ord_28
-                0x00004114        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x00004104        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .rodata.__pinctrl_state_pins_0__device_dts_ord_28
-                0x0000411c        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x0000410c        0x8 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .rodata.uart_ns16550_dev_cfg_0
-                0x00004124       0x1c drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00004114       0x1c drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .rodata.__pinctrl_dev_config__device_dts_ord_17
-                0x00004140        0x8 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00004130        0x8 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .rodata.__pinctrl_states__device_dts_ord_17
-                0x00004148        0x8 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00004138        0x8 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .rodata.__pinctrl_state_pins_0__device_dts_ord_17
-                0x00004150       0x10 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00004140       0x10 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .rodata.ti_dm_timer_config_0
-                0x00004160        0x4 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x00004150        0x4 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  .rodata.levels.0
-                0x00004164       0x18 kernel/libkernel.a(init.c.obj)
+                0x00004154       0x18 kernel/libkernel.a(init.c.obj)
  .rodata.main.str1.1
-                0x0000417c       0xdc ../app/libapp.a(neopixel_driver.c.obj)
-                                 0x5a (size before relaxing)
+                0x0000416c      0x110 ../app/libapp.a(neopixel_driver.c.obj)
+                                 0x8e (size before relaxing)
  .rodata.z_cbvprintf_impl.str1.1
-                0x00004258        0x6 libzephyr.a(cbprintf_complete.c.obj)
+                0x0000427c        0x6 libzephyr.a(cbprintf_complete.c.obj)
  .rodata._exit.str1.1
-                0x00004258        0x6 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+                0x0000427c        0x6 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
  .rodata.str1.1
-                0x00004258        0xd drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x0000427c        0xd drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .rodata.str1.1
-                0x00004258        0xe drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x0000427c        0xe drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
  .rodata.str1.1
-                0x00004258        0xd drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x0000427c        0xd drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .rodata.str1.1
-                0x00004258        0xe drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x0000427c        0xe drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  .rodata.z_cstart.str1.1
-                0x00004258        0x5 kernel/libkernel.a(init.c.obj)
+                0x0000427c        0x5 kernel/libkernel.a(init.c.obj)
  .rodata.boot_banner.str1.1
-                0x00004258       0x3b kernel/libkernel.a(banner.c.obj)
+                0x0000427c       0x3b kernel/libkernel.a(banner.c.obj)
  *(SORT_BY_ALIGNMENT(.gnu.linkonce.r.*))
-                0x00004294                        . = ALIGN (0x4)
-                0x00004294                        . = ALIGN (_region_min_align)
-                0x00004258                        __rodata_region_end = .
-                0x00004258                        __rom_region_end = .
-                0x00004294                        . = ALIGN (_region_min_align)
+                0x000042b8                        . = ALIGN (0x4)
+                0x000042b8                        . = ALIGN (_region_min_align)
+                0x0000427c                        __rodata_region_end = .
+                0x0000427c                        __rom_region_end = .
+                0x000042b8                        . = ALIGN (_region_min_align)
                 0x0000001c                        _image_rom_end_order = ((LOG2CEIL (__rom_region_end) - 0x1) << 0x1)
 
-.got            0x00004258        0x0
+.got            0x0000427c        0x0
  *(SORT_BY_ALIGNMENT(.got.plt))
  *(SORT_BY_ALIGNMENT(.igot.plt))
- .igot.plt      0x00004258        0x0 ../app/libapp.a(neopixel_driver.c.obj)
+ .igot.plt      0x0000427c        0x0 ../app/libapp.a(neopixel_driver.c.obj)
  *(SORT_BY_ALIGNMENT(.got))
  *(SORT_BY_ALIGNMENT(.igot))
-                0x00004258                        . = ALIGN (_region_min_align)
-                0x00004258                        _image_ram_start = .
+                0x0000427c                        . = ALIGN (_region_min_align)
+                0x0000427c                        _image_ram_start = .
 
-bss             0x00004258      0x296
-                0x00004258                        . = ALIGN (0x4)
-                0x00004258                        __bss_start = .
-                0x00004258                        __kernel_ram_start = .
+bss             0x00004280      0x296
+                0x00004280                        . = ALIGN (0x4)
+                0x00004280                        __bss_start = .
+                0x00004280                        __kernel_ram_start = .
  *(SORT_BY_ALIGNMENT(.bss))
  *(SORT_BY_ALIGNMENT(.bss.*))
  .bss.z_idle_threads
-                0x00004258       0xb8 kernel/libkernel.a(init.c.obj)
-                0x00004258                z_idle_threads
+                0x00004280       0xb8 kernel/libkernel.a(init.c.obj)
+                0x00004280                z_idle_threads
  .bss.z_main_thread
-                0x00004310       0xb8 kernel/libkernel.a(init.c.obj)
-                0x00004310                z_main_thread
+                0x00004338       0xb8 kernel/libkernel.a(init.c.obj)
+                0x00004338                z_main_thread
  .bss._thread_dummy
-                0x000043c8       0xb8 kernel/libkernel.a(sched.c.obj)
-                0x000043c8                _thread_dummy
+                0x000043f0       0xb8 kernel/libkernel.a(sched.c.obj)
+                0x000043f0                _thread_dummy
  .bss.slice_timeouts
-                0x00004480       0x18 kernel/libkernel.a(timeslicing.c.obj)
+                0x000044a8       0x18 kernel/libkernel.a(timeslicing.c.obj)
  .bss.curr_tick
-                0x00004498        0x8 kernel/libkernel.a(timeout.c.obj)
+                0x000044c0        0x8 kernel/libkernel.a(timeout.c.obj)
  .bss.junk_delay
-                0x000044a0        0x4 ../app/libapp.a(neopixel_driver.c.obj)
-                0x000044a0                junk_delay
+                0x000044c8        0x4 ../app/libapp.a(neopixel_driver.c.obj)
+                0x000044c8                junk_delay
  .bss.gpio_davinci_0_data
-                0x000044a4        0xc drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+                0x000044cc        0xc drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
  .bss.ti_dm_timer_data_0
-                0x000044b0        0x4 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+                0x000044d8        0x4 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  .bss.systick_timer_dev
-                0x000044b4        0x4 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .bss._kernel   0x000044b8       0x28 kernel/libkernel.a(init.c.obj)
-                0x000044b8                _kernel
+                0x000044dc        0x4 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .bss._kernel   0x000044e0       0x28 kernel/libkernel.a(init.c.obj)
+                0x000044e0                _kernel
  .bss.slice_max_prio
-                0x000044e0        0x4 kernel/libkernel.a(timeslicing.c.obj)
+                0x00004508        0x4 kernel/libkernel.a(timeslicing.c.obj)
  .bss.slice_ticks
-                0x000044e4        0x4 kernel/libkernel.a(timeslicing.c.obj)
+                0x0000450c        0x4 kernel/libkernel.a(timeslicing.c.obj)
  .bss.announce_remaining
-                0x000044e8        0x4 kernel/libkernel.a(timeout.c.obj)
+                0x00004510        0x4 kernel/libkernel.a(timeout.c.obj)
  .bss.pinctrl_ti_k3_dev
-                0x000044ec        0x0 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x00004514        0x0 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
  .bss.z_sys_post_kernel
-                0x000044ec        0x1 kernel/libkernel.a(init.c.obj)
-                0x000044ec                z_sys_post_kernel
+                0x00004514        0x1 kernel/libkernel.a(init.c.obj)
+                0x00004514                z_sys_post_kernel
  .bss._sched_spinlock
-                0x000044ed        0x0 kernel/libkernel.a(sched.c.obj)
-                0x000044ed                _sched_spinlock
+                0x00004515        0x0 kernel/libkernel.a(sched.c.obj)
+                0x00004515                _sched_spinlock
  .bss.slice_expired
-                0x000044ed        0x1 kernel/libkernel.a(timeslicing.c.obj)
+                0x00004515        0x1 kernel/libkernel.a(timeslicing.c.obj)
  *(SORT_BY_ALIGNMENT(COMMON))
  *(SORT_BY_ALIGNMENT(.kernel_bss.*))
-                0x000044f0                        __bss_end = ALIGN (0x4)
+                0x00004518                        __bss_end = ALIGN (0x4)
 
-noinit          0x000044f0     0x1640
+noinit          0x00004518     0x1640
  *(SORT_BY_ALIGNMENT(.noinit))
  *(SORT_BY_ALIGNMENT(.noinit.*))
  .noinit."WEST_TOPDIR/zephyr/arch/arm/core/cortex_a_r/stacks.c".4
-                0x000044f0      0x400 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
-                0x000044f0                z_arm_sys_stack
+                0x00004518      0x400 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+                0x00004518                z_arm_sys_stack
  .noinit."WEST_TOPDIR/zephyr/arch/arm/core/cortex_a_r/stacks.c".3
-                0x000048f0      0x200 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
-                0x000048f0                z_arm_svc_stack
+                0x00004918      0x200 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+                0x00004918                z_arm_svc_stack
  .noinit."WEST_TOPDIR/zephyr/arch/arm/core/cortex_a_r/stacks.c".2
-                0x00004af0      0x100 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
-                0x00004af0                z_arm_undef_stack
+                0x00004b18      0x100 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+                0x00004b18                z_arm_undef_stack
  .noinit."WEST_TOPDIR/zephyr/arch/arm/core/cortex_a_r/stacks.c".1
-                0x00004bf0      0x100 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
-                0x00004bf0                z_arm_abort_stack
+                0x00004c18      0x100 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+                0x00004c18                z_arm_abort_stack
  .noinit."WEST_TOPDIR/zephyr/arch/arm/core/cortex_a_r/stacks.c".0
-                0x00004cf0      0x100 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
-                0x00004cf0                z_arm_fiq_stack
+                0x00004d18      0x100 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+                0x00004d18                z_arm_fiq_stack
  .noinit."WEST_TOPDIR/zephyr/kernel/init.c".2
-                0x00004df0      0x800 kernel/libkernel.a(init.c.obj)
-                0x00004df0                z_interrupt_stacks
+                0x00004e18      0x800 kernel/libkernel.a(init.c.obj)
+                0x00004e18                z_interrupt_stacks
  .noinit."WEST_TOPDIR/zephyr/kernel/init.c".1
-                0x000055f0      0x140 kernel/libkernel.a(init.c.obj)
+                0x00005618      0x140 kernel/libkernel.a(init.c.obj)
  .noinit."WEST_TOPDIR/zephyr/kernel/init.c".0
-                0x00005730      0x400 kernel/libkernel.a(init.c.obj)
-                0x00005730                z_main_stack
+                0x00005758      0x400 kernel/libkernel.a(init.c.obj)
+                0x00005758                z_main_stack
 
-datas           0x00005b30       0x58
-                0x00005b30                        __data_region_start = .
-                0x00005b30                        __data_start = .
+datas           0x00005b58       0x58
+                0x00005b58                        __data_region_start = .
+                0x00005b58                        __data_start = .
  *(SORT_BY_ALIGNMENT(.data))
  *(SORT_BY_ALIGNMENT(.data.*))
  .data._char_out
-                0x00005b30        0x4 libzephyr.a(printk.c.obj)
- .data.handler  0x00005b34        0x4 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+                0x00005b58        0x4 libzephyr.a(printk.c.obj)
+ .data.handler  0x00005b5c        0x4 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
  .data.arm_cpu_boot_params
-                0x00005b38       0x2c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
-                0x00005b38                arm_cpu_boot_params
+                0x00005b60       0x2c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+                0x00005b60                arm_cpu_boot_params
  .data._stdout_hook
-                0x00005b64        0x4 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+                0x00005b8c        0x4 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
  .data.pinctrl_ti_k3_cfg
-                0x00005b68        0x4 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+                0x00005b90        0x4 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
  .data.uart_ns16550_dev_data_0
-                0x00005b6c       0x14 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+                0x00005b94       0x14 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
  .data.timeout_list
-                0x00005b80        0x8 kernel/libkernel.a(timeout.c.obj)
+                0x00005ba8        0x8 kernel/libkernel.a(timeout.c.obj)
  *(SORT_BY_ALIGNMENT(.kernel.*))
-                0x00005b88                        __data_end = .
+                0x00005bb0                        __data_end = .
                 0x00000058                        __data_size = (__data_end - __data_start)
-                0x00005b30                        __data_load_start = LOADADDR (datas)
-                0x00005b30                        __data_region_load_start = LOADADDR (datas)
+                0x00005b58                        __data_load_start = LOADADDR (datas)
+                0x00005b58                        __data_region_load_start = LOADADDR (datas)
 
-device_states   0x00005b88        0x8
-                0x00005b88                        __device_states_start = .
+device_states   0x00005bb0        0x8
+                0x00005bb0                        __device_states_start = .
  *(SORT_BY_ALIGNMENT(.z_devstate))
- .z_devstate    0x00005b88        0x2 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .z_devstate    0x00005b8a        0x2 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .z_devstate    0x00005b8c        0x2 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .z_devstate    0x00005b8e        0x2 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .z_devstate    0x00005bb0        0x2 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .z_devstate    0x00005bb2        0x2 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .z_devstate    0x00005bb4        0x2 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .z_devstate    0x00005bb6        0x2 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
  *(SORT_BY_ALIGNMENT(.z_devstate.*))
-                0x00005b90                        __device_states_end = .
+                0x00005bb8                        __device_states_end = .
 
 log_mpsc_pbuf_area
-                0x00005b90        0x0
-                0x00005b90                        _log_mpsc_pbuf_list_start = .
+                0x00005bb8        0x0
+                0x00005bb8                        _log_mpsc_pbuf_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_mpsc_pbuf.static.*)))
-                0x00005b90                        _log_mpsc_pbuf_list_end = .
+                0x00005bb8                        _log_mpsc_pbuf_list_end = .
 
 log_msg_ptr_area
-                0x00005b90        0x0
-                0x00005b90                        _log_msg_ptr_list_start = .
+                0x00005bb8        0x0
+                0x00005bb8                        _log_msg_ptr_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_msg_ptr.static.*)))
-                0x00005b90                        _log_msg_ptr_list_end = .
+                0x00005bb8                        _log_msg_ptr_list_end = .
 
 log_dynamic_area
-                0x00005b90        0x0
-                0x00005b90                        _log_dynamic_list_start = .
+                0x00005bb8        0x0
+                0x00005bb8                        _log_dynamic_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._log_dynamic.static.*)))
-                0x00005b90                        _log_dynamic_list_end = .
+                0x00005bb8                        _log_dynamic_list_end = .
 
-k_timer_area    0x00005b90        0x0
-                0x00005b90                        _k_timer_list_start = .
+k_timer_area    0x00005bb8        0x0
+                0x00005bb8                        _k_timer_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_timer.static.*)))
-                0x00005b90                        _k_timer_list_end = .
+                0x00005bb8                        _k_timer_list_end = .
 
 k_mem_slab_area
-                0x00005b90        0x0
-                0x00005b90                        _k_mem_slab_list_start = .
+                0x00005bb8        0x0
+                0x00005bb8                        _k_mem_slab_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_mem_slab.static.*)))
-                0x00005b90                        _k_mem_slab_list_end = .
+                0x00005bb8                        _k_mem_slab_list_end = .
 
-k_heap_area     0x00005b90        0x0
-                0x00005b90                        _k_heap_list_start = .
+k_heap_area     0x00005bb8        0x0
+                0x00005bb8                        _k_heap_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_heap.static.*)))
-                0x00005b90                        _k_heap_list_end = .
+                0x00005bb8                        _k_heap_list_end = .
 
-k_mutex_area    0x00005b90        0x0
-                0x00005b90                        _k_mutex_list_start = .
+k_mutex_area    0x00005bb8        0x0
+                0x00005bb8                        _k_mutex_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_mutex.static.*)))
-                0x00005b90                        _k_mutex_list_end = .
+                0x00005bb8                        _k_mutex_list_end = .
 
-k_stack_area    0x00005b90        0x0
-                0x00005b90                        _k_stack_list_start = .
+k_stack_area    0x00005bb8        0x0
+                0x00005bb8                        _k_stack_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_stack.static.*)))
-                0x00005b90                        _k_stack_list_end = .
+                0x00005bb8                        _k_stack_list_end = .
 
-k_msgq_area     0x00005b90        0x0
-                0x00005b90                        _k_msgq_list_start = .
+k_msgq_area     0x00005bb8        0x0
+                0x00005bb8                        _k_msgq_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_msgq.static.*)))
-                0x00005b90                        _k_msgq_list_end = .
+                0x00005bb8                        _k_msgq_list_end = .
 
-k_mbox_area     0x00005b90        0x0
-                0x00005b90                        _k_mbox_list_start = .
+k_mbox_area     0x00005bb8        0x0
+                0x00005bb8                        _k_mbox_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_mbox.static.*)))
-                0x00005b90                        _k_mbox_list_end = .
+                0x00005bb8                        _k_mbox_list_end = .
 
-k_pipe_area     0x00005b90        0x0
-                0x00005b90                        _k_pipe_list_start = .
+k_pipe_area     0x00005bb8        0x0
+                0x00005bb8                        _k_pipe_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_pipe.static.*)))
-                0x00005b90                        _k_pipe_list_end = .
+                0x00005bb8                        _k_pipe_list_end = .
 
-k_sem_area      0x00005b90        0x0
-                0x00005b90                        _k_sem_list_start = .
+k_sem_area      0x00005bb8        0x0
+                0x00005bb8                        _k_sem_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_sem.static.*)))
-                0x00005b90                        _k_sem_list_end = .
+                0x00005bb8                        _k_sem_list_end = .
 
-k_event_area    0x00005b90        0x0
-                0x00005b90                        _k_event_list_start = .
+k_event_area    0x00005bb8        0x0
+                0x00005bb8                        _k_event_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_event.static.*)))
-                0x00005b90                        _k_event_list_end = .
+                0x00005bb8                        _k_event_list_end = .
 
-k_queue_area    0x00005b90        0x0
-                0x00005b90                        _k_queue_list_start = .
+k_queue_area    0x00005bb8        0x0
+                0x00005bb8                        _k_queue_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_queue.static.*)))
-                0x00005b90                        _k_queue_list_end = .
+                0x00005bb8                        _k_queue_list_end = .
 
-k_fifo_area     0x00005b90        0x0
-                0x00005b90                        _k_fifo_list_start = .
+k_fifo_area     0x00005bb8        0x0
+                0x00005bb8                        _k_fifo_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_fifo.static.*)))
-                0x00005b90                        _k_fifo_list_end = .
+                0x00005bb8                        _k_fifo_list_end = .
 
-k_lifo_area     0x00005b90        0x0
-                0x00005b90                        _k_lifo_list_start = .
+k_lifo_area     0x00005bb8        0x0
+                0x00005bb8                        _k_lifo_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_lifo.static.*)))
-                0x00005b90                        _k_lifo_list_end = .
+                0x00005bb8                        _k_lifo_list_end = .
 
-k_condvar_area  0x00005b90        0x0
-                0x00005b90                        _k_condvar_list_start = .
+k_condvar_area  0x00005bb8        0x0
+                0x00005bb8                        _k_condvar_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._k_condvar.static.*)))
-                0x00005b90                        _k_condvar_list_end = .
+                0x00005bb8                        _k_condvar_list_end = .
 
 sys_mem_blocks_ptr_area
-                0x00005b90        0x0
-                0x00005b90                        _sys_mem_blocks_ptr_list_start = .
+                0x00005bb8        0x0
+                0x00005bb8                        _sys_mem_blocks_ptr_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._sys_mem_blocks_ptr.static.*)))
-                0x00005b90                        _sys_mem_blocks_ptr_list_end = .
+                0x00005bb8                        _sys_mem_blocks_ptr_list_end = .
 
 net_buf_pool_area
-                0x00005b90        0x0
-                0x00005b90                        _net_buf_pool_list_start = .
+                0x00005bb8        0x0
+                0x00005bb8                        _net_buf_pool_list_start = .
  *(SORT_BY_NAME(SORT_BY_ALIGNMENT(._net_buf_pool.static.*)))
-                0x00005b90                        _net_buf_pool_list_end = .
-                0x00005b90                        __data_region_end = .
+                0x00005bb8                        _net_buf_pool_list_end = .
+                0x00005bb8                        __data_region_end = .
                 0x00008000                        __kernel_ram_end = 0x8000
-                0x00003da8                        __kernel_ram_size = (__kernel_ram_end - __kernel_ram_start)
+                0x00003d80                        __kernel_ram_size = (__kernel_ram_end - __kernel_ram_start)
 
 .intList        0xffff8000       0x28
  *(SORT_BY_ALIGNMENT(.irq_info*))
@@ -3744,12 +3744,12 @@ net_buf_pool_area
  .intList       0xffff8018       0x10 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
 
 .last_ram_section
-                0x00005b90        0x0
-                0x00005b90                        . = ALIGN (_region_min_align)
-                0x00005b90                        _image_ram_end = .
-                0x00001938                        _image_ram_size = (_image_ram_end - _image_ram_start)
-                0x00005b90                        _end = .
-                0x00005b90                        z_mapped_end = .
+                0x00005bb8        0x0
+                0x00005bb8                        . = ALIGN (_region_min_align)
+                0x00005bb8                        _image_ram_end = .
+                0x0000193c                        _image_ram_size = (_image_ram_end - _image_ram_start)
+                0x00005bb8                        _end = .
+                0x00005bb8                        z_mapped_end = .
 
 .stab
  *(SORT_BY_ALIGNMENT(.stab))
@@ -3946,316 +3946,316 @@ net_buf_pool_area
 .debug_pubnames
  *(SORT_BY_ALIGNMENT(.debug_pubnames))
 
-.debug_info     0x00000000    0x1f4b9
+.debug_info     0x00000000    0x1f3f9
  *(SORT_BY_ALIGNMENT(.debug_info) SORT_BY_ALIGNMENT(.gnu.linkonce.wi.*))
  .debug_info    0x00000000       0xe3 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
- .debug_info    0x000000e3      0xee4 ../app/libapp.a(neopixel_driver.c.obj)
- .debug_info    0x00000fc7      0x71b libzephyr.a(printk.c.obj)
- .debug_info    0x000016e2      0x6e2 libzephyr.a(thread_entry.c.obj)
- .debug_info    0x00001dc4     0x173e libzephyr.a(cbprintf_complete.c.obj)
- .debug_info    0x00003502      0x263 libzephyr.a(resource_table.c.obj)
- .debug_info    0x00003765       0x38 libzephyr.a(configs.c.obj)
- .debug_info    0x0000379d       0xf1 libzephyr.a(ctrl_partitions.c.obj)
- .debug_info    0x0000388e      0x30f libzephyr.a(soc.c.obj)
- .debug_info    0x00003b9d      0x6b4 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_info    0x00004251      0x1c3 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
- .debug_info    0x00004414       0x23 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
- .debug_info    0x00004437       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
- .debug_info    0x0000445b     0x1088 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_info    0x000054e3       0xac arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
- .debug_info    0x0000558f       0xdf arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
- .debug_info    0x0000566e       0x23 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
- .debug_info    0x00005691      0x20f arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
- .debug_info    0x000058a0       0x23 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
- .debug_info    0x000058c3      0x2c2 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_info    0x00005b85      0x845 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_info    0x000063ca      0xb03 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_info    0x00006ecd       0x22 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
- .debug_info    0x00006eef      0xc83 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_info    0x00007b72       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
- .debug_info    0x00007b96       0x22 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
- .debug_info    0x00007bb8       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
- .debug_info    0x00007bdc       0xe0 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_info    0x00007cbc      0x6e4 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_info    0x000083a0      0x83c lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_info    0x00008bdc      0x46c lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_info    0x00009048       0xd7 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_info    0x0000911f      0xb1c drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_info    0x00009c3b      0x94a drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_info    0x0000a585      0xcdb drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_info    0x0000b260      0x19a drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_info    0x0000b3fa      0x498 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_info    0x0000b892     0x496b drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_info    0x000101fd     0x1a60 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_info    0x00011c5d      0x1b6 kernel/libkernel.a(busy_wait.c.obj)
- .debug_info    0x00011e13      0x3b9 kernel/libkernel.a(device.c.obj)
- .debug_info    0x000121cc      0xd13 kernel/libkernel.a(fatal.c.obj)
- .debug_info    0x00012edf     0x1763 kernel/libkernel.a(init.c.obj)
- .debug_info    0x00014642       0x38 kernel/libkernel.a(init_static.c.obj)
- .debug_info    0x0001467a      0x238 kernel/libkernel.a(idle.c.obj)
- .debug_info    0x000148b2     0x1620 kernel/libkernel.a(thread.c.obj)
- .debug_info    0x00015ed2     0x6879 kernel/libkernel.a(sched.c.obj)
- .debug_info    0x0001c74b      0xe55 kernel/libkernel.a(timeslicing.c.obj)
- .debug_info    0x0001d5a0     0x156f kernel/libkernel.a(timeout.c.obj)
- .debug_info    0x0001eb0f       0xcc kernel/libkernel.a(banner.c.obj)
- .debug_info    0x0001ebdb      0x185 arch/common/libisr_tables.a(isr_tables.c.obj)
- .debug_info    0x0001ed60       0x24 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_info    0x0001ed84      0x6f9 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
- .debug_info    0x0001f47d       0x3c /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x000000e3      0xe24 ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_info    0x00000f07      0x71b libzephyr.a(printk.c.obj)
+ .debug_info    0x00001622      0x6e2 libzephyr.a(thread_entry.c.obj)
+ .debug_info    0x00001d04     0x173e libzephyr.a(cbprintf_complete.c.obj)
+ .debug_info    0x00003442      0x263 libzephyr.a(resource_table.c.obj)
+ .debug_info    0x000036a5       0x38 libzephyr.a(configs.c.obj)
+ .debug_info    0x000036dd       0xf1 libzephyr.a(ctrl_partitions.c.obj)
+ .debug_info    0x000037ce      0x30f libzephyr.a(soc.c.obj)
+ .debug_info    0x00003add      0x6b4 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_info    0x00004191      0x1c3 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+ .debug_info    0x00004354       0x23 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
+ .debug_info    0x00004377       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
+ .debug_info    0x0000439b     0x1088 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_info    0x00005423       0xac arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+ .debug_info    0x000054cf       0xdf arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+ .debug_info    0x000055ae       0x23 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
+ .debug_info    0x000055d1      0x20f arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+ .debug_info    0x000057e0       0x23 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
+ .debug_info    0x00005803      0x2c2 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_info    0x00005ac5      0x845 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_info    0x0000630a      0xb03 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_info    0x00006e0d       0x22 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
+ .debug_info    0x00006e2f      0xc83 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_info    0x00007ab2       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
+ .debug_info    0x00007ad6       0x22 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+ .debug_info    0x00007af8       0x24 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
+ .debug_info    0x00007b1c       0xe0 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_info    0x00007bfc      0x6e4 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_info    0x000082e0      0x83c lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_info    0x00008b1c      0x46c lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_info    0x00008f88       0xd7 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_info    0x0000905f      0xb1c drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_info    0x00009b7b      0x94a drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_info    0x0000a4c5      0xcdb drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_info    0x0000b1a0      0x19a drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_info    0x0000b33a      0x498 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_info    0x0000b7d2     0x496b drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_info    0x0001013d     0x1a60 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_info    0x00011b9d      0x1b6 kernel/libkernel.a(busy_wait.c.obj)
+ .debug_info    0x00011d53      0x3b9 kernel/libkernel.a(device.c.obj)
+ .debug_info    0x0001210c      0xd13 kernel/libkernel.a(fatal.c.obj)
+ .debug_info    0x00012e1f     0x1763 kernel/libkernel.a(init.c.obj)
+ .debug_info    0x00014582       0x38 kernel/libkernel.a(init_static.c.obj)
+ .debug_info    0x000145ba      0x238 kernel/libkernel.a(idle.c.obj)
+ .debug_info    0x000147f2     0x1620 kernel/libkernel.a(thread.c.obj)
+ .debug_info    0x00015e12     0x6879 kernel/libkernel.a(sched.c.obj)
+ .debug_info    0x0001c68b      0xe55 kernel/libkernel.a(timeslicing.c.obj)
+ .debug_info    0x0001d4e0     0x156f kernel/libkernel.a(timeout.c.obj)
+ .debug_info    0x0001ea4f       0xcc kernel/libkernel.a(banner.c.obj)
+ .debug_info    0x0001eb1b      0x185 arch/common/libisr_tables.a(isr_tables.c.obj)
+ .debug_info    0x0001eca0       0x24 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x0001ecc4      0x6f9 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_info    0x0001f3bd       0x3c /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
 
-.debug_abbrev   0x00000000     0x6aaa
+.debug_abbrev   0x00000000     0x6a75
  *(SORT_BY_ALIGNMENT(.debug_abbrev))
  .debug_abbrev  0x00000000       0x62 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
- .debug_abbrev  0x00000062      0x431 ../app/libapp.a(neopixel_driver.c.obj)
- .debug_abbrev  0x00000493      0x320 libzephyr.a(printk.c.obj)
- .debug_abbrev  0x000007b3      0x260 libzephyr.a(thread_entry.c.obj)
- .debug_abbrev  0x00000a13      0x45b libzephyr.a(cbprintf_complete.c.obj)
- .debug_abbrev  0x00000e6e      0x101 libzephyr.a(resource_table.c.obj)
- .debug_abbrev  0x00000f6f       0x2e libzephyr.a(configs.c.obj)
- .debug_abbrev  0x00000f9d       0x8f libzephyr.a(ctrl_partitions.c.obj)
- .debug_abbrev  0x0000102c      0x14d libzephyr.a(soc.c.obj)
- .debug_abbrev  0x00001179      0x289 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_abbrev  0x00001402       0xf5 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
- .debug_abbrev  0x000014f7       0x14 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
- .debug_abbrev  0x0000150b       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
- .debug_abbrev  0x0000151f      0x439 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_abbrev  0x00001958       0x65 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
- .debug_abbrev  0x000019bd       0x7c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
- .debug_abbrev  0x00001a39       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
- .debug_abbrev  0x00001a4d       0xbb arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
- .debug_abbrev  0x00001b08       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
- .debug_abbrev  0x00001b1c      0x13f arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_abbrev  0x00001c5b      0x2d0 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_abbrev  0x00001f2b      0x380 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_abbrev  0x000022ab       0x12 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
- .debug_abbrev  0x000022bd      0x3e0 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_abbrev  0x0000269d       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
- .debug_abbrev  0x000026b1       0x12 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
- .debug_abbrev  0x000026c3       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
- .debug_abbrev  0x000026d7       0xa3 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_abbrev  0x0000277a      0x171 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_abbrev  0x000028eb      0x2bc lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_abbrev  0x00002ba7      0x19c lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_abbrev  0x00002d43       0xa0 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_abbrev  0x00002de3      0x261 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_abbrev  0x00003044      0x35c drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_abbrev  0x000033a0      0x361 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_abbrev  0x00003701       0xd0 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_abbrev  0x000037d1      0x29d drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_abbrev  0x00003a6e      0x502 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_abbrev  0x00003f70      0x3d2 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_abbrev  0x00004342      0x131 kernel/libkernel.a(busy_wait.c.obj)
- .debug_abbrev  0x00004473      0x1e1 kernel/libkernel.a(device.c.obj)
- .debug_abbrev  0x00004654      0x3e6 kernel/libkernel.a(fatal.c.obj)
- .debug_abbrev  0x00004a3a      0x65d kernel/libkernel.a(init.c.obj)
- .debug_abbrev  0x00005097       0x2e kernel/libkernel.a(init_static.c.obj)
- .debug_abbrev  0x000050c5      0x170 kernel/libkernel.a(idle.c.obj)
- .debug_abbrev  0x00005235      0x52a kernel/libkernel.a(thread.c.obj)
- .debug_abbrev  0x0000575f      0x6f2 kernel/libkernel.a(sched.c.obj)
- .debug_abbrev  0x00005e51      0x3f1 kernel/libkernel.a(timeslicing.c.obj)
- .debug_abbrev  0x00006242      0x527 kernel/libkernel.a(timeout.c.obj)
- .debug_abbrev  0x00006769       0x8f kernel/libkernel.a(banner.c.obj)
- .debug_abbrev  0x000067f8      0x105 arch/common/libisr_tables.a(isr_tables.c.obj)
- .debug_abbrev  0x000068fd       0x14 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_abbrev  0x00006911      0x173 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
- .debug_abbrev  0x00006a84       0x26 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_abbrev  0x00000062      0x3fc ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_abbrev  0x0000045e      0x320 libzephyr.a(printk.c.obj)
+ .debug_abbrev  0x0000077e      0x260 libzephyr.a(thread_entry.c.obj)
+ .debug_abbrev  0x000009de      0x45b libzephyr.a(cbprintf_complete.c.obj)
+ .debug_abbrev  0x00000e39      0x101 libzephyr.a(resource_table.c.obj)
+ .debug_abbrev  0x00000f3a       0x2e libzephyr.a(configs.c.obj)
+ .debug_abbrev  0x00000f68       0x8f libzephyr.a(ctrl_partitions.c.obj)
+ .debug_abbrev  0x00000ff7      0x14d libzephyr.a(soc.c.obj)
+ .debug_abbrev  0x00001144      0x289 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_abbrev  0x000013cd       0xf5 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+ .debug_abbrev  0x000014c2       0x14 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
+ .debug_abbrev  0x000014d6       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
+ .debug_abbrev  0x000014ea      0x439 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_abbrev  0x00001923       0x65 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+ .debug_abbrev  0x00001988       0x7c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+ .debug_abbrev  0x00001a04       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
+ .debug_abbrev  0x00001a18       0xbb arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+ .debug_abbrev  0x00001ad3       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
+ .debug_abbrev  0x00001ae7      0x13f arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_abbrev  0x00001c26      0x2d0 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_abbrev  0x00001ef6      0x380 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_abbrev  0x00002276       0x12 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
+ .debug_abbrev  0x00002288      0x3e0 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_abbrev  0x00002668       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
+ .debug_abbrev  0x0000267c       0x12 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+ .debug_abbrev  0x0000268e       0x14 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
+ .debug_abbrev  0x000026a2       0xa3 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_abbrev  0x00002745      0x171 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_abbrev  0x000028b6      0x2bc lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_abbrev  0x00002b72      0x19c lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_abbrev  0x00002d0e       0xa0 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_abbrev  0x00002dae      0x261 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_abbrev  0x0000300f      0x35c drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_abbrev  0x0000336b      0x361 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_abbrev  0x000036cc       0xd0 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_abbrev  0x0000379c      0x29d drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_abbrev  0x00003a39      0x502 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_abbrev  0x00003f3b      0x3d2 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_abbrev  0x0000430d      0x131 kernel/libkernel.a(busy_wait.c.obj)
+ .debug_abbrev  0x0000443e      0x1e1 kernel/libkernel.a(device.c.obj)
+ .debug_abbrev  0x0000461f      0x3e6 kernel/libkernel.a(fatal.c.obj)
+ .debug_abbrev  0x00004a05      0x65d kernel/libkernel.a(init.c.obj)
+ .debug_abbrev  0x00005062       0x2e kernel/libkernel.a(init_static.c.obj)
+ .debug_abbrev  0x00005090      0x170 kernel/libkernel.a(idle.c.obj)
+ .debug_abbrev  0x00005200      0x52a kernel/libkernel.a(thread.c.obj)
+ .debug_abbrev  0x0000572a      0x6f2 kernel/libkernel.a(sched.c.obj)
+ .debug_abbrev  0x00005e1c      0x3f1 kernel/libkernel.a(timeslicing.c.obj)
+ .debug_abbrev  0x0000620d      0x527 kernel/libkernel.a(timeout.c.obj)
+ .debug_abbrev  0x00006734       0x8f kernel/libkernel.a(banner.c.obj)
+ .debug_abbrev  0x000067c3      0x105 arch/common/libisr_tables.a(isr_tables.c.obj)
+ .debug_abbrev  0x000068c8       0x14 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_abbrev  0x000068dc      0x173 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_abbrev  0x00006a4f       0x26 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
 
-.debug_line     0x00000000    0x10e79
+.debug_line     0x00000000    0x10dbb
  *(SORT_BY_ALIGNMENT(.debug_line) SORT_BY_ALIGNMENT(.debug_line.*) SORT_BY_ALIGNMENT(.debug_line_end))
  .debug_line    0x00000000      0x131 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
- .debug_line    0x00000131      0x596 ../app/libapp.a(neopixel_driver.c.obj)
- .debug_line    0x000006c7      0x3fa libzephyr.a(printk.c.obj)
- .debug_line    0x00000ac1      0x30b libzephyr.a(thread_entry.c.obj)
- .debug_line    0x00000dcc     0x14a3 libzephyr.a(cbprintf_complete.c.obj)
- .debug_line    0x0000226f      0x1ac libzephyr.a(resource_table.c.obj)
- .debug_line    0x0000241b      0x1a9 libzephyr.a(configs.c.obj)
- .debug_line    0x000025c4      0x13f libzephyr.a(ctrl_partitions.c.obj)
- .debug_line    0x00002703      0x1e7 libzephyr.a(soc.c.obj)
- .debug_line    0x000028ea      0x309 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_line    0x00002bf3      0x161 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
- .debug_line    0x00002d54       0x6d arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
- .debug_line    0x00002dc1       0x9e arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
- .debug_line    0x00002e5f      0x6cd arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_line    0x0000352c       0xb7 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
- .debug_line    0x000035e3       0xaa arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
- .debug_line    0x0000368d       0x99 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
- .debug_line    0x00003726      0x16d arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
- .debug_line    0x00003893       0x87 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
- .debug_line    0x0000391a      0x151 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_line    0x00003a6b      0x3e1 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_line    0x00003e4c      0x542 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_line    0x0000438e       0x8b arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
- .debug_line    0x00004419      0x5be arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_line    0x000049d7       0xae arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
- .debug_line    0x00004a85       0xfc arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
- .debug_line    0x00004b81       0xb1 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
- .debug_line    0x00004c32      0x10a lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_line    0x00004d3c      0x527 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_line    0x00005263      0x3b8 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_line    0x0000561b      0x28e lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_line    0x000058a9      0x114 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_line    0x000059bd      0x6c0 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_line    0x0000607d      0x3d3 drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_line    0x00006450      0x455 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_line    0x000068a5      0x15e drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_line    0x00006a03      0x325 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_line    0x00006d28     0x21e2 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_line    0x00008f0a      0xc84 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_line    0x00009b8e      0x1e7 kernel/libkernel.a(busy_wait.c.obj)
- .debug_line    0x00009d75      0x2c7 kernel/libkernel.a(device.c.obj)
- .debug_line    0x0000a03c      0x5cf kernel/libkernel.a(fatal.c.obj)
- .debug_line    0x0000a60b      0xa9a kernel/libkernel.a(init.c.obj)
- .debug_line    0x0000b0a5       0x66 kernel/libkernel.a(init_static.c.obj)
- .debug_line    0x0000b10b      0x231 kernel/libkernel.a(idle.c.obj)
- .debug_line    0x0000b33c      0x9b3 kernel/libkernel.a(thread.c.obj)
- .debug_line    0x0000bcef     0x35f6 kernel/libkernel.a(sched.c.obj)
- .debug_line    0x0000f2e5      0x5cc kernel/libkernel.a(timeslicing.c.obj)
- .debug_line    0x0000f8b1      0xd90 kernel/libkernel.a(timeout.c.obj)
- .debug_line    0x00010641       0xa3 kernel/libkernel.a(banner.c.obj)
- .debug_line    0x000106e4       0xed arch/common/libisr_tables.a(isr_tables.c.obj)
- .debug_line    0x000107d1       0x4e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x0001081f      0x610 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
- .debug_line    0x00010e2f       0x4a /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00000131      0x4d8 ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_line    0x00000609      0x3fa libzephyr.a(printk.c.obj)
+ .debug_line    0x00000a03      0x30b libzephyr.a(thread_entry.c.obj)
+ .debug_line    0x00000d0e     0x14a3 libzephyr.a(cbprintf_complete.c.obj)
+ .debug_line    0x000021b1      0x1ac libzephyr.a(resource_table.c.obj)
+ .debug_line    0x0000235d      0x1a9 libzephyr.a(configs.c.obj)
+ .debug_line    0x00002506      0x13f libzephyr.a(ctrl_partitions.c.obj)
+ .debug_line    0x00002645      0x1e7 libzephyr.a(soc.c.obj)
+ .debug_line    0x0000282c      0x309 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_line    0x00002b35      0x161 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+ .debug_line    0x00002c96       0x6d arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
+ .debug_line    0x00002d03       0x9e arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
+ .debug_line    0x00002da1      0x6cd arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_line    0x0000346e       0xb7 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+ .debug_line    0x00003525       0xaa arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+ .debug_line    0x000035cf       0x99 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
+ .debug_line    0x00003668      0x16d arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+ .debug_line    0x000037d5       0x87 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
+ .debug_line    0x0000385c      0x151 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_line    0x000039ad      0x3e1 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_line    0x00003d8e      0x542 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_line    0x000042d0       0x8b arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
+ .debug_line    0x0000435b      0x5be arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_line    0x00004919       0xae arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
+ .debug_line    0x000049c7       0xfc arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+ .debug_line    0x00004ac3       0xb1 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
+ .debug_line    0x00004b74      0x10a lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_line    0x00004c7e      0x527 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_line    0x000051a5      0x3b8 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_line    0x0000555d      0x28e lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_line    0x000057eb      0x114 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_line    0x000058ff      0x6c0 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_line    0x00005fbf      0x3d3 drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_line    0x00006392      0x455 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_line    0x000067e7      0x15e drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_line    0x00006945      0x325 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_line    0x00006c6a     0x21e2 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_line    0x00008e4c      0xc84 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_line    0x00009ad0      0x1e7 kernel/libkernel.a(busy_wait.c.obj)
+ .debug_line    0x00009cb7      0x2c7 kernel/libkernel.a(device.c.obj)
+ .debug_line    0x00009f7e      0x5cf kernel/libkernel.a(fatal.c.obj)
+ .debug_line    0x0000a54d      0xa9a kernel/libkernel.a(init.c.obj)
+ .debug_line    0x0000afe7       0x66 kernel/libkernel.a(init_static.c.obj)
+ .debug_line    0x0000b04d      0x231 kernel/libkernel.a(idle.c.obj)
+ .debug_line    0x0000b27e      0x9b3 kernel/libkernel.a(thread.c.obj)
+ .debug_line    0x0000bc31     0x35f6 kernel/libkernel.a(sched.c.obj)
+ .debug_line    0x0000f227      0x5cc kernel/libkernel.a(timeslicing.c.obj)
+ .debug_line    0x0000f7f3      0xd90 kernel/libkernel.a(timeout.c.obj)
+ .debug_line    0x00010583       0xa3 kernel/libkernel.a(banner.c.obj)
+ .debug_line    0x00010626       0xed arch/common/libisr_tables.a(isr_tables.c.obj)
+ .debug_line    0x00010713       0x4e /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x00010761      0x610 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00010d71       0x4a /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
 
-.debug_frame    0x00000000     0x188c
+.debug_frame    0x00000000     0x1888
  *(SORT_BY_ALIGNMENT(.debug_frame))
  .debug_frame   0x00000000       0x20 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
- .debug_frame   0x00000020       0x48 ../app/libapp.a(neopixel_driver.c.obj)
- .debug_frame   0x00000068      0x118 libzephyr.a(printk.c.obj)
- .debug_frame   0x00000180       0x28 libzephyr.a(thread_entry.c.obj)
- .debug_frame   0x000001a8       0xa8 libzephyr.a(cbprintf_complete.c.obj)
- .debug_frame   0x00000250       0x20 libzephyr.a(resource_table.c.obj)
- .debug_frame   0x00000270       0x20 libzephyr.a(configs.c.obj)
- .debug_frame   0x00000290       0x20 libzephyr.a(ctrl_partitions.c.obj)
- .debug_frame   0x000002b0       0x90 libzephyr.a(soc.c.obj)
- .debug_frame   0x00000340       0x48 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_frame   0x00000388       0x3c arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
- .debug_frame   0x000003c4       0x88 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_frame   0x0000044c       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
- .debug_frame   0x0000046c       0x48 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
- .debug_frame   0x000004b4       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_frame   0x000004d4       0x28 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_frame   0x000004fc       0x4c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_frame   0x00000548       0x44 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_frame   0x0000058c       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
- .debug_frame   0x000005ac       0x28 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_frame   0x000005d4      0x160 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_frame   0x00000734       0xd8 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_frame   0x0000080c       0x9c lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_frame   0x000008a8       0x20 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_frame   0x000008c8       0x98 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_frame   0x00000960       0x54 drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_frame   0x000009b4       0x9c drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_frame   0x00000a50       0x2c drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_frame   0x00000a7c       0x3c drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_frame   0x00000ab8      0x1ec drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_frame   0x00000ca4       0x88 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_frame   0x00000d2c       0x2c kernel/libkernel.a(busy_wait.c.obj)
- .debug_frame   0x00000d58       0x74 kernel/libkernel.a(device.c.obj)
- .debug_frame   0x00000dcc       0x74 kernel/libkernel.a(fatal.c.obj)
- .debug_frame   0x00000e40      0x114 kernel/libkernel.a(init.c.obj)
- .debug_frame   0x00000f54       0x20 kernel/libkernel.a(init_static.c.obj)
- .debug_frame   0x00000f74       0x38 kernel/libkernel.a(idle.c.obj)
- .debug_frame   0x00000fac      0x14c kernel/libkernel.a(thread.c.obj)
- .debug_frame   0x000010f8      0x4c8 kernel/libkernel.a(sched.c.obj)
- .debug_frame   0x000015c0       0x8c kernel/libkernel.a(timeslicing.c.obj)
- .debug_frame   0x0000164c      0x1bc kernel/libkernel.a(timeout.c.obj)
- .debug_frame   0x00001808       0x20 kernel/libkernel.a(banner.c.obj)
- .debug_frame   0x00001828       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00001854       0x38 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000020       0x44 ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_frame   0x00000064      0x118 libzephyr.a(printk.c.obj)
+ .debug_frame   0x0000017c       0x28 libzephyr.a(thread_entry.c.obj)
+ .debug_frame   0x000001a4       0xa8 libzephyr.a(cbprintf_complete.c.obj)
+ .debug_frame   0x0000024c       0x20 libzephyr.a(resource_table.c.obj)
+ .debug_frame   0x0000026c       0x20 libzephyr.a(configs.c.obj)
+ .debug_frame   0x0000028c       0x20 libzephyr.a(ctrl_partitions.c.obj)
+ .debug_frame   0x000002ac       0x90 libzephyr.a(soc.c.obj)
+ .debug_frame   0x0000033c       0x48 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_frame   0x00000384       0x3c arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+ .debug_frame   0x000003c0       0x88 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_frame   0x00000448       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+ .debug_frame   0x00000468       0x48 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+ .debug_frame   0x000004b0       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_frame   0x000004d0       0x28 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_frame   0x000004f8       0x4c arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_frame   0x00000544       0x44 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_frame   0x00000588       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+ .debug_frame   0x000005a8       0x28 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_frame   0x000005d0      0x160 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_frame   0x00000730       0xd8 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_frame   0x00000808       0x9c lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_frame   0x000008a4       0x20 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_frame   0x000008c4       0x98 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_frame   0x0000095c       0x54 drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_frame   0x000009b0       0x9c drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_frame   0x00000a4c       0x2c drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_frame   0x00000a78       0x3c drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_frame   0x00000ab4      0x1ec drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_frame   0x00000ca0       0x88 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_frame   0x00000d28       0x2c kernel/libkernel.a(busy_wait.c.obj)
+ .debug_frame   0x00000d54       0x74 kernel/libkernel.a(device.c.obj)
+ .debug_frame   0x00000dc8       0x74 kernel/libkernel.a(fatal.c.obj)
+ .debug_frame   0x00000e3c      0x114 kernel/libkernel.a(init.c.obj)
+ .debug_frame   0x00000f50       0x20 kernel/libkernel.a(init_static.c.obj)
+ .debug_frame   0x00000f70       0x38 kernel/libkernel.a(idle.c.obj)
+ .debug_frame   0x00000fa8      0x14c kernel/libkernel.a(thread.c.obj)
+ .debug_frame   0x000010f4      0x4c8 kernel/libkernel.a(sched.c.obj)
+ .debug_frame   0x000015bc       0x8c kernel/libkernel.a(timeslicing.c.obj)
+ .debug_frame   0x00001648      0x1bc kernel/libkernel.a(timeout.c.obj)
+ .debug_frame   0x00001804       0x20 kernel/libkernel.a(banner.c.obj)
+ .debug_frame   0x00001824       0x2c /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00001850       0x38 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
 
-.debug_str      0x00000000     0x5b5b
+.debug_str      0x00000000     0x5b6d
  *(SORT_BY_ALIGNMENT(.debug_str))
- .debug_str     0x00000000     0x5b5b CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
+ .debug_str     0x00000000     0x5b6d CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
                                 0x38b (size before relaxing)
- .debug_str     0x00005b5b      0x97d ../app/libapp.a(neopixel_driver.c.obj)
- .debug_str     0x00005b5b      0x5f9 libzephyr.a(printk.c.obj)
- .debug_str     0x00005b5b      0x52e libzephyr.a(thread_entry.c.obj)
- .debug_str     0x00005b5b      0x727 libzephyr.a(cbprintf_complete.c.obj)
- .debug_str     0x00005b5b      0x51c libzephyr.a(resource_table.c.obj)
- .debug_str     0x00005b5b      0x202 libzephyr.a(configs.c.obj)
- .debug_str     0x00005b5b      0x2d2 libzephyr.a(ctrl_partitions.c.obj)
- .debug_str     0x00005b5b      0x3bf libzephyr.a(soc.c.obj)
- .debug_str     0x00005b5b      0x530 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_str     0x00005b5b      0x504 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
- .debug_str     0x00005b5b       0x96 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
- .debug_str     0x00005b5b       0xa3 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
- .debug_str     0x00005b5b      0xd11 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_str     0x00005b5b      0x2c5 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
- .debug_str     0x00005b5b      0x2e6 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
- .debug_str     0x00005b5b       0xa5 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
- .debug_str     0x00005b5b      0x536 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
- .debug_str     0x00005b5b       0xac arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
- .debug_str     0x00005b5b      0x393 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_str     0x00005b5b      0x610 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_str     0x00005b5b      0x664 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_str     0x00005b5b       0xa8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
- .debug_str     0x00005b5b      0x962 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_str     0x00005b5b       0xab arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
- .debug_str     0x00005b5b       0xab arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
- .debug_str     0x00005b5b       0xa8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
- .debug_str     0x00005b5b      0x2b7 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_str     0x00005b5b      0x33a lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_str     0x00005b5b      0x59e lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_str     0x00005b5b      0x33b lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_str     0x00005b5b      0x2a9 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_str     0x00005b5b      0x514 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_str     0x00005b5b      0x6bc drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_str     0x00005b5b      0x9eb drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_str     0x00005b5b      0x323 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_str     0x00005b5b      0x530 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_str     0x00005b5b      0xfac drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_str     0x00005b5b      0x883 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_str     0x00005b5b      0x321 kernel/libkernel.a(busy_wait.c.obj)
- .debug_str     0x00005b5b      0x3a8 kernel/libkernel.a(device.c.obj)
- .debug_str     0x00005b5b      0x7af kernel/libkernel.a(fatal.c.obj)
- .debug_str     0x00005b5b      0xc44 kernel/libkernel.a(init.c.obj)
- .debug_str     0x00005b5b      0x1e8 kernel/libkernel.a(init_static.c.obj)
- .debug_str     0x00005b5b      0x363 kernel/libkernel.a(idle.c.obj)
- .debug_str     0x00005b5b      0xa6a kernel/libkernel.a(thread.c.obj)
- .debug_str     0x00005b5b     0x11b3 kernel/libkernel.a(sched.c.obj)
- .debug_str     0x00005b5b      0x98e kernel/libkernel.a(timeslicing.c.obj)
- .debug_str     0x00005b5b      0x86f kernel/libkernel.a(timeout.c.obj)
- .debug_str     0x00005b5b      0x289 kernel/libkernel.a(banner.c.obj)
- .debug_str     0x00005b5b      0x36d arch/common/libisr_tables.a(isr_tables.c.obj)
- .debug_str     0x00005b5b       0xa0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_str     0x00005b5b      0x682 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
- .debug_str     0x00005b5b       0xc0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_str     0x00005b6d      0x951 ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_str     0x00005b6d      0x5f9 libzephyr.a(printk.c.obj)
+ .debug_str     0x00005b6d      0x52e libzephyr.a(thread_entry.c.obj)
+ .debug_str     0x00005b6d      0x727 libzephyr.a(cbprintf_complete.c.obj)
+ .debug_str     0x00005b6d      0x51c libzephyr.a(resource_table.c.obj)
+ .debug_str     0x00005b6d      0x202 libzephyr.a(configs.c.obj)
+ .debug_str     0x00005b6d      0x2d2 libzephyr.a(ctrl_partitions.c.obj)
+ .debug_str     0x00005b6d      0x3bf libzephyr.a(soc.c.obj)
+ .debug_str     0x00005b6d      0x530 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_str     0x00005b6d      0x504 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+ .debug_str     0x00005b6d       0x96 arch/arch/arm/core/libarch__arm__core.a(nmi_on_reset.S.obj)
+ .debug_str     0x00005b6d       0xa3 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc.S.obj)
+ .debug_str     0x00005b6d      0xd11 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_str     0x00005b6d      0x2c5 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+ .debug_str     0x00005b6d      0x2e6 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+ .debug_str     0x00005b6d       0xa5 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reset.S.obj)
+ .debug_str     0x00005b6d      0x536 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(stacks.c.obj)
+ .debug_str     0x00005b6d       0xac arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(vector_table.S.obj)
+ .debug_str     0x00005b6d      0x393 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_str     0x00005b6d      0x610 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_str     0x00005b6d      0x664 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_str     0x00005b6d       0xa8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
+ .debug_str     0x00005b6d      0x962 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_str     0x00005b6d       0xab arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(isr_wrapper.S.obj)
+ .debug_str     0x00005b6d       0xab arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
+ .debug_str     0x00005b6d       0xa8 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(exc_exit.S.obj)
+ .debug_str     0x00005b6d      0x2b7 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_str     0x00005b6d      0x33a lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_str     0x00005b6d      0x59e lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_str     0x00005b6d      0x33b lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_str     0x00005b6d      0x2a9 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_str     0x00005b6d      0x514 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_str     0x00005b6d      0x6bc drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_str     0x00005b6d      0x9eb drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_str     0x00005b6d      0x323 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_str     0x00005b6d      0x530 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_str     0x00005b6d      0xfac drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_str     0x00005b6d      0x883 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_str     0x00005b6d      0x321 kernel/libkernel.a(busy_wait.c.obj)
+ .debug_str     0x00005b6d      0x3a8 kernel/libkernel.a(device.c.obj)
+ .debug_str     0x00005b6d      0x7af kernel/libkernel.a(fatal.c.obj)
+ .debug_str     0x00005b6d      0xc44 kernel/libkernel.a(init.c.obj)
+ .debug_str     0x00005b6d      0x1e8 kernel/libkernel.a(init_static.c.obj)
+ .debug_str     0x00005b6d      0x363 kernel/libkernel.a(idle.c.obj)
+ .debug_str     0x00005b6d      0xa6a kernel/libkernel.a(thread.c.obj)
+ .debug_str     0x00005b6d     0x11b3 kernel/libkernel.a(sched.c.obj)
+ .debug_str     0x00005b6d      0x98e kernel/libkernel.a(timeslicing.c.obj)
+ .debug_str     0x00005b6d      0x86f kernel/libkernel.a(timeout.c.obj)
+ .debug_str     0x00005b6d      0x289 kernel/libkernel.a(banner.c.obj)
+ .debug_str     0x00005b6d      0x36d arch/common/libisr_tables.a(isr_tables.c.obj)
+ .debug_str     0x00005b6d       0xa0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_str     0x00005b6d      0x682 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_str     0x00005b6d       0xc0 /usr/lib/gcc/arm-none-eabi/14.2.1/thumb/v7-r+fp.sp/hard/libgcc.a(_dvmd_tls.o)
 
-.debug_loc      0x00000000     0xf56b
+.debug_loc      0x00000000     0xf5b7
  *(SORT_BY_ALIGNMENT(.debug_loc))
- .debug_loc     0x00000000      0x2d5 ../app/libapp.a(neopixel_driver.c.obj)
- .debug_loc     0x000002d5      0x334 libzephyr.a(printk.c.obj)
- .debug_loc     0x00000609       0xd2 libzephyr.a(thread_entry.c.obj)
- .debug_loc     0x000006db     0x24ea libzephyr.a(cbprintf_complete.c.obj)
- .debug_loc     0x00002bc5      0x12d libzephyr.a(soc.c.obj)
- .debug_loc     0x00002cf2      0x1bd arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_loc     0x00002eaf      0x3f4 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_loc     0x000032a3       0x2b arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_loc     0x000032ce       0x98 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_loc     0x00003366      0x2ac arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_loc     0x00003612      0x252 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_loc     0x00003864       0x2b lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_loc     0x0000388f      0xb78 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_loc     0x00004407      0x653 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_loc     0x00004a5a      0x2bf lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_loc     0x00004d19       0x59 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_loc     0x00004d72      0x735 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_loc     0x000054a7       0x85 drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_loc     0x0000552c      0x36a drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_loc     0x00005896       0x4e drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_loc     0x000058e4       0xf8 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_loc     0x000059dc     0x29f9 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_loc     0x000083d5      0xdcb drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_loc     0x000091a0       0x84 kernel/libkernel.a(busy_wait.c.obj)
- .debug_loc     0x00009224      0x136 kernel/libkernel.a(device.c.obj)
- .debug_loc     0x0000935a      0x191 kernel/libkernel.a(fatal.c.obj)
- .debug_loc     0x000094eb      0x68a kernel/libkernel.a(init.c.obj)
- .debug_loc     0x00009b75       0x81 kernel/libkernel.a(idle.c.obj)
- .debug_loc     0x00009bf6      0xa55 kernel/libkernel.a(thread.c.obj)
- .debug_loc     0x0000a64b     0x3f1e kernel/libkernel.a(sched.c.obj)
- .debug_loc     0x0000e569      0x353 kernel/libkernel.a(timeslicing.c.obj)
- .debug_loc     0x0000e8bc      0xcaf kernel/libkernel.a(timeout.c.obj)
+ .debug_loc     0x00000000      0x321 ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_loc     0x00000321      0x334 libzephyr.a(printk.c.obj)
+ .debug_loc     0x00000655       0xd2 libzephyr.a(thread_entry.c.obj)
+ .debug_loc     0x00000727     0x24ea libzephyr.a(cbprintf_complete.c.obj)
+ .debug_loc     0x00002c11      0x12d libzephyr.a(soc.c.obj)
+ .debug_loc     0x00002d3e      0x1bd arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_loc     0x00002efb      0x3f4 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_loc     0x000032ef       0x2b arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_loc     0x0000331a       0x98 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_loc     0x000033b2      0x2ac arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_loc     0x0000365e      0x252 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_loc     0x000038b0       0x2b lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_loc     0x000038db      0xb78 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_loc     0x00004453      0x653 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_loc     0x00004aa6      0x2bf lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_loc     0x00004d65       0x59 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_loc     0x00004dbe      0x735 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_loc     0x000054f3       0x85 drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_loc     0x00005578      0x36a drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_loc     0x000058e2       0x4e drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_loc     0x00005930       0xf8 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_loc     0x00005a28     0x29f9 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_loc     0x00008421      0xdcb drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_loc     0x000091ec       0x84 kernel/libkernel.a(busy_wait.c.obj)
+ .debug_loc     0x00009270      0x136 kernel/libkernel.a(device.c.obj)
+ .debug_loc     0x000093a6      0x191 kernel/libkernel.a(fatal.c.obj)
+ .debug_loc     0x00009537      0x68a kernel/libkernel.a(init.c.obj)
+ .debug_loc     0x00009bc1       0x81 kernel/libkernel.a(idle.c.obj)
+ .debug_loc     0x00009c42      0xa55 kernel/libkernel.a(thread.c.obj)
+ .debug_loc     0x0000a697     0x3f1e kernel/libkernel.a(sched.c.obj)
+ .debug_loc     0x0000e5b5      0x353 kernel/libkernel.a(timeslicing.c.obj)
+ .debug_loc     0x0000e908      0xcaf kernel/libkernel.a(timeout.c.obj)
 
 .debug_macinfo
  *(SORT_BY_ALIGNMENT(.debug_macinfo))
@@ -4275,51 +4275,51 @@ net_buf_pool_area
 .debug_pubtypes
  *(SORT_BY_ALIGNMENT(.debug_pubtypes))
 
-.debug_ranges   0x00000000     0x24b0
+.debug_ranges   0x00000000     0x24d0
  *(SORT_BY_ALIGNMENT(.debug_ranges))
  .debug_ranges  0x00000000       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(cpu_idle.S.obj)
  .debug_ranges  0x00000020       0x28 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(swap_helper.S.obj)
  .debug_ranges  0x00000048       0x10 CMakeFiles/offsets.dir/arch/arm/core/offsets/offsets.c.obj
- .debug_ranges  0x00000058       0xd0 ../app/libapp.a(neopixel_driver.c.obj)
- .debug_ranges  0x00000128       0x88 libzephyr.a(printk.c.obj)
- .debug_ranges  0x000001b0       0x10 libzephyr.a(thread_entry.c.obj)
- .debug_ranges  0x000001c0      0x328 libzephyr.a(cbprintf_complete.c.obj)
- .debug_ranges  0x000004e8       0x10 libzephyr.a(resource_table.c.obj)
- .debug_ranges  0x000004f8       0x10 libzephyr.a(configs.c.obj)
- .debug_ranges  0x00000508       0x10 libzephyr.a(ctrl_partitions.c.obj)
- .debug_ranges  0x00000518       0x48 libzephyr.a(soc.c.obj)
- .debug_ranges  0x00000560       0x50 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
- .debug_ranges  0x000005b0       0x18 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
- .debug_ranges  0x000005c8       0x98 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
- .debug_ranges  0x00000660       0x10 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
- .debug_ranges  0x00000670       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
- .debug_ranges  0x00000690       0x10 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
- .debug_ranges  0x000006a0       0x40 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
- .debug_ranges  0x000006e0       0x38 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
- .debug_ranges  0x00000718       0x60 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
- .debug_ranges  0x00000778       0x10 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
- .debug_ranges  0x00000788       0x80 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
- .debug_ranges  0x00000808       0x58 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
- .debug_ranges  0x00000860       0xa0 lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
- .debug_ranges  0x00000900       0x10 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
- .debug_ranges  0x00000910       0xd8 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
- .debug_ranges  0x000009e8       0x38 drivers/console/libdrivers__console.a(uart_console.c.obj)
- .debug_ranges  0x00000a20       0x48 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
- .debug_ranges  0x00000a68       0x10 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
- .debug_ranges  0x00000a78       0x30 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
- .debug_ranges  0x00000aa8      0x488 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
- .debug_ranges  0x00000f30      0x190 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
- .debug_ranges  0x000010c0       0x28 kernel/libkernel.a(busy_wait.c.obj)
- .debug_ranges  0x000010e8       0x60 kernel/libkernel.a(device.c.obj)
- .debug_ranges  0x00001148       0x58 kernel/libkernel.a(fatal.c.obj)
- .debug_ranges  0x000011a0      0x1a0 kernel/libkernel.a(init.c.obj)
- .debug_ranges  0x00001340       0x10 kernel/libkernel.a(init_static.c.obj)
- .debug_ranges  0x00001350       0x18 kernel/libkernel.a(idle.c.obj)
- .debug_ranges  0x00001368      0x1a0 kernel/libkernel.a(thread.c.obj)
- .debug_ranges  0x00001508      0xc68 kernel/libkernel.a(sched.c.obj)
- .debug_ranges  0x00002170       0x78 kernel/libkernel.a(timeslicing.c.obj)
- .debug_ranges  0x000021e8      0x2b8 kernel/libkernel.a(timeout.c.obj)
- .debug_ranges  0x000024a0       0x10 kernel/libkernel.a(banner.c.obj)
+ .debug_ranges  0x00000058       0xf0 ../app/libapp.a(neopixel_driver.c.obj)
+ .debug_ranges  0x00000148       0x88 libzephyr.a(printk.c.obj)
+ .debug_ranges  0x000001d0       0x10 libzephyr.a(thread_entry.c.obj)
+ .debug_ranges  0x000001e0      0x328 libzephyr.a(cbprintf_complete.c.obj)
+ .debug_ranges  0x00000508       0x10 libzephyr.a(resource_table.c.obj)
+ .debug_ranges  0x00000518       0x10 libzephyr.a(configs.c.obj)
+ .debug_ranges  0x00000528       0x10 libzephyr.a(ctrl_partitions.c.obj)
+ .debug_ranges  0x00000538       0x48 libzephyr.a(soc.c.obj)
+ .debug_ranges  0x00000580       0x50 arch/arch/arm/core/libarch__arm__core.a(fatal.c.obj)
+ .debug_ranges  0x000005d0       0x18 arch/arch/arm/core/libarch__arm__core.a(nmi.c.obj)
+ .debug_ranges  0x000005e8       0x98 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(fault.c.obj)
+ .debug_ranges  0x00000680       0x10 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_init.c.obj)
+ .debug_ranges  0x00000690       0x20 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(reboot.c.obj)
+ .debug_ranges  0x000006b0       0x10 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(irq_manage.c.obj)
+ .debug_ranges  0x000006c0       0x40 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(prep_c.c.obj)
+ .debug_ranges  0x00000700       0x38 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(thread.c.obj)
+ .debug_ranges  0x00000738       0x60 arch/arch/arm/core/cortex_a_r/libarch__arm__core__cortex_a_r.a(smp.c.obj)
+ .debug_ranges  0x00000798       0x10 lib/libc/minimal/liblib__libc__minimal.a(exit.c.obj)
+ .debug_ranges  0x000007a8       0x80 lib/libc/minimal/liblib__libc__minimal.a(string.c.obj)
+ .debug_ranges  0x00000828       0x58 lib/libc/minimal/liblib__libc__minimal.a(stdout_console.c.obj)
+ .debug_ranges  0x00000880       0xa0 lib/libc/minimal/liblib__libc__minimal.a(fprintf.c.obj)
+ .debug_ranges  0x00000920       0x10 lib/libc/common/liblib__libc__common.a(strnlen.c.obj)
+ .debug_ranges  0x00000930       0xd8 drivers/interrupt_controller/libdrivers__interrupt_controller.a(intc_vim.c.obj)
+ .debug_ranges  0x00000a08       0x38 drivers/console/libdrivers__console.a(uart_console.c.obj)
+ .debug_ranges  0x00000a40       0x48 drivers/gpio/libdrivers__gpio.a(gpio_davinci.c.obj)
+ .debug_ranges  0x00000a88       0x10 drivers/pinctrl/libdrivers__pinctrl.a(common.c.obj)
+ .debug_ranges  0x00000a98       0x30 drivers/pinctrl/libdrivers__pinctrl.a(pinctrl_ti_k3.c.obj)
+ .debug_ranges  0x00000ac8      0x488 drivers/serial/libdrivers__serial.a(uart_ns16550.c.obj)
+ .debug_ranges  0x00000f50      0x190 drivers/timer/libdrivers__timer.a(ti_dmtimer.c.obj)
+ .debug_ranges  0x000010e0       0x28 kernel/libkernel.a(busy_wait.c.obj)
+ .debug_ranges  0x00001108       0x60 kernel/libkernel.a(device.c.obj)
+ .debug_ranges  0x00001168       0x58 kernel/libkernel.a(fatal.c.obj)
+ .debug_ranges  0x000011c0      0x1a0 kernel/libkernel.a(init.c.obj)
+ .debug_ranges  0x00001360       0x10 kernel/libkernel.a(init_static.c.obj)
+ .debug_ranges  0x00001370       0x18 kernel/libkernel.a(idle.c.obj)
+ .debug_ranges  0x00001388      0x1a0 kernel/libkernel.a(thread.c.obj)
+ .debug_ranges  0x00001528      0xc68 kernel/libkernel.a(sched.c.obj)
+ .debug_ranges  0x00002190       0x78 kernel/libkernel.a(timeslicing.c.obj)
+ .debug_ranges  0x00002208      0x2b8 kernel/libkernel.a(timeout.c.obj)
+ .debug_ranges  0x000024c0       0x10 kernel/libkernel.a(banner.c.obj)
 
 .debug_addr
  *(SORT_BY_ALIGNMENT(.debug_addr))
@@ -4658,9 +4658,9 @@ DRAM            0xa1200000        0x0
                 0x00000000                        __DRAM_size = (__DRAM_end - __DRAM_start)
                 0xa1200000                        __DRAM_load_start = LOADADDR (DRAM)
 
-.last_section   0x00005b90        0x4
-                0x00005b90        0x4 LONG 0xe015e015
-                0x00005b94                        _flash_used = ((LOADADDR (.last_section) + SIZEOF (.last_section)) - __rom_region_start)
+.last_section   0x00005bb8        0x4
+                0x00005bb8        0x4 LONG 0xe015e015
+                0x00005bbc                        _flash_used = ((LOADADDR (.last_section) + SIZEOF (.last_section)) - __rom_region_start)
 
 .resource_table
                 0xa1100000       0x10

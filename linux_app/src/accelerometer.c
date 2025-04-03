@@ -4,8 +4,10 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <math.h>
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 #include <pthread.h>
@@ -52,7 +54,9 @@ static void *accel_thread_fn(void *arg) {
             latestY = y;
             latestZ = z;
         }
-        usleep(5000); // 200Hz polling
+        struct timespec ts = {0, 5000000};
+        nanosleep(&ts, NULL);
+        //usleep(5000); // 200Hz polling
     }
     return NULL;
 }
@@ -84,6 +88,56 @@ void accelerometer_init() {
 
     pthread_create(&accelThread, NULL, accel_thread_fn, NULL);
     pthread_detach(accelThread);
+}
+
+Direction process_accel_and_target(float* targetX, float* targetY, float threshold, float* dx, float* dy) {
+    static time_t lastPrint = 0;
+
+    int16_t rawX, rawY, rawZ;
+    if (get_latest_accel(&rawX, &rawY, &rawZ) != 0) {
+        struct timespec ts = {0, 10000000};  // 100ms
+        nanosleep(&ts, NULL);
+        return DIRECTION_NONE;
+    }
+
+    float x = (float)rawX / 16384.0f;
+    float y = (float)rawY / 16384.0f;
+    *dx = *targetX - x;
+    *dy = *targetY - y;
+
+    time_t now = time(NULL);
+    if (now != lastPrint) {
+        printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", x, y, *targetX, *targetY);
+        lastPrint = now;
+    }
+
+    if (fabs(*dx) <= threshold && fabs(*dy) <= threshold) {
+        printf("🎯 Target Hit! Generating new target...\n");
+        struct timespec ts = {0, 500000000};  // 100ms
+        nanosleep(&ts, NULL);
+        //usleep(500000);
+        *targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
+        *targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
+        printf("🎯 New Target: X=%.2f Y=%.2f\n", *targetX, *targetY);
+        return DIRECTION_ON_TARGET;
+    }
+
+
+    if (fabs(*dx) < fabs(*dy)) {
+        if (fabs(*dx) > threshold) {
+            return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
+        } else if (fabs(*dy) > threshold) {
+            return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
+        }
+    } else {
+        if (fabs(*dy) > threshold) {
+            return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
+        } else if (fabs(*dx) > threshold) {
+            return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
+        }
+    }
+
+    return DIRECTION_NONE;  // Or another sensible default
 }
 
 void accelerometer_cleanup() {

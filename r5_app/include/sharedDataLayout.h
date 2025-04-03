@@ -7,23 +7,37 @@
 // R5 Shared Memory Note
 // - Using a struct in ATCM may cause access issues, so we define raw offsets
 
-#define MSG_OFFSET 0
-#define MSG_SIZE   32
+//#define MSG_OFFSET 0
+#define DEBUG_START_OFFSET 0
+
+// Message string
+#define MSG_OFFSET                 (DEBUG_START_OFFSET + sizeof(uint32_t))
+#define MSG_SIZE                   32
+//#define MSG_SIZE   32
 
 #define LED_DELAY_MS_OFFSET        (MSG_OFFSET + MSG_SIZE)
 #define IS_BUTTON_PRESSED_OFFSET   (LED_DELAY_MS_OFFSET + sizeof(uint32_t))
 #define BTN_COUNT_OFFSET           (IS_BUTTON_PRESSED_OFFSET + sizeof(uint32_t))
 #define LOOP_COUNT_OFFSET          (BTN_COUNT_OFFSET + sizeof(uint32_t))
 
+#define SHARED_RGB_OFFSET         (LOOP_COUNT_OFFSET + sizeof(uint32_t))
+#define NEO_NUM_LEDS              8
+
+#define DEBUG_END_OFFSET          (SHARED_RGB_OFFSET + (NEO_NUM_LEDS * sizeof(uint32_t)))
+#define SHARED_MEM_TOTAL_BYTES    (DEBUG_END_OFFSET + sizeof(uint32_t))
+
 #define END_MEMORY_OFFSET          (LOOP_COUNT_OFFSET + sizeof(uint32_t))
 
-// NeoPixel LED Strip
-#define SHARED_RGB_OFFSET          (END_MEMORY_OFFSET)
-#define NEO_NUM_LEDS               8
-#define SHARED_MEM_TOTAL_BYTES     (SHARED_RGB_OFFSET + (NEO_NUM_LEDS * sizeof(uint32_t)))
+// // NeoPixel LED Strip
+// #define SHARED_RGB_OFFSET          (END_MEMORY_OFFSET)
+// #define NEO_NUM_LEDS               8
+// #define SHARED_MEM_TOTAL_BYTES     (SHARED_RGB_OFFSET + (NEO_NUM_LEDS * sizeof(uint32_t)))
 
-// Helper macros for low-level memory access (if needed)
-#define MEM_UINT8(addr)  (*(uint8_t *)(addr))
-#define MEM_UINT32(addr) (*(uint32_t *)(addr))
+// // Debug tail offset (optional second debug value)
+// #define DEBUG_END_OFFSET           SHARED_MEM_TOTAL_BYTES
+
+// // Helper macros for low-level memory access (if needed)
+// #define MEM_UINT8(addr)  (*(uint8_t *)(addr))
+// #define MEM_UINT32(addr) (*(uint32_t *)(addr))
 
 #endif // _SHARED_DATA_STRUCT_H_
