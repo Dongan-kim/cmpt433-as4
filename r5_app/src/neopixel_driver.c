@@ -53,11 +53,11 @@ static void initialize_gpio(const struct gpio_dt_spec *pPin, int direction) {
 }
 
 int main(void) {
-	printf("R5 NeoPixel Shared Memory Driver\n");
+	//printf("R5 NeoPixel Shared Memory Driver\n");
 	initialize_gpio(&neopixel, GPIO_OUTPUT_ACTIVE);
 	initialize_gpio(&btn, GPIO_INPUT);
 
-	printf("Contents of Shared Memory ATCM:\n");
+	//printf("Contents of Shared Memory ATCM:\n");
 	for (int i = 0; i < END_MEMORY_OFFSET; i++) {
 		char* addr = (char*)pSharedMem + i;
 		printf("0x%08x = %2x (%c)\n", (uint32_t) addr, *addr, *addr);

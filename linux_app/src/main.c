@@ -14,6 +14,7 @@
 #include "accelerometer.h"
 #include "sharedDataLayout.h"
 #include "lcd_display.h"
+#include "joystick_press.h"
 
 #define NUM_LEDS 8
 #define SHARED_MEM_LENGTH 0x8000
@@ -28,12 +29,13 @@
 #define WHITE_BRIGHT  0xffffff00
 #define PURPLE        0x000f0f00
 #define YELLOW        0x0f0f0000
+#define RB_BRIGHT     0x00ff00ff // Red Bright w/ Bright White
+#define BW_BRIGHT     0x0000ffff // Blue Bright w/ Bright White
 
-// ✅ Make pSharedMem global
+
 volatile void* pSharedMem = NULL;
 volatile int keepRunning = 1;
 
-// ✅ Function that maps memory and returns the pointer
 volatile void* map_shared_memory(void) {
     int fd = open("/dev/mem", O_RDWR | O_SYNC);
     if (fd < 0) {
@@ -63,22 +65,11 @@ void cleanup_resources() {
     printf("Cleaning up resources...\n");
     accelerometer_cleanup();
     lcd_display_cleanup();
+    joystick_press_cleanup();
     printf("All resources cleaned up.\n");
 }
 
-const char* direction_to_string(Direction dir) {
-    switch (dir) {
-        case DIRECTION_LEFT:      return "⬅️  Tilt Left";
-        case DIRECTION_RIGHT:     return "➡️  Tilt Right";
-        case DIRECTION_UP:        return "⬆️  Tilt Up";
-        case DIRECTION_DOWN:      return "⬇️  Tilt Down";
-        case DIRECTION_ON_TARGET: return "🎯 On Target!";
-        case DIRECTION_NONE:      
-        default:                  return "⏸️  No Action";
-    }
-}
-
-// ✅ Use global pSharedMem
+//Use global pSharedMem
 void write_led_color(int index, uint32_t color) {
     int offset = SHARED_RGB_OFFSET + (index * 4);
     volatile uint32_t* pAddr = (volatile uint32_t *)((volatile uint8_t *)pSharedMem + offset);
@@ -123,6 +114,7 @@ int main() {
     srand(time(NULL));
     accelerometer_init();
     lcd_display_init();
+    joystick_press_init();
     time_t startTime = time(NULL);
 
     pSharedMem = map_shared_memory();
@@ -143,7 +135,6 @@ int main() {
         int seconds = elapsed % 60;
         lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
         Direction dir = process_accel_and_target(&targetX, &targetY, threshold);
-        printf("Direction: %s\n", direction_to_string(dir));
         
         uint32_t brightColor, dimColor;
         
@@ -161,13 +152,11 @@ int main() {
 
         //Check if both X and Y are within target threshold
         if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) && dir != DIRECTION_ON_TARGET){
-            printf("Target missed!\n");
             num_miss++;
-            //lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
             const int delay_ms = 500;
             const struct timespec delay = {0, delay_ms * 1000000L};
         
-            // Step 1: Center flash
+            //
             write_led_color(0, 0x00000000);
             write_led_color(1, PURPLE);
             write_led_color(2, 0x00000000);
@@ -177,6 +166,16 @@ int main() {
             write_led_color(6, 0x00000000);
             write_led_color(7, PURPLE);
             nanosleep(&delay, NULL);
+
+            write_led_color(0, PURPLE);
+            write_led_color(1, 0x00000000);
+            write_led_color(2, PURPLE);
+            write_led_color(3, 0x00000000);
+            write_led_color(4, PURPLE);
+            write_led_color(5, 0x00000000);
+            write_led_color(6, PURPLE);
+            write_led_color(7, 0x00000000);
+            nanosleep(&delay, NULL);
         
 
             struct timespec finalPause = {0, 10000 * 1000000L}; // 500ms
@@ -184,73 +183,69 @@ int main() {
         }
         float errorX = get_dx();
         if (dir == DIRECTION_ON_TARGET) {
-            // On Target: All LEDs bright blue
+            //All LEDs bright blue
             for (int i = 0; i < NUM_LEDS; i++) {
                 write_led_color(i, BLUE_BRIGHT);
             }
             if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET)) {
-                printf("Target Hit!\n");
                 num_hit++;
-                //lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
-                const uint32_t ORANGE = 0x00FF7F00;
-                // Define animation steps (center → outward)
                 const int delay_ms = 200;
                 const struct timespec delay = {0, delay_ms * 1000000L};
         
-                // Step 1: Center flash
+                //for animation
                 write_led_color(0, 0x00000000);
                 write_led_color(1, 0x00000000);
                 write_led_color(2, 0x00000000);
-                write_led_color(3, ORANGE);
-                write_led_color(4, ORANGE);
+                write_led_color(3, RB_BRIGHT);
+                write_led_color(4, RB_BRIGHT);
                 write_led_color(5, 0x00000000);
                 write_led_color(6, 0x00000000);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
         
-                // Step 2: Expand outward
+          
                 write_led_color(0, 0x00000000);
                 write_led_color(1, 0x00000000);
-                write_led_color(2, YELLOW);
+                write_led_color(2, BW_BRIGHT);
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
-                write_led_color(5, YELLOW);
+                write_led_color(5, BW_BRIGHT);
                 write_led_color(6, 0x00000000);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
         
-                // Step 3: Final flash
+        
                 write_led_color(0, 0x00000000);
-                write_led_color(1, ORANGE);
+                write_led_color(1, RB_BRIGHT);
                 write_led_color(2, 0x00000000);
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
                 write_led_color(5, 0x00000000);
-                write_led_color(6, ORANGE);
+                write_led_color(6, RB_BRIGHT);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
 
                 write_led_color(0, 0x00000000);
-                write_led_color(1, YELLOW);
+                write_led_color(1, BW_BRIGHT);
                 write_led_color(2, 0x00000000);
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
                 write_led_color(5, 0x00000000);
-                write_led_color(6, YELLOW);
+                write_led_color(6, BW_BRIGHT);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
 
-                write_led_color(0, ORANGE);
+                write_led_color(0, RB_BRIGHT);
                 write_led_color(1, 0x00000000);
                 write_led_color(2, 0x00000000);
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
                 write_led_color(5, 0x00000000);
                 write_led_color(6, 0x00000000);
-                write_led_color(7, ORANGE);
+                write_led_color(7, RB_BRIGHT);
                 nanosleep(&delay, NULL);
         
-                // Step 4: Fade out
+         
                 for (int i = 0; i < NUM_LEDS; i++) {
                     write_led_color(i, 0x00000000); // Off
                 }
@@ -261,7 +256,6 @@ int main() {
                 targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
             }
         }else if (fabsf(errorX) < 0.1f) {
-            printf("errorX ; %f\n", errorX);
             const int delay_ms = 100;
             const struct timespec delay = {0, delay_ms * 1000000L};
             //X is on target: light all LEDs based on Y direction color

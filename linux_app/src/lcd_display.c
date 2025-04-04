@@ -15,7 +15,6 @@ static UWORD *s_fb;
 //static int currentScreen = 1; // Start on Screen 1
 
 void lcd_display_init() {
-    printf("LCD initialize!");
     if(DEV_ModuleInit() != 0){
         DEV_ModuleExit();
         exit(0);
