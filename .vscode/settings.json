@@ -2,6 +2,7 @@
     "files.associations": {
         "accelerometer.h": "c",
         "mman.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "shareddatalayout.h": "c"
     }
 }

@@ -55,6 +55,7 @@ static void initialize_gpio(const struct gpio_dt_spec *pPin, int direction) {
 int main(void) {
 	printf("R5 NeoPixel Shared Memory Driver\n");
 	initialize_gpio(&neopixel, GPIO_OUTPUT_ACTIVE);
+	initialize_gpio(&btn, GPIO_INPUT);
 
 	printf("Contents of Shared Memory ATCM:\n");
 	for (int i = 0; i < END_MEMORY_OFFSET; i++) {
@@ -62,12 +63,16 @@ int main(void) {
 		printf("0x%08x = %2x (%c)\n", (uint32_t) addr, *addr, *addr);
 	}
 
+	MEM_UINT32(IS_BUTTON_PRESSED_OFFSET) = 0;
+
 
 	//int loopCounter = 0;
 
 	while (true) {
 		// SHARED_MEM[DEBUG_START_OFFSET / 4] = 0xDEADBEEF;
 		// SHARED_MEM[DEBUG_END_OFFSET / 4]   = loopCounter++;
+		int state = gpio_pin_get_dt(&btn);
+		bool isPressed = state == 0;
 		gpio_pin_set_dt(&neopixel, 0);
 		DELAY_NS(NEO_RESET_NS);
 
@@ -88,7 +93,8 @@ int main(void) {
 				}
 			}
 		}
-
+		
+		MEM_UINT32(IS_BUTTON_PRESSED_OFFSET) = isPressed;
 		gpio_pin_set_dt(&neopixel, 0);
 		NEO_DELAY_RESET();
 		//k_busy_wait(10000); // Refresh every 10ms

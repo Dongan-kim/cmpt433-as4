@@ -28,6 +28,9 @@
 
 #define END_MEMORY_OFFSET          (LOOP_COUNT_OFFSET + sizeof(uint32_t))
 
+#define MEM_UINT8(addr) *(uint8_t*)(addr)
+#define MEM_UINT32(addr) *(uint32_t*)(addr)
+
 // // NeoPixel LED Strip
 // #define SHARED_RGB_OFFSET          (END_MEMORY_OFFSET)
 // #define NEO_NUM_LEDS               8
