@@ -24,6 +24,7 @@ static int i2c_fd = -1;
 static pthread_t accelThread;
 static volatile int16_t latestX = 0, latestY = 0, latestZ = 0;
 static int running = 1;
+static float dx = 0.0f;
 
 int get_latest_accel(int16_t *x, int16_t *y, int16_t *z) {
     *x = latestX;
@@ -90,20 +91,20 @@ void accelerometer_init() {
     pthread_detach(accelThread);
 }
 
-Direction process_accel_and_target(float* targetX, float* targetY, float threshold, float* dx, float* dy) {
+Direction process_accel_and_target(float* targetX, float* targetY, float threshold) {
     static time_t lastPrint = 0;
 
     int16_t rawX, rawY, rawZ;
     if (get_latest_accel(&rawX, &rawY, &rawZ) != 0) {
-        struct timespec ts = {0, 10000000};  // 100ms
+        struct timespec ts = {0, 1000000};  // 100ms
         nanosleep(&ts, NULL);
         return DIRECTION_NONE;
     }
 
     float x = (float)rawX / 16384.0f;
     float y = (float)rawY / 16384.0f;
-    *dx = *targetX - x;
-    *dy = *targetY - y;
+    dx = *targetX - x;
+    float dy = *targetY - y;
 
     time_t now = time(NULL);
     if (now != lastPrint) {
@@ -111,33 +112,40 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
         lastPrint = now;
     }
 
-    if (fabs(*dx) <= threshold && fabs(*dy) <= threshold) {
-        printf("🎯 Target Hit! Generating new target...\n");
-        struct timespec ts = {0, 500000000};  // 100ms
+    if (fabs(dx) <= threshold && fabs(dy) <= threshold) {
+        struct timespec ts = {0, 100000000};  // 100ms
         nanosleep(&ts, NULL);
         //usleep(500000);
-        *targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
-        *targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
         printf("🎯 New Target: X=%.2f Y=%.2f\n", *targetX, *targetY);
         return DIRECTION_ON_TARGET;
     }
 
-
-    if (fabs(*dx) < fabs(*dy)) {
-        if (fabs(*dx) > threshold) {
-            return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
-        } else if (fabs(*dy) > threshold) {
-            return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
-        }
-    } else {
-        if (fabs(*dy) > threshold) {
-            return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
-        } else if (fabs(*dx) > threshold) {
-            return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
-        }
+    if (fabs(dy) > threshold) {
+        return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
+    }else if (fabs(dy) < threshold) {
+        return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
     }
 
+
+    // if (fabs(*dx) < fabs(*dy)) {
+    //     if (fabs(*dx) > threshold) {
+    //         return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
+    //     } else if (fabs(*dy) > threshold) {
+    //         return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
+    //     }
+    // } else {
+    //     if (fabs(*dy) > threshold) {
+    //         return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
+    //     } else if (fabs(*dx) > threshold) {
+    //         return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
+    //     }
+    // }
+
     return DIRECTION_NONE;  // Or another sensible default
+}
+
+float get_dx() {
+    return dx;
 }
 
 void accelerometer_cleanup() {

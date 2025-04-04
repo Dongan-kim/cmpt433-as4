@@ -15,12 +15,14 @@ typedef enum {
 // Initialize the accelerometer and background thread
 void accelerometer_init(void);
 
-Direction process_accel_and_target(float* targetX, float* targetY, float threshold, float* dx, float* dy);
+Direction process_accel_and_target(float* targetX, float* targetY, float threshold);
 
 // Stop background thread and close I2C
 void accelerometer_cleanup(void);
 
 // Get latest readings from background thread
 int get_latest_accel(int16_t *x, int16_t *y, int16_t *z);
+
+float get_dx();
 
 #endif // ACCELEROMETER_H

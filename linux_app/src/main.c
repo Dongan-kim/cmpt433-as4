@@ -104,57 +104,121 @@ int main() {
     float targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
     const float threshold = 0.1f;
 
-    float dx, dy;
+    //float dx, dy;
+
+
+    //time_t lastPrintTime = 0;
 
     while (true) {
-        Direction dir = process_accel_and_target(&targetX, &targetY, threshold, &dx, &dy);
-        //printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", dx, dy, targetX, targetY);
+        Direction dir = process_accel_and_target(&targetX, &targetY, threshold);
+        //printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n",targetX, targetY);
         printf("Direction: %s\n", direction_to_string(dir));
+
+        float errorX = get_dx();
+        //float errorY = targetY - dy;
+        
+        uint32_t brightColor, dimColor;
+        
+        // Choose color based on horizontal direction (X-axis)
+        if (dir == DIRECTION_LEFT) {
+            brightColor = RED_BRIGHT;
+            dimColor = RED_DIM;
+        } else if (dir == DIRECTION_RIGHT) {
+            brightColor = GREEN_BRIGHT;
+            dimColor = GREEN_DIM;
+        } else if (dir == DIRECTION_DOWN || dir == DIRECTION_UP){
+            brightColor = BLUE_BRIGHT;
+            dimColor = BLUE_DIM;
+        }
+        
+        //Check if both X and Y are within target threshold
+        if (dir == DIRECTION_ON_TARGET) {
+            // On Target: All LEDs bright blue
+            for (int i = 0; i < NUM_LEDS; i++) {
+                write_led_color(i, BLUE_BRIGHT);
+            }
+            printf("Target Hit! Generating new target...\n");
+            struct timespec pause = {1, 0};
+            nanosleep(&pause, NULL);
+            targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
+            targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
+        }else if (fabsf(errorX) <= 0.1f) {
+            //X is on target: light all LEDs based on Y direction color
+            for (int i = 0; i < NUM_LEDS; i++) {
+                write_led_color(i, brightColor);
+            }
+        }else if (dir == DIRECTION_NONE) {
+            for (int i = 0; i < NUM_LEDS; i++) {
+                write_led_color(i, 0x00000000);
+            }
+        }else {
+            // 🌐 Not fully on target → Light 3 LEDs based on Y-axis position
+            float step = 0.4f;
+            float offset = errorX / step;  // each 0.4 of error shifts one LED
+            int centerIndex = 4 + (int)roundf(offset) - 1;  // LED index decreases when board too low
+        
+            // Clamp to valid center range (1 to 6) to safely light +/-1
+            if (centerIndex < 1) centerIndex = 1;
+            if (centerIndex > 6) centerIndex = 6;
+        
+            for (int i = 0; i < NUM_LEDS; i++) {
+                if (i == centerIndex) {
+                    write_led_color(i, brightColor); // Bright center
+                } else if (i == centerIndex - 1 || i == centerIndex + 1) {
+                    write_led_color(i, dimColor);    // Dim sides
+                } else {
+                    write_led_color(i, 0x00000000);  // Off
+                }
+            }
+        }
+
+        struct timespec ts = {0, 100000000};  // 100 ms
+        nanosleep(&ts, NULL);
     
         //float errorX = targetX - dx;
     
-        uint32_t color;
-        if (dir == DIRECTION_LEFT) {
-            color = RED_BRIGHT; // target is to the left → need to tilt left
-        } else if (dir == DIRECTION_RIGHT) {
-            color = GREEN_BRIGHT; // target is to the right → need to tilt right
-        } else if (dir == DIRECTION_ON_TARGET){
-            color = WHITE_BRIGHT; // centered
-        }else{
-            color = BLUE_BRIGHT;
-        }
+        // uint32_t color;
+        // if (dir == DIRECTION_LEFT) {
+        //     color = RED_BRIGHT; // target is to the left → need to tilt left
+        // } else if (dir == DIRECTION_RIGHT) {
+        //     color = GREEN_BRIGHT; // target is to the right → need to tilt right
+        // } else if (dir == DIRECTION_ON_TARGET){
+        //     color = WHITE_BRIGHT; // centered
+        // }else{
+        //     color = BLUE_BRIGHT;
+        // }
     
-        for (int i = 0; i < NUM_LEDS; i++) {
-            if (dir == DIRECTION_ON_TARGET) {
-                //On Target — light all LEDs bright white
-                write_led_color(i, WHITE_BRIGHT);
-            } else if (i == 2 || i == 4) {
-                // Middle left/right → dim color
-                uint32_t dimColor;
-                if (color == RED_BRIGHT)
-                    dimColor = RED_DIM;
-                else if (color == GREEN_BRIGHT)
-                    dimColor = GREEN_DIM;
-                else
-                    dimColor = BLUE_DIM;
+        // for (int i = 0; i < NUM_LEDS; i++) {
+        //     if (dir == DIRECTION_ON_TARGET) {
+        //         //On Target — light all LEDs bright white
+        //         write_led_color(i, WHITE_BRIGHT);
+        //     } else if (i == 2 || i == 4) {
+        //         // Middle left/right → dim color
+        //         uint32_t dimColor;
+        //         if (color == RED_BRIGHT)
+        //             dimColor = RED_DIM;
+        //         else if (color == GREEN_BRIGHT)
+        //             dimColor = GREEN_DIM;
+        //         else
+        //             dimColor = BLUE_DIM;
         
-                write_led_color(i, dimColor);
-            } else if (i == 3) {
-                // Center LED → bright
-                write_led_color(i, color);
-            } else {
-                // All others off
-                write_led_color(i, 0x00000000);
-            }
-        }
+        //         write_led_color(i, dimColor);
+        //     } else if (i == 3) {
+        //         // Center LED → bright
+        //         write_led_color(i, color);
+        //     } else {
+        //         // All others off
+        //         write_led_color(i, 0x00000000);
+        //     }
+        // }
     
-        if (dir == DIRECTION_ON_TARGET) {
-            struct timespec pause = {1, 0};  // 1 second
-            nanosleep(&pause, NULL);
-        } else {
-            struct timespec ts = {0, 100000000};  // 100 ms
-            nanosleep(&ts, NULL);
-        }
+        // if (dir == DIRECTION_ON_TARGET) {
+        //     struct timespec pause = {1, 0};  // 1 second
+        //     nanosleep(&pause, NULL);
+        // } else {
+        //     struct timespec ts = {0, 100000000};  // 100 ms
+        //     nanosleep(&ts, NULL);
+        // }
     }
 
     return 0;
