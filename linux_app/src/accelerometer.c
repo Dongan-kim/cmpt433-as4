@@ -113,8 +113,8 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
     }
 
     if (fabs(dx) <= threshold && fabs(dy) <= threshold) {
-        // struct timespec ts = {0, 100000000};  // 100ms
-        // nanosleep(&ts, NULL);
+        struct timespec ts = {0, 100000000};  // 100ms
+        nanosleep(&ts, NULL);
         //usleep(500000);
         //printf("🎯 New Target: X=%.2f Y=%.2f\n", *targetX, *targetY);
         return DIRECTION_ON_TARGET;

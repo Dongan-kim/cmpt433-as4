@@ -24,6 +24,8 @@
 #define BLUE_BRIGHT   0x0000ff00
 #define BLUE_DIM      0x00000f00
 #define WHITE_BRIGHT  0xffffff00
+#define PURPLE        0x000f0f00
+#define YELLOW        0x0f0f0000
 
 // ✅ Make pSharedMem global
 volatile void* pSharedMem = NULL;
@@ -130,7 +132,6 @@ int main() {
         Direction dir = process_accel_and_target(&targetX, &targetY, threshold);
         //printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n",targetX, targetY);
         printf("Direction: %s\n", direction_to_string(dir));
-        float errorX = get_dx();
         
         uint32_t brightColor, dimColor;
         
@@ -153,9 +154,25 @@ int main() {
         //Check if both X and Y are within target threshold
         if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) && dir != DIRECTION_ON_TARGET){
             printf("Target missed!\n");
-            struct timespec ts = {0, 200000000};  // 200ms
-            nanosleep(&ts, NULL);
+            const int delay_ms = 500;
+            const struct timespec delay = {0, delay_ms * 1000000L};
+        
+            // Step 1: Center flash
+            write_led_color(0, 0x00000000);
+            write_led_color(1, PURPLE);
+            write_led_color(2, 0x00000000);
+            write_led_color(3, PURPLE);
+            write_led_color(4, 0x00000000);
+            write_led_color(5, PURPLE);
+            write_led_color(6, 0x00000000);
+            write_led_color(7, PURPLE);
+            nanosleep(&delay, NULL);
+        
+
+            struct timespec finalPause = {0, 10000 * 1000000L}; // 500ms
+            nanosleep(&finalPause, NULL); 
         }
+        float errorX = get_dx();
         if (dir == DIRECTION_ON_TARGET) {
             // On Target: All LEDs bright blue
             for (int i = 0; i < NUM_LEDS; i++) {
@@ -166,63 +183,137 @@ int main() {
         
                 const uint32_t ORANGE = 0x00FF7F00;
                 // Define animation steps (center → outward)
-                const int delay_ms = 100;
+                const int delay_ms = 200;
                 const struct timespec delay = {0, delay_ms * 1000000L};
         
                 // Step 1: Center flash
+                write_led_color(0, 0x00000000);
+                write_led_color(1, 0x00000000);
+                write_led_color(2, 0x00000000);
                 write_led_color(3, ORANGE);
                 write_led_color(4, ORANGE);
+                write_led_color(5, 0x00000000);
+                write_led_color(6, 0x00000000);
+                write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
         
                 // Step 2: Expand outward
-                write_led_color(2, WHITE_BRIGHT);
-                write_led_color(5, WHITE_BRIGHT);
+                write_led_color(0, 0x00000000);
+                write_led_color(1, 0x00000000);
+                write_led_color(2, YELLOW);
+                write_led_color(3, 0x00000000);
+                write_led_color(4, 0x00000000);
+                write_led_color(5, YELLOW);
+                write_led_color(6, 0x00000000);
+                write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
         
                 // Step 3: Final flash
+                write_led_color(0, 0x00000000);
                 write_led_color(1, ORANGE);
+                write_led_color(2, 0x00000000);
+                write_led_color(3, 0x00000000);
+                write_led_color(4, 0x00000000);
+                write_led_color(5, 0x00000000);
                 write_led_color(6, ORANGE);
+                write_led_color(7, 0x00000000);
+                nanosleep(&delay, NULL);
+
+                write_led_color(0, 0x00000000);
+                write_led_color(1, YELLOW);
+                write_led_color(2, 0x00000000);
+                write_led_color(3, 0x00000000);
+                write_led_color(4, 0x00000000);
+                write_led_color(5, 0x00000000);
+                write_led_color(6, YELLOW);
+                write_led_color(7, 0x00000000);
+                nanosleep(&delay, NULL);
+
+                write_led_color(0, ORANGE);
+                write_led_color(1, 0x00000000);
+                write_led_color(2, 0x00000000);
+                write_led_color(3, 0x00000000);
+                write_led_color(4, 0x00000000);
+                write_led_color(5, 0x00000000);
+                write_led_color(6, 0x00000000);
+                write_led_color(7, ORANGE);
                 nanosleep(&delay, NULL);
         
                 // Step 4: Fade out
                 for (int i = 0; i < NUM_LEDS; i++) {
                     write_led_color(i, 0x00000000); // Off
                 }
-                struct timespec finalPause = {0, 500 * 1000000L}; // 500ms
-                nanosleep(&finalPause, NULL);        
+                nanosleep(&delay, NULL);       
         
                 //New target
                 targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
                 targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
             }
-        }else if (fabsf(errorX) <= 0.1f) {
+        }else if (fabsf(errorX) < 0.1f) {
+            printf("errorX ; %f\n", errorX);
+            const int delay_ms = 100;
+            const struct timespec delay = {0, delay_ms * 1000000L};
             //X is on target: light all LEDs based on Y direction color
             for (int i = 0; i < NUM_LEDS; i++) {
                 write_led_color(i, brightColor);
             }
-        }else if (dir == DIRECTION_NONE) {
-            for (int i = 0; i < NUM_LEDS; i++) {
-                write_led_color(i, 0x00000000);
-            }
+            nanosleep(&delay, NULL);
         }else {
-            // 🌐 Not fully on target → Light 3 LEDs based on Y-axis position
-            float step = 0.4f;
-            float offset = errorX / step;  // each 0.4 of error shifts one LED
-            int centerIndex = 4 + (int)roundf(offset) - 1;  // LED index decreases when board too low
-        
-            // Clamp to valid center range (1 to 6) to safely light +/-1
-            if (centerIndex < 1) centerIndex = 1;
-            if (centerIndex > 6) centerIndex = 6;
-        
+            int centerIndex;  // Default centered
+
+            if (errorX > 0.40f) {
+                centerIndex = 8; // Far right dim (beyond range)
+            } else if (errorX >= 0.30f) {
+                centerIndex = 7;
+            } else if (errorX >= 0.24f) {
+                centerIndex = 6;
+            } else if (errorX >= 0.18f) {
+                centerIndex = 5;
+            } else if (errorX >= 0.12f) {
+                centerIndex = 4;
+            } else if (errorX <= -0.35f) {
+                centerIndex = -1; // Far left dim (beyond range)
+            } else if (errorX <= -0.30f) {
+                centerIndex = 0;
+            } else if (errorX <= -0.24f) {
+                centerIndex = 1;
+            } else if (errorX <= -0.18f) {
+                centerIndex = 2;
+            } else if (errorX <= -0.12f) {
+                centerIndex = 3;
+            }
+
             for (int i = 0; i < NUM_LEDS; i++) {
                 if (i == centerIndex) {
                     write_led_color(i, brightColor); // Bright center
                 } else if (i == centerIndex - 1 || i == centerIndex + 1) {
-                    write_led_color(i, dimColor);    // Dim sides
+                    if (i >= 0 && i < NUM_LEDS)
+                        write_led_color(i, dimColor); // Dim sides
                 } else {
-                    write_led_color(i, 0x00000000);  // Off
+                    write_led_color(i, 0x00000000); // Off
                 }
             }
+            // float step = 0.2f;
+            // float offset = errorX / step;
+            // int centerIndex = 4 + (errorX >= 0.0f ? (int)floorf(offset + 0.01f)
+            //                           : (int)ceilf(offset - 0.01f));
+        
+            // // Clamp centerIndex to [-1, 8] so that we can show edge LEDs as dim
+            // if (centerIndex < -1) centerIndex = -1;
+            // if (centerIndex > 8) centerIndex = 8;
+        
+            // for (int i = 0; i < NUM_LEDS; i++) {
+            //     if (i == centerIndex) {
+            //         write_led_color(i, brightColor); // Center bright
+            //     } else if (i == centerIndex - 1 || i == centerIndex + 1) {
+            //         // Dim lights only if within valid LED index
+            //         if (i >= 0 && i < NUM_LEDS) {
+            //             write_led_color(i, dimColor);
+            //         }
+            //     } else {
+            //         write_led_color(i, 0x00000000); // Off
+            //     }
+            // }
         }
 
         struct timespec ts = {0, 100000000};  // 100 ms
