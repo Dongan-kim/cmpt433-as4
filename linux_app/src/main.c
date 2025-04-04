@@ -261,23 +261,23 @@ int main() {
         }else {
             int centerIndex;  // Default centered
 
-            if (errorX > 0.40f) {
+            if (errorX > 0.41f) {
                 centerIndex = 8; // Far right dim (beyond range)
-            } else if (errorX >= 0.30f) {
+            } else if (errorX >= 0.35f) {
                 centerIndex = 7;
-            } else if (errorX >= 0.24f) {
+            } else if (errorX >= 0.27f) {
                 centerIndex = 6;
-            } else if (errorX >= 0.18f) {
+            } else if (errorX >= 0.19f) {
                 centerIndex = 5;
             } else if (errorX >= 0.12f) {
                 centerIndex = 4;
-            } else if (errorX <= -0.35f) {
+            } else if (errorX <= -0.41f) {
                 centerIndex = -1; // Far left dim (beyond range)
-            } else if (errorX <= -0.30f) {
+            } else if (errorX <= -0.35f) {
                 centerIndex = 0;
-            } else if (errorX <= -0.24f) {
+            } else if (errorX <= -0.27f) {
                 centerIndex = 1;
-            } else if (errorX <= -0.18f) {
+            } else if (errorX <= -0.19f) {
                 centerIndex = 2;
             } else if (errorX <= -0.12f) {
                 centerIndex = 3;
