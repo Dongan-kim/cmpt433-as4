@@ -10,8 +10,10 @@
 #include <math.h>
 #include <time.h>
 #include <string.h>
+#include <signal.h>
 #include "accelerometer.h"
 #include "sharedDataLayout.h"
+#include "lcd_display.h"
 
 #define NUM_LEDS 8
 #define SHARED_MEM_LENGTH 0x8000
@@ -29,6 +31,7 @@
 
 // ✅ Make pSharedMem global
 volatile void* pSharedMem = NULL;
+volatile int keepRunning = 1;
 
 // ✅ Function that maps memory and returns the pointer
 volatile void* map_shared_memory(void) {
@@ -58,8 +61,8 @@ void freeR5MmapAddr(volatile void* addr)
 
 void cleanup_resources() {
     printf("Cleaning up resources...\n");
-    //RotaryEncoder_cleanup();
     accelerometer_cleanup();
+    lcd_display_cleanup();
     printf("All resources cleaned up.\n");
 }
 
@@ -109,10 +112,18 @@ void compute_led_colors_by_direction(Direction dir, uint32_t* ledColors) {
     }
 }
 
+void handleSigint(int sig) {
+    (void)sig;
+    printf("\nShutting down...\n");
+    keepRunning = 0;
+}
+
 int main() {
+    signal(SIGINT, handleSigint);
     srand(time(NULL));
     accelerometer_init();
-    //RotaryEncoder_init();
+    lcd_display_init();
+    time_t startTime = time(NULL);
 
     pSharedMem = map_shared_memory();
     // Set LED update delay (in milliseconds) for R5
@@ -122,15 +133,16 @@ int main() {
     float targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
     float targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
     const float threshold = 0.1f;
+    int num_hit = 0;
+    int num_miss = 0;
 
-    //float dx, dy;
-
-
-    //time_t lastPrintTime = 0;
-
-    while (true) {
+    while (keepRunning) {
+        time_t now = time(NULL);
+        int elapsed = (int)(now - startTime);
+        int minutes = elapsed / 60;
+        int seconds = elapsed % 60;
+        lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
         Direction dir = process_accel_and_target(&targetX, &targetY, threshold);
-        //printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n",targetX, targetY);
         printf("Direction: %s\n", direction_to_string(dir));
         
         uint32_t brightColor, dimColor;
@@ -147,13 +159,11 @@ int main() {
             dimColor = BLUE_DIM;
         }
 
-        // if(RotaryEncoder_buttonPressed()){
-        //     printf("Target missed!\n");
-        // }
-        
         //Check if both X and Y are within target threshold
         if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) && dir != DIRECTION_ON_TARGET){
             printf("Target missed!\n");
+            num_miss++;
+            //lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
             const int delay_ms = 500;
             const struct timespec delay = {0, delay_ms * 1000000L};
         
@@ -180,7 +190,8 @@ int main() {
             }
             if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET)) {
                 printf("Target Hit!\n");
-        
+                num_hit++;
+                //lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
                 const uint32_t ORANGE = 0x00FF7F00;
                 // Define animation steps (center → outward)
                 const int delay_ms = 200;
@@ -293,33 +304,14 @@ int main() {
                     write_led_color(i, 0x00000000); // Off
                 }
             }
-            // float step = 0.2f;
-            // float offset = errorX / step;
-            // int centerIndex = 4 + (errorX >= 0.0f ? (int)floorf(offset + 0.01f)
-            //                           : (int)ceilf(offset - 0.01f));
-        
-            // // Clamp centerIndex to [-1, 8] so that we can show edge LEDs as dim
-            // if (centerIndex < -1) centerIndex = -1;
-            // if (centerIndex > 8) centerIndex = 8;
-        
-            // for (int i = 0; i < NUM_LEDS; i++) {
-            //     if (i == centerIndex) {
-            //         write_led_color(i, brightColor); // Center bright
-            //     } else if (i == centerIndex - 1 || i == centerIndex + 1) {
-            //         // Dim lights only if within valid LED index
-            //         if (i >= 0 && i < NUM_LEDS) {
-            //             write_led_color(i, dimColor);
-            //         }
-            //     } else {
-            //         write_led_color(i, 0x00000000); // Off
-            //     }
-            // }
         }
 
         struct timespec ts = {0, 100000000};  // 100 ms
         nanosleep(&ts, NULL);
     }
-
+    for (int i = 0; i < NUM_LEDS; i++) {
+        write_led_color(i, 0x00000000); // Off
+    }
     cleanup_resources();
     freeR5MmapAddr(pSharedMem);
     return 0;
