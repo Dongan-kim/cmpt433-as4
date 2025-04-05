@@ -1,12 +1,8 @@
-//This file provides all the functionality related to the LCD display used in the BeatBox application.
-//It handles the initialization, screen management, and drawing of various UI elements such as
-//beat mode, volume, BPM, and timing diagnostics.
 #include "lcd_display.h"
 #include "DEV_Config.h"
 #include "LCD_1in54.h"
 #include "GUI_Paint.h"
 #include "GUI_BMP.h"
-//#include "periodTimer.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

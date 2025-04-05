@@ -27,21 +27,9 @@
 #define DEBUG_END_OFFSET          (SHARED_RGB_OFFSET + (NEO_NUM_LEDS * sizeof(uint32_t)))
 #define SHARED_MEM_TOTAL_BYTES    (DEBUG_END_OFFSET + sizeof(uint32_t))
 
-#define END_MEMORY_OFFSET          (LOOP_COUNT_OFFSET + sizeof(uint32_t))
+#define END_MEMORY_OFFSET          (IS_JOYSTICK_PRESSED_OFFSET + sizeof(uint32_t))
 
 #define MEM_UINT8(addr) *(uint8_t*)(addr)
 #define MEM_UINT32(addr) *(uint32_t*)(addr)
-
-// // NeoPixel LED Strip
-// #define SHARED_RGB_OFFSET          (END_MEMORY_OFFSET)
-// #define NEO_NUM_LEDS               8
-// #define SHARED_MEM_TOTAL_BYTES     (SHARED_RGB_OFFSET + (NEO_NUM_LEDS * sizeof(uint32_t)))
-
-// // Debug tail offset (optional second debug value)
-// #define DEBUG_END_OFFSET           SHARED_MEM_TOTAL_BYTES
-
-// // Helper macros for low-level memory access (if needed)
-// #define MEM_UINT8(addr)  (*(uint8_t *)(addr))
-// #define MEM_UINT32(addr) (*(uint32_t *)(addr))
 
 #endif // _SHARED_DATA_STRUCT_H_
