@@ -40,7 +40,7 @@
  *   29  /leds
  *   30  /leds/btn_gpio23
  *   31  /leds/btn_gpio24
- *   32  /leds/led_gpio7
+ *   32  /leds/btn_gpio5
  *
  * Definitions derived from these nodes in dependency order are next,
  * followed by /chosen nodes.
@@ -3759,7 +3759,7 @@
 	29, /* /leds */ \
 	30, /* /leds/btn_gpio23 */ \
 	31, /* /leds/btn_gpio24 */ \
-	32, /* /leds/led_gpio7 */
+	32, /* /leds/btn_gpio5 */
 
 /* Existence and alternate IDs: */
 #define DT_N_S_gpio_4201010_EXISTS 1
@@ -3892,14 +3892,14 @@
 /* Helper macros for child nodes of this node. */
 #define DT_N_S_leds_CHILD_NUM 3
 #define DT_N_S_leds_CHILD_NUM_STATUS_OKAY 3
-#define DT_N_S_leds_FOREACH_CHILD(fn) fn(DT_N_S_leds_S_led_gpio7) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23)
-#define DT_N_S_leds_FOREACH_CHILD_SEP(fn, sep) fn(DT_N_S_leds_S_led_gpio7) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23)
-#define DT_N_S_leds_FOREACH_CHILD_VARGS(fn, ...) fn(DT_N_S_leds_S_led_gpio7, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
-#define DT_N_S_leds_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) fn(DT_N_S_leds_S_led_gpio7, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
-#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY(fn) fn(DT_N_S_leds_S_led_gpio7) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23)
-#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) fn(DT_N_S_leds_S_led_gpio7) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23)
-#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) fn(DT_N_S_leds_S_led_gpio7, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
-#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) fn(DT_N_S_leds_S_led_gpio7, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
+#define DT_N_S_leds_FOREACH_CHILD(fn) fn(DT_N_S_leds_S_btn_gpio5) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23)
+#define DT_N_S_leds_FOREACH_CHILD_SEP(fn, sep) fn(DT_N_S_leds_S_btn_gpio5) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23)
+#define DT_N_S_leds_FOREACH_CHILD_VARGS(fn, ...) fn(DT_N_S_leds_S_btn_gpio5, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
+#define DT_N_S_leds_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) fn(DT_N_S_leds_S_btn_gpio5, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
+#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY(fn) fn(DT_N_S_leds_S_btn_gpio5) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23)
+#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) fn(DT_N_S_leds_S_btn_gpio5) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23)
+#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) fn(DT_N_S_leds_S_btn_gpio5, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
+#define DT_N_S_leds_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) fn(DT_N_S_leds_S_btn_gpio5, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__)
 
 /* Node's hash: */
 #define DT_N_S_leds_HASH bMroFUocDdjE3kJ38dK18mDvlCOPoyya5kIIs76irj8
@@ -3917,7 +3917,7 @@
 #define DT_N_S_leds_SUPPORTS_ORDS \
 	30, /* /leds/btn_gpio23 */ \
 	31, /* /leds/btn_gpio24 */ \
-	32, /* /leds/led_gpio7 */
+	32, /* /leds/btn_gpio5 */
 
 /* Existence and alternate IDs: */
 #define DT_N_S_leds_EXISTS 1
@@ -4124,91 +4124,91 @@
 #define DT_N_S_leds_S_btn_gpio24_P_gpios_EXISTS 1
 
 /*
- * Devicetree node: /leds/led_gpio7
+ * Devicetree node: /leds/btn_gpio5
  *
- * Node identifier: DT_N_S_leds_S_led_gpio7
+ * Node identifier: DT_N_S_leds_S_btn_gpio5
  *
  * (Descriptions have moved to the Devicetree Bindings Index
  * in the documentation.)
  */
 
 /* Node's full path: */
-#define DT_N_S_leds_S_led_gpio7_PATH "/leds/led_gpio7"
+#define DT_N_S_leds_S_btn_gpio5_PATH "/leds/btn_gpio5"
 
 /* Node's name with unit-address: */
-#define DT_N_S_leds_S_led_gpio7_FULL_NAME "led_gpio7"
-#define DT_N_S_leds_S_led_gpio7_FULL_NAME_UNQUOTED led_gpio7
-#define DT_N_S_leds_S_led_gpio7_FULL_NAME_TOKEN led_gpio7
-#define DT_N_S_leds_S_led_gpio7_FULL_NAME_UPPER_TOKEN LED_GPIO7
+#define DT_N_S_leds_S_btn_gpio5_FULL_NAME "btn_gpio5"
+#define DT_N_S_leds_S_btn_gpio5_FULL_NAME_UNQUOTED btn_gpio5
+#define DT_N_S_leds_S_btn_gpio5_FULL_NAME_TOKEN btn_gpio5
+#define DT_N_S_leds_S_btn_gpio5_FULL_NAME_UPPER_TOKEN BTN_GPIO5
 
 /* Node parent (/leds) identifier: */
-#define DT_N_S_leds_S_led_gpio7_PARENT DT_N_S_leds
+#define DT_N_S_leds_S_btn_gpio5_PARENT DT_N_S_leds
 
 /* Node's index in its parent's list of children: */
-#define DT_N_S_leds_S_led_gpio7_CHILD_IDX 0
+#define DT_N_S_leds_S_btn_gpio5_CHILD_IDX 0
 
 /* Helpers for dealing with node labels: */
-#define DT_N_S_leds_S_led_gpio7_NODELABEL_NUM 1
-#define DT_N_S_leds_S_led_gpio7_FOREACH_NODELABEL(fn) fn(mcu_led)
-#define DT_N_S_leds_S_led_gpio7_FOREACH_NODELABEL_VARGS(fn, ...) fn(mcu_led, __VA_ARGS__)
-#define DT_N_S_leds_S_led_gpio7_FOREACH_ANCESTOR(fn) fn(DT_N_S_leds) fn(DT_N)
+#define DT_N_S_leds_S_btn_gpio5_NODELABEL_NUM 1
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_NODELABEL(fn) fn(mcu_joy)
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_NODELABEL_VARGS(fn, ...) fn(mcu_joy, __VA_ARGS__)
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_ANCESTOR(fn) fn(DT_N_S_leds) fn(DT_N)
 
 /* Helper macros for child nodes of this node. */
-#define DT_N_S_leds_S_led_gpio7_CHILD_NUM 0
-#define DT_N_S_leds_S_led_gpio7_CHILD_NUM_STATUS_OKAY 0
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD(fn) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_SEP(fn, sep) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_VARGS(fn, ...) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_STATUS_OKAY(fn) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) 
-#define DT_N_S_leds_S_led_gpio7_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) 
+#define DT_N_S_leds_S_btn_gpio5_CHILD_NUM 0
+#define DT_N_S_leds_S_btn_gpio5_CHILD_NUM_STATUS_OKAY 0
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD(fn) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_SEP(fn, sep) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_VARGS(fn, ...) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_STATUS_OKAY(fn) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) 
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) 
 
 /* Node's hash: */
-#define DT_N_S_leds_S_led_gpio7_HASH VXAkquPjA6FBVU0PUIN7GRgN5wVX3DGg4BUh97Onhs8
+#define DT_N_S_leds_S_btn_gpio5_HASH pGTBahB6WYxChTcXclNXjzpFDenTMSNw2UQNM9m3SwU
 
 /* Node's dependency ordinal: */
-#define DT_N_S_leds_S_led_gpio7_ORD 32
-#define DT_N_S_leds_S_led_gpio7_ORD_STR_SORTABLE 00032
+#define DT_N_S_leds_S_btn_gpio5_ORD 32
+#define DT_N_S_leds_S_btn_gpio5_ORD_STR_SORTABLE 00032
 
 /* Ordinals for what this node depends on directly: */
-#define DT_N_S_leds_S_led_gpio7_REQUIRES_ORDS \
+#define DT_N_S_leds_S_btn_gpio5_REQUIRES_ORDS \
 	28, /* /gpio@4201010 */ \
 	29, /* /leds */
 
 /* Ordinals for what depends directly on this node: */
-#define DT_N_S_leds_S_led_gpio7_SUPPORTS_ORDS /* nothing */
+#define DT_N_S_leds_S_btn_gpio5_SUPPORTS_ORDS /* nothing */
 
 /* Existence and alternate IDs: */
-#define DT_N_S_leds_S_led_gpio7_EXISTS 1
-#define DT_N_ALIAS_led0        DT_N_S_leds_S_led_gpio7
-#define DT_N_NODELABEL_mcu_led DT_N_S_leds_S_led_gpio7
+#define DT_N_S_leds_S_btn_gpio5_EXISTS 1
+#define DT_N_ALIAS_joy0        DT_N_S_leds_S_btn_gpio5
+#define DT_N_NODELABEL_mcu_joy DT_N_S_leds_S_btn_gpio5
 
 /* Macros for properties that are special in the specification: */
-#define DT_N_S_leds_S_led_gpio7_REG_NUM 0
-#define DT_N_S_leds_S_led_gpio7_RANGES_NUM 0
-#define DT_N_S_leds_S_led_gpio7_FOREACH_RANGE(fn) 
-#define DT_N_S_leds_S_led_gpio7_IRQ_NUM 0
-#define DT_N_S_leds_S_led_gpio7_IRQ_LEVEL 0
-#define DT_N_S_leds_S_led_gpio7_STATUS_okay 1
+#define DT_N_S_leds_S_btn_gpio5_REG_NUM 0
+#define DT_N_S_leds_S_btn_gpio5_RANGES_NUM 0
+#define DT_N_S_leds_S_btn_gpio5_FOREACH_RANGE(fn) 
+#define DT_N_S_leds_S_btn_gpio5_IRQ_NUM 0
+#define DT_N_S_leds_S_btn_gpio5_IRQ_LEVEL 0
+#define DT_N_S_leds_S_btn_gpio5_STATUS_okay 1
 
 /* Pin control (pinctrl-<i>, pinctrl-names) properties: */
-#define DT_N_S_leds_S_led_gpio7_PINCTRL_NUM 0
+#define DT_N_S_leds_S_btn_gpio5_PINCTRL_NUM 0
 
 /* Generic property macros: */
-#define DT_N_S_leds_S_led_gpio7_P_gpios_IDX_0_EXISTS 1
-#define DT_N_S_leds_S_led_gpio7_P_gpios_IDX_0_PH DT_N_S_gpio_4201010
-#define DT_N_S_leds_S_led_gpio7_P_gpios_IDX_0_VAL_pin 9
-#define DT_N_S_leds_S_led_gpio7_P_gpios_IDX_0_VAL_pin_EXISTS 1
-#define DT_N_S_leds_S_led_gpio7_P_gpios_IDX_0_VAL_flags 0
-#define DT_N_S_leds_S_led_gpio7_P_gpios_IDX_0_VAL_flags_EXISTS 1
-#define DT_N_S_leds_S_led_gpio7_P_gpios_FOREACH_PROP_ELEM(fn) fn(DT_N_S_leds_S_led_gpio7, gpios, 0)
-#define DT_N_S_leds_S_led_gpio7_P_gpios_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_leds_S_led_gpio7, gpios, 0)
-#define DT_N_S_leds_S_led_gpio7_P_gpios_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_leds_S_led_gpio7, gpios, 0, __VA_ARGS__)
-#define DT_N_S_leds_S_led_gpio7_P_gpios_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_leds_S_led_gpio7, gpios, 0, __VA_ARGS__)
-#define DT_N_S_leds_S_led_gpio7_P_gpios_LEN 1
-#define DT_N_S_leds_S_led_gpio7_P_gpios_EXISTS 1
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_IDX_0_EXISTS 1
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_IDX_0_PH DT_N_S_gpio_4201010
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_IDX_0_VAL_pin 15
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_IDX_0_VAL_pin_EXISTS 1
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_IDX_0_VAL_flags 0
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_IDX_0_VAL_flags_EXISTS 1
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_FOREACH_PROP_ELEM(fn) fn(DT_N_S_leds_S_btn_gpio5, gpios, 0)
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_leds_S_btn_gpio5, gpios, 0)
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_leds_S_btn_gpio5, gpios, 0, __VA_ARGS__)
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_leds_S_btn_gpio5, gpios, 0, __VA_ARGS__)
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_LEN 1
+#define DT_N_S_leds_S_btn_gpio5_P_gpios_EXISTS 1
 
 /*
  * Chosen nodes
@@ -4219,10 +4219,10 @@
 #define DT_CHOSEN_zephyr_console_EXISTS 1
 
 /* Macros for iterating over all nodes and enabled nodes */
-#define DT_FOREACH_HELPER(fn) fn(DT_N) fn(DT_N_S_chosen) fn(DT_N_S_aliases) fn(DT_N_S_soc) fn(DT_N_S_gpio_4201010) fn(DT_N_S_uart_4a00000) fn(DT_N_S_pinctrl_f4000) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default) fn(DT_N_S_gpio_600010) fn(DT_N_S_gpio_601010) fn(DT_N_S_uart_2800000) fn(DT_N_S_uart_2810000) fn(DT_N_S_uart_2820000) fn(DT_N_S_uart_2830000) fn(DT_N_S_uart_2840000) fn(DT_N_S_uart_2850000) fn(DT_N_S_uart_2860000) fn(DT_N_S_cpus) fn(DT_N_S_cpus_S_cpu_0) fn(DT_N_S_memory_0) fn(DT_N_S_memory_41010000) fn(DT_N_S_interrupt_controller_7ff0000) fn(DT_N_S_timer_4800000) fn(DT_N_S_memory_a1000000) fn(DT_N_S_memory_a1100000) fn(DT_N_S_memory_a1200000) fn(DT_N_S_leds) fn(DT_N_S_leds_S_led_gpio7) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23) fn(DT_N_S_pinctrl_mcu_4084000) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default)
-#define DT_FOREACH_OKAY_HELPER(fn) fn(DT_N) fn(DT_N_S_chosen) fn(DT_N_S_aliases) fn(DT_N_S_soc) fn(DT_N_S_gpio_4201010) fn(DT_N_S_pinctrl_f4000) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default) fn(DT_N_S_uart_2810000) fn(DT_N_S_cpus) fn(DT_N_S_cpus_S_cpu_0) fn(DT_N_S_memory_0) fn(DT_N_S_memory_41010000) fn(DT_N_S_interrupt_controller_7ff0000) fn(DT_N_S_timer_4800000) fn(DT_N_S_memory_a1000000) fn(DT_N_S_memory_a1100000) fn(DT_N_S_memory_a1200000) fn(DT_N_S_leds) fn(DT_N_S_leds_S_led_gpio7) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23) fn(DT_N_S_pinctrl_mcu_4084000) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default)
-#define DT_FOREACH_VARGS_HELPER(fn, ...) fn(DT_N, __VA_ARGS__) fn(DT_N_S_chosen, __VA_ARGS__) fn(DT_N_S_aliases, __VA_ARGS__) fn(DT_N_S_soc, __VA_ARGS__) fn(DT_N_S_gpio_4201010, __VA_ARGS__) fn(DT_N_S_uart_4a00000, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default, __VA_ARGS__) fn(DT_N_S_gpio_600010, __VA_ARGS__) fn(DT_N_S_gpio_601010, __VA_ARGS__) fn(DT_N_S_uart_2800000, __VA_ARGS__) fn(DT_N_S_uart_2810000, __VA_ARGS__) fn(DT_N_S_uart_2820000, __VA_ARGS__) fn(DT_N_S_uart_2830000, __VA_ARGS__) fn(DT_N_S_uart_2840000, __VA_ARGS__) fn(DT_N_S_uart_2850000, __VA_ARGS__) fn(DT_N_S_uart_2860000, __VA_ARGS__) fn(DT_N_S_cpus, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0, __VA_ARGS__) fn(DT_N_S_memory_0, __VA_ARGS__) fn(DT_N_S_memory_41010000, __VA_ARGS__) fn(DT_N_S_interrupt_controller_7ff0000, __VA_ARGS__) fn(DT_N_S_timer_4800000, __VA_ARGS__) fn(DT_N_S_memory_a1000000, __VA_ARGS__) fn(DT_N_S_memory_a1100000, __VA_ARGS__) fn(DT_N_S_memory_a1200000, __VA_ARGS__) fn(DT_N_S_leds, __VA_ARGS__) fn(DT_N_S_leds_S_led_gpio7, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default, __VA_ARGS__)
-#define DT_FOREACH_OKAY_VARGS_HELPER(fn, ...) fn(DT_N, __VA_ARGS__) fn(DT_N_S_chosen, __VA_ARGS__) fn(DT_N_S_aliases, __VA_ARGS__) fn(DT_N_S_soc, __VA_ARGS__) fn(DT_N_S_gpio_4201010, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default, __VA_ARGS__) fn(DT_N_S_uart_2810000, __VA_ARGS__) fn(DT_N_S_cpus, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0, __VA_ARGS__) fn(DT_N_S_memory_0, __VA_ARGS__) fn(DT_N_S_memory_41010000, __VA_ARGS__) fn(DT_N_S_interrupt_controller_7ff0000, __VA_ARGS__) fn(DT_N_S_timer_4800000, __VA_ARGS__) fn(DT_N_S_memory_a1000000, __VA_ARGS__) fn(DT_N_S_memory_a1100000, __VA_ARGS__) fn(DT_N_S_memory_a1200000, __VA_ARGS__) fn(DT_N_S_leds, __VA_ARGS__) fn(DT_N_S_leds_S_led_gpio7, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default, __VA_ARGS__)
+#define DT_FOREACH_HELPER(fn) fn(DT_N) fn(DT_N_S_chosen) fn(DT_N_S_aliases) fn(DT_N_S_soc) fn(DT_N_S_gpio_4201010) fn(DT_N_S_uart_4a00000) fn(DT_N_S_pinctrl_f4000) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default) fn(DT_N_S_gpio_600010) fn(DT_N_S_gpio_601010) fn(DT_N_S_uart_2800000) fn(DT_N_S_uart_2810000) fn(DT_N_S_uart_2820000) fn(DT_N_S_uart_2830000) fn(DT_N_S_uart_2840000) fn(DT_N_S_uart_2850000) fn(DT_N_S_uart_2860000) fn(DT_N_S_cpus) fn(DT_N_S_cpus_S_cpu_0) fn(DT_N_S_memory_0) fn(DT_N_S_memory_41010000) fn(DT_N_S_interrupt_controller_7ff0000) fn(DT_N_S_timer_4800000) fn(DT_N_S_memory_a1000000) fn(DT_N_S_memory_a1100000) fn(DT_N_S_memory_a1200000) fn(DT_N_S_leds) fn(DT_N_S_leds_S_btn_gpio5) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23) fn(DT_N_S_pinctrl_mcu_4084000) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default)
+#define DT_FOREACH_OKAY_HELPER(fn) fn(DT_N) fn(DT_N_S_chosen) fn(DT_N_S_aliases) fn(DT_N_S_soc) fn(DT_N_S_gpio_4201010) fn(DT_N_S_pinctrl_f4000) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default) fn(DT_N_S_uart_2810000) fn(DT_N_S_cpus) fn(DT_N_S_cpus_S_cpu_0) fn(DT_N_S_memory_0) fn(DT_N_S_memory_41010000) fn(DT_N_S_interrupt_controller_7ff0000) fn(DT_N_S_timer_4800000) fn(DT_N_S_memory_a1000000) fn(DT_N_S_memory_a1100000) fn(DT_N_S_memory_a1200000) fn(DT_N_S_leds) fn(DT_N_S_leds_S_btn_gpio5) fn(DT_N_S_leds_S_btn_gpio24) fn(DT_N_S_leds_S_btn_gpio23) fn(DT_N_S_pinctrl_mcu_4084000) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default)
+#define DT_FOREACH_VARGS_HELPER(fn, ...) fn(DT_N, __VA_ARGS__) fn(DT_N_S_chosen, __VA_ARGS__) fn(DT_N_S_aliases, __VA_ARGS__) fn(DT_N_S_soc, __VA_ARGS__) fn(DT_N_S_gpio_4201010, __VA_ARGS__) fn(DT_N_S_uart_4a00000, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default, __VA_ARGS__) fn(DT_N_S_gpio_600010, __VA_ARGS__) fn(DT_N_S_gpio_601010, __VA_ARGS__) fn(DT_N_S_uart_2800000, __VA_ARGS__) fn(DT_N_S_uart_2810000, __VA_ARGS__) fn(DT_N_S_uart_2820000, __VA_ARGS__) fn(DT_N_S_uart_2830000, __VA_ARGS__) fn(DT_N_S_uart_2840000, __VA_ARGS__) fn(DT_N_S_uart_2850000, __VA_ARGS__) fn(DT_N_S_uart_2860000, __VA_ARGS__) fn(DT_N_S_cpus, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0, __VA_ARGS__) fn(DT_N_S_memory_0, __VA_ARGS__) fn(DT_N_S_memory_41010000, __VA_ARGS__) fn(DT_N_S_interrupt_controller_7ff0000, __VA_ARGS__) fn(DT_N_S_timer_4800000, __VA_ARGS__) fn(DT_N_S_memory_a1000000, __VA_ARGS__) fn(DT_N_S_memory_a1100000, __VA_ARGS__) fn(DT_N_S_memory_a1200000, __VA_ARGS__) fn(DT_N_S_leds, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio5, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default, __VA_ARGS__)
+#define DT_FOREACH_OKAY_VARGS_HELPER(fn, ...) fn(DT_N, __VA_ARGS__) fn(DT_N_S_chosen, __VA_ARGS__) fn(DT_N_S_aliases, __VA_ARGS__) fn(DT_N_S_soc, __VA_ARGS__) fn(DT_N_S_gpio_4201010, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_rx_default, __VA_ARGS__) fn(DT_N_S_pinctrl_f4000_S_uart1_tx_default, __VA_ARGS__) fn(DT_N_S_uart_2810000, __VA_ARGS__) fn(DT_N_S_cpus, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0, __VA_ARGS__) fn(DT_N_S_memory_0, __VA_ARGS__) fn(DT_N_S_memory_41010000, __VA_ARGS__) fn(DT_N_S_interrupt_controller_7ff0000, __VA_ARGS__) fn(DT_N_S_timer_4800000, __VA_ARGS__) fn(DT_N_S_memory_a1000000, __VA_ARGS__) fn(DT_N_S_memory_a1100000, __VA_ARGS__) fn(DT_N_S_memory_a1200000, __VA_ARGS__) fn(DT_N_S_leds, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio5, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio24, __VA_ARGS__) fn(DT_N_S_leds_S_btn_gpio23, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000, __VA_ARGS__) fn(DT_N_S_pinctrl_mcu_4084000_S_mcu_gpio0_led_btn_default, __VA_ARGS__)
 
 /*
  * Macros for compatibles with status "okay" nodes

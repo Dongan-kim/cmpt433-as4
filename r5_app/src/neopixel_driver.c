@@ -33,11 +33,11 @@ volatile int junk_delay = 0;
 #define NEO_DELAY_ZERO_OFF()   DELAY_800_NS()
 #define NEO_DELAY_RESET()      { DELAY_NS(NEO_RESET_NS); }
 
-#define LED0_NODE DT_ALIAS(led0)
+#define LED0_NODE DT_ALIAS(joy0)
 #define BTN0_NODE DT_ALIAS(btn0)
 #define NEOPIXEL_NODE DT_ALIAS(neopixel)
 
-static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
+static const struct gpio_dt_spec joy = GPIO_DT_SPEC_GET(LED0_NODE, gpios);
 static const struct gpio_dt_spec btn = GPIO_DT_SPEC_GET(BTN0_NODE, gpios);
 static const struct gpio_dt_spec neopixel = GPIO_DT_SPEC_GET(NEOPIXEL_NODE, gpios);
 
@@ -56,6 +56,7 @@ int main(void) {
 	//printf("R5 NeoPixel Shared Memory Driver\n");
 	initialize_gpio(&neopixel, GPIO_OUTPUT_ACTIVE);
 	initialize_gpio(&btn, GPIO_INPUT);
+	initialize_gpio(&joy, GPIO_INPUT);
 
 	//printf("Contents of Shared Memory ATCM:\n");
 	for (int i = 0; i < END_MEMORY_OFFSET; i++) {
@@ -64,6 +65,7 @@ int main(void) {
 	}
 
 	MEM_UINT32(IS_BUTTON_PRESSED_OFFSET) = 0;
+	MEM_UINT32(IS_JOYSTICK_PRESSED_OFFSET) = 0;
 
 
 	//int loopCounter = 0;
@@ -72,7 +74,9 @@ int main(void) {
 		// SHARED_MEM[DEBUG_START_OFFSET / 4] = 0xDEADBEEF;
 		// SHARED_MEM[DEBUG_END_OFFSET / 4]   = loopCounter++;
 		int state = gpio_pin_get_dt(&btn);
+		int state_joy = gpio_pin_get_dt(&joy);
 		bool isPressed = state == 0;
+		bool isPressed_joy = state_joy == 0;
 		gpio_pin_set_dt(&neopixel, 0);
 		DELAY_NS(NEO_RESET_NS);
 
@@ -95,9 +99,10 @@ int main(void) {
 		}
 		
 		MEM_UINT32(IS_BUTTON_PRESSED_OFFSET) = isPressed;
+		MEM_UINT32(IS_JOYSTICK_PRESSED_OFFSET) = isPressed_joy;
 		gpio_pin_set_dt(&neopixel, 0);
 		NEO_DELAY_RESET();
-		//k_busy_wait(10000); // Refresh every 10ms
+		k_msleep(10); // Refresh every 10ms
 	}
 	return 0;
 }

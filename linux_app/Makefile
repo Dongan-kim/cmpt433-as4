@@ -11,7 +11,7 @@ OUTDIR = $(PUBDIR)
 CC = gcc
 
 # Source files
-SRCS = src/main.c src/accelerometer.c src/lcd_display.c src/joystick_press.c\
+SRCS = src/main.c src/accelerometer.c src/lcd_display.c \
        lcd/lib/Config/DEV_Config.c lcd/lib/LCD/LCD_1in54.c \
        lcd/lib/GUI/GUI_Paint.c lcd/lib/Fonts/font24.c
 

@@ -19,8 +19,9 @@
 #define IS_BUTTON_PRESSED_OFFSET   (LED_DELAY_MS_OFFSET + sizeof(uint32_t))
 #define BTN_COUNT_OFFSET           (IS_BUTTON_PRESSED_OFFSET + sizeof(uint32_t))
 #define LOOP_COUNT_OFFSET          (BTN_COUNT_OFFSET + sizeof(uint32_t))
+#define IS_JOYSTICK_PRESSED_OFFSET (LOOP_COUNT_OFFSET + sizeof(uint32_t))
 
-#define SHARED_RGB_OFFSET         (LOOP_COUNT_OFFSET + sizeof(uint32_t))
+#define SHARED_RGB_OFFSET         (IS_JOYSTICK_PRESSED_OFFSET + sizeof(uint32_t))
 #define NEO_NUM_LEDS              8
 
 #define DEBUG_END_OFFSET          (SHARED_RGB_OFFSET + (NEO_NUM_LEDS * sizeof(uint32_t)))

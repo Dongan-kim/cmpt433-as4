@@ -10,7 +10,7 @@
 		zephyr,console = &uart1;
 	};
 	aliases {
-		led0 = &mcu_led;
+		joy0 = &mcu_joy;
 		btn0 = &mcu_btn;
 		neopixel = &mcu_neopixel;
 	};
@@ -189,8 +189,8 @@
 	};
 	leds {
 		compatible = "gpio-leds";
-		mcu_led: led_gpio7 {
-			gpios = < &mcu_gpio0 0x9 0x0 >;
+		mcu_joy: btn_gpio5 {
+			gpios = < &mcu_gpio0 0xf 0x0 >;
 		};
 		mcu_btn: btn_gpio24 {
 			gpios = < &mcu_gpio0 0xa 0x0 >;

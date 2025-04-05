@@ -14,7 +14,7 @@
 #include "accelerometer.h"
 #include "sharedDataLayout.h"
 #include "lcd_display.h"
-#include "joystick_press.h"
+//#include "joystick_press.h"
 
 #define NUM_LEDS 8
 #define SHARED_MEM_LENGTH 0x8000
@@ -65,7 +65,6 @@ void cleanup_resources() {
     printf("Cleaning up resources...\n");
     accelerometer_cleanup();
     lcd_display_cleanup();
-    joystick_press_cleanup();
     printf("All resources cleaned up.\n");
 }
 
@@ -114,7 +113,6 @@ int main() {
     srand(time(NULL));
     accelerometer_init();
     lcd_display_init();
-    joystick_press_init();
     time_t startTime = time(NULL);
 
     pSharedMem = map_shared_memory();
@@ -135,6 +133,9 @@ int main() {
         int seconds = elapsed % 60;
         lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
         Direction dir = process_accel_and_target(&targetX, &targetY, threshold);
+        if (MEM_UINT32(pSharedMem + IS_JOYSTICK_PRESSED_OFFSET)){
+            keepRunning = 0;
+        }
         
         uint32_t brightColor, dimColor;
         
