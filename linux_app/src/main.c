@@ -112,9 +112,9 @@ void handleSigint(int sig) {
 int main() {
     signal(SIGINT, handleSigint);
     srand(time(NULL));
+    joystick_press_init(); 
     accelerometer_init();
     lcd_display_init();
-    joystick_press_init(); 
     time_t startTime = time(NULL);
 
     pSharedMem = map_shared_memory();

@@ -18,11 +18,10 @@ echo "Building Zephyr firmware for R5..."
 
 cd r5_app
 
-cmake -S . -B build \
-  -DBOARD=beagley_ai/j722s/mcu_r5f0_0 \
-  -DZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb \
-  -DGNUARMEMB_TOOLCHAIN_PATH=/usr \
-  -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+cmake -S . -B build -DBOARD=beagley_ai/j722s/mcu_r5f0_0 
+  # -DZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb \
+  # -DGNUARMEMB_TOOLCHAIN_PATH=/usr \
+  # -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
 cd build
 make

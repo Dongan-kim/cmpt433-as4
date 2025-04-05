@@ -14,7 +14,8 @@
 static struct gpiod_chip *chip;
 static struct gpiod_line *button_line;
 static pthread_t joystickThread;
-static int keepRunning = 1;
+//static int keepRunning = 1;
+//static int joystickThreadRunning = 1;  
 //volatile int joystick_is_pressed = 0;
 
 void joystick_press_init() {
@@ -52,6 +53,9 @@ void *joystick_listener_push(void *arg) {
     static int lastState = 1; // Assume HIGH (not pressed) initially
     static long lastPressTime = 0;
 
+    printf("Joystick thread running\n");
+    fflush(stdout);  // ensure print shows
+
     while (keepRunning) {
         if (!button_line) continue; // Ensure button is initialized
 
@@ -62,7 +66,16 @@ void *joystick_listener_push(void *arg) {
             if (currentTime - lastPressTime > 200) { // 200ms debounce
                 lastPressTime = currentTime;
                 lastState = currentState;
+
+                printf("joystick pressed\n");
+                fflush(stdout);
+                
                 keepRunning = 0;
+
+                //write to shared memory to signal main
+                // if (pSharedMem != NULL) {
+                //     MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) = 1;
+                // }
             }
         }
 

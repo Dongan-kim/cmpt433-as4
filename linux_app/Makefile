@@ -8,7 +8,7 @@ PUBDIR = $(HOME)/cmpt433/public/myApps
 OUTDIR = $(PUBDIR)
 
 # Compiler
-CC = gcc
+CC = aarch64-linux-gnu-gcc
 
 # Source files
 SRCS = src/main.c src/accelerometer.c src/lcd_display.c src/joystick_press.c src/periodTimer.c\
