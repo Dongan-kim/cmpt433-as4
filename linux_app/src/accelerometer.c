@@ -101,7 +101,7 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
         return DIRECTION_NONE;
     }
 
-    float x = (float)rawX / 16384.0f;
+    float x = -((float)rawX / 16384.0f);
     float y = (float)rawY / 16384.0f;
     dx = *targetX - x;
     float dy = *targetY - y;
