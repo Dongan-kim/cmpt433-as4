@@ -31,7 +31,7 @@
 #define YELLOW        0x0f0f0000
 #define RB_BRIGHT     0x00ff00ff // Red Bright w/ Bright White
 #define BW_BRIGHT     0x0000ffff // Blue Bright w/ Bright White
-#define ORANGE        0xff8c0000 // Orange
+#define ORANGE        0x0fff0000 // Orange
 
 
 volatile void* pSharedMem = NULL;
