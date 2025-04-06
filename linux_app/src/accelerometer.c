@@ -57,7 +57,6 @@ static void *accel_thread_fn(void *arg) {
         }
         struct timespec ts = {0, 5000000};
         nanosleep(&ts, NULL);
-        //usleep(5000); // 200Hz polling
     }
     return NULL;
 }
@@ -83,20 +82,20 @@ void accelerometer_init() {
         exit(EXIT_FAILURE);
     }
 
-    // Configure LIS3DH
-    write(i2c_fd, (uint8_t[]){CTRL1_REG, 0x60}, 2); // 200Hz
-    write(i2c_fd, (uint8_t[]){CTRL6_REG, 0x00}, 2); // ±2g
+    write(i2c_fd, (uint8_t[]){CTRL1_REG, 0x60}, 2); 
+    write(i2c_fd, (uint8_t[]){CTRL6_REG, 0x00}, 2); 
 
     pthread_create(&accelThread, NULL, accel_thread_fn, NULL);
     pthread_detach(accelThread);
 }
 
+// check current x/y and compare to target x/y to see what color to show (red, blue, green), or which led to light up on neopixel.
 Direction process_accel_and_target(float* targetX, float* targetY, float threshold) {
     static time_t lastPrint = 0;
 
     int16_t rawX, rawY, rawZ;
     if (get_latest_accel(&rawX, &rawY, &rawZ) != 0) {
-        struct timespec ts = {0, 1000000};  // 100ms
+        struct timespec ts = {0, 1000000};  
         nanosleep(&ts, NULL);
         return DIRECTION_NONE;
     }
@@ -108,15 +107,12 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
 
     time_t now = time(NULL);
     if (now != lastPrint) {
-        //printf("Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", x, y, *targetX, *targetY);
         lastPrint = now;
     }
 
     if (fabs(dx) <= threshold && fabs(dy) <= threshold) {
-        struct timespec ts = {0, 100000000};  // 100ms
+        struct timespec ts = {0, 100000000}; 
         nanosleep(&ts, NULL);
-        //usleep(500000);
-        //printf("New Target: X=%.2f Y=%.2f\n", *targetX, *targetY);
         return DIRECTION_ON_TARGET;
     }
 
@@ -126,22 +122,7 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
         return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
     }
 
-
-    // if (fabs(*dx) < fabs(*dy)) {
-    //     if (fabs(*dx) > threshold) {
-    //         return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
-    //     } else if (fabs(*dy) > threshold) {
-    //         return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
-    //     }
-    // } else {
-    //     if (fabs(*dy) > threshold) {
-    //         return (*targetY > y) ? DIRECTION_LEFT: DIRECTION_RIGHT;
-    //     } else if (fabs(*dx) > threshold) {
-    //         return (*targetX > x) ? DIRECTION_DOWN : DIRECTION_UP;
-    //     }
-    // }
-
-    return DIRECTION_NONE;  // Or another sensible default
+    return DIRECTION_NONE;  
 }
 
 float get_dx() {

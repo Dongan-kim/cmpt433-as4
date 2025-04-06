@@ -1,3 +1,7 @@
+// LCD used to diplay hit/miss and timer.
+// Hit/miss update in main.
+// simple init and cleanup also present.
+
 #ifndef LCD_DISPLAY_H
 #define LCD_DISPLAY_H
 
@@ -6,18 +10,10 @@
 // Initialize the LCD screen
 void lcd_display_init(void);
 
-// // Change the screen based on joystick press
-// void lcd_display_screen(int screen);
-
-//int getScreen();
-
-// Display beat name, volume, and BPM on Screen 1
+// Display hit, miss, and timer with MM:SS
 void lcd_display_status_screen(int hit, int miss, int minites, int seconds);
-
-// Display Audio Timing or Accelerometer Timing on Screen 2 & 3
-//void lcd_display_timing_screen(const char *title, double minMs, double maxMs, double avgMs);
 
 // Cleanup function for LCD
 void lcd_display_cleanup(void);
 
-#endif // LCD_DISPLAY_H
+#endif 

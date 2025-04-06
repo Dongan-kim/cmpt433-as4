@@ -1,3 +1,7 @@
+// accelerometer used to control direcction of byai. 
+// use x,y direction when determining board orientation and target coords to see what color to show on neopixel.
+// simple init and cleanup present
+
 #ifndef ACCELEROMETER_H
 #define ACCELEROMETER_H
 
@@ -25,4 +29,4 @@ int get_latest_accel(int16_t *x, int16_t *y, int16_t *z);
 
 float get_dx();
 
-#endif // ACCELEROMETER_H
+#endif 

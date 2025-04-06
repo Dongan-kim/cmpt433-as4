@@ -28,4 +28,4 @@ gpioset gpiochip0 9=1   # PYMNL.9 (MUX?)
 gpioset gpiochip0 7=1   # Enable LED stick
 gpioget gpiochip0 10    # Rotary encoder (trigger gpioget to finish config)
 
-echo "✅ R5 firmware loaded and NeoPixel should now be running."
+echo "R5 firmware loaded and NeoPixel should now be running."

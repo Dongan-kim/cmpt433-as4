@@ -1,3 +1,5 @@
+// joystick press used to shutdown app. simple init and cleanup also present.
+
 #ifndef _JOYSTICK_PRESS_H_
 #define _JOYSTICK_PRESS_H_
 

@@ -14,9 +14,6 @@
 static struct gpiod_chip *chip;
 static struct gpiod_line *button_line;
 static pthread_t joystickThread;
-//static int keepRunning = 1;
-//static int joystickThreadRunning = 1;  
-//volatile int joystick_is_pressed = 0;
 
 void joystick_press_init() {
     chip = gpiod_chip_open(GPIO_CHIP);
@@ -47,14 +44,14 @@ void joystick_press_init() {
 }
 
 
-// **Thread function to listen for joystick presses**
+// Thread function to listen for joystick presses
 void *joystick_listener_push(void *arg) {
     (void)arg;
-    static int lastState = 1; // Assume HIGH (not pressed) initially
+    static int lastState = 1; 
     static long lastPressTime = 0;
 
     printf("Joystick thread running\n");
-    fflush(stdout);  // ensure print shows
+    fflush(stdout); 
 
     while (keepRunning) {
         if (!button_line) continue; // Ensure button is initialized
@@ -62,7 +59,7 @@ void *joystick_listener_push(void *arg) {
         int currentState = gpiod_line_get_value(button_line);
         long currentTime = periodTimer_getCurrentTimeMs();
 
-        if (lastState == 1 && currentState == 0) { // Detect falling edge
+        if (lastState == 1 && currentState == 0) { 
             if (currentTime - lastPressTime > 200) { // 200ms debounce
                 lastPressTime = currentTime;
                 lastState = currentState;
@@ -71,17 +68,12 @@ void *joystick_listener_push(void *arg) {
                 fflush(stdout);
                 
                 keepRunning = 0;
-
-                //write to shared memory to signal main
-                // if (pSharedMem != NULL) {
-                //     MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) = 1;
-                // }
             }
         }
 
         lastState = currentState;
         struct timespec ts = {0, 100000000};  // 100 ms
-        nanosleep(&ts, NULL);  // Sleep 100ms to prevent CPU overuse
+        nanosleep(&ts, NULL);  
     }
     return NULL;
 }

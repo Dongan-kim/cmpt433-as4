@@ -1,5 +1,6 @@
 // R5 NeoPixel Controller (Shared Memory Version)
 // Reads LED colors from shared memory and drives NeoPixel strip
+// Contains gpio rotary encoder as well to control button pressing
 
 #include <stdio.h>
 #include <stdlib.h>

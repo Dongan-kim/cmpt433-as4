@@ -1,3 +1,6 @@
+// LCD c file - simply displays hit, miss and timer.
+// sets up init and cleanup too.
+
 #include "lcd_display.h"
 #include "DEV_Config.h"
 #include "LCD_1in54.h"
@@ -8,7 +11,6 @@
 #include <string.h>
 
 static UWORD *s_fb;
-//static int currentScreen = 1; // Start on Screen 1
 
 void lcd_display_init() {
     if(DEV_ModuleInit() != 0){

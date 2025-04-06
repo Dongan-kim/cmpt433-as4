@@ -32,4 +32,4 @@
 #define MEM_UINT8(addr) *(uint8_t*)(addr)
 #define MEM_UINT32(addr) *(uint32_t*)(addr)
 
-#endif // _SHARED_DATA_STRUCT_H_
+#endif 

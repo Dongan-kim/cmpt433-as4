@@ -1,3 +1,11 @@
+// Main c file
+// This file maps neopixel with r5 and opens dev/mem
+// Then we init all hardware and keep infinite while loop running that constantly selects target for user, 
+// then allows program to progress, where user can move byai and accelerometer keeps track of orientation to show a color and location (3 leds on) on neopixel.
+// if user is in correct orientation (blue with all leds on), then if press rotary encoder, counts as hit with neopixel showing orange and white, and lcd is updated. 
+// else miss, and neopixel shows purple and lcd updated.
+// If user presses joystick button down, app ends, neopixel all leds turn off, and program exits.
+
 #define _POSIX_C_SOURCE 200809L
 #include <unistd.h>
 
@@ -121,7 +129,6 @@ int main() {
     pSharedMem = map_shared_memory();
     // Set LED update delay (in milliseconds) for R5
     *((volatile uint32_t *)((uint8_t *)pSharedMem + LED_DELAY_MS_OFFSET)) = 10; // 10ms
-    //printf("    %15s: 0x%04x\n", "isButtonPressed", MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET));
 
     float targetX = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
     float targetY = ((float)(rand() % 1001) / 1000.0f) - 0.5f;
@@ -152,7 +159,8 @@ int main() {
             dimColor = BLUE_DIM;
         }
 
-        //Check if both X and Y are within target threshold
+        //Check if both X and Y are within target threshold target:
+        //option 1 not in threshold target
         if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) && dir != DIRECTION_ON_TARGET){
             num_miss++;
             minutes = elapsed / 60;
@@ -187,6 +195,7 @@ int main() {
             nanosleep(&finalPause, NULL); 
         }
         float errorX = get_dx();
+        //option 2, within target
         if (dir == DIRECTION_ON_TARGET) {
             //All LEDs bright blue
             for (int i = 0; i < NUM_LEDS; i++) {
@@ -272,10 +281,10 @@ int main() {
             }
             nanosleep(&delay, NULL);
         }else {
-            int centerIndex;  // Default centered
+            int centerIndex;  
 
             if (errorX > 0.41f) {
-                centerIndex = 8; // Far right dim (beyond range)
+                centerIndex = 8; 
             } else if (errorX >= 0.35f) {
                 centerIndex = 7;
             } else if (errorX >= 0.27f) {
@@ -285,7 +294,7 @@ int main() {
             } else if (errorX >= 0.12f) {
                 centerIndex = 4;
             } else if (errorX <= -0.41f) {
-                centerIndex = -1; // Far left dim (beyond range)
+                centerIndex = -1; 
             } else if (errorX <= -0.35f) {
                 centerIndex = 0;
             } else if (errorX <= -0.27f) {
@@ -298,21 +307,21 @@ int main() {
 
             for (int i = 0; i < NUM_LEDS; i++) {
                 if (i == centerIndex) {
-                    write_led_color(i, brightColor); // Bright center
+                    write_led_color(i, brightColor); 
                 } else if (i == centerIndex - 1 || i == centerIndex + 1) {
                     if (i >= 0 && i < NUM_LEDS)
-                        write_led_color(i, dimColor); // Dim sides
+                        write_led_color(i, dimColor);
                 } else {
-                    write_led_color(i, 0x00000000); // Off
+                    write_led_color(i, 0x00000000); 
                 }
             }
         }
 
-        struct timespec ts = {0, 100000000};  // 100 ms
+        struct timespec ts = {0, 100000000};  
         nanosleep(&ts, NULL);
     }
     for (int i = 0; i < NUM_LEDS; i++) {
-        write_led_color(i, 0x00000000); // Off
+        write_led_color(i, 0x00000000); 
     }
     cleanup_resources();
     freeR5MmapAddr(pSharedMem);
