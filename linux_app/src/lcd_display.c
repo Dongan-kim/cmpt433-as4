@@ -38,7 +38,6 @@ void lcd_display_status_screen(int hit, int miss, int minutes, int seconds) {
     snprintf(missText, sizeof(missText), "MISS: %d", miss);
     snprintf(timeText, sizeof(timeText), "%02d:%02d", minutes, seconds);
 
-    // Optional: Use a bigger font like Font24 or Font32 if available
     sFONT* font = &Font24;
 
     // Draw text centered-ish

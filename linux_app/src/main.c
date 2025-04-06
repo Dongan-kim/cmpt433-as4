@@ -31,6 +31,7 @@
 #define YELLOW        0x0f0f0000
 #define RB_BRIGHT     0x00ff00ff // Red Bright w/ Bright White
 #define BW_BRIGHT     0x0000ffff // Blue Bright w/ Bright White
+#define ORANGE        0xff8c0000 // Orange
 
 
 volatile void* pSharedMem = NULL;
@@ -154,6 +155,9 @@ int main() {
         //Check if both X and Y are within target threshold
         if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET) && dir != DIRECTION_ON_TARGET){
             num_miss++;
+            minutes = elapsed / 60;
+            seconds = elapsed % 60;
+            lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
             const int delay_ms = 500;
             const struct timespec delay = {0, delay_ms * 1000000L};
         
@@ -190,6 +194,9 @@ int main() {
             }
             if (MEM_UINT32(pSharedMem + IS_BUTTON_PRESSED_OFFSET)) {
                 num_hit++;
+                minutes = elapsed / 60;
+                seconds = elapsed % 60;
+                lcd_display_status_screen(num_hit, num_miss, minutes, seconds);
                 const int delay_ms = 200;
                 const struct timespec delay = {0, delay_ms * 1000000L};
         
@@ -198,7 +205,7 @@ int main() {
                 write_led_color(1, 0x00000000);
                 write_led_color(2, 0x00000000);
                 write_led_color(3, RB_BRIGHT);
-                write_led_color(4, RB_BRIGHT);
+                write_led_color(4, ORANGE);
                 write_led_color(5, 0x00000000);
                 write_led_color(6, 0x00000000);
                 write_led_color(7, 0x00000000);
@@ -210,7 +217,7 @@ int main() {
                 write_led_color(2, BW_BRIGHT);
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
-                write_led_color(5, BW_BRIGHT);
+                write_led_color(5, ORANGE);
                 write_led_color(6, 0x00000000);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
@@ -222,7 +229,7 @@ int main() {
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
                 write_led_color(5, 0x00000000);
-                write_led_color(6, RB_BRIGHT);
+                write_led_color(6, ORANGE);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
 
@@ -232,7 +239,7 @@ int main() {
                 write_led_color(3, 0x00000000);
                 write_led_color(4, 0x00000000);
                 write_led_color(5, 0x00000000);
-                write_led_color(6, BW_BRIGHT);
+                write_led_color(6, ORANGE);
                 write_led_color(7, 0x00000000);
                 nanosleep(&delay, NULL);
 
@@ -243,7 +250,7 @@ int main() {
                 write_led_color(4, 0x00000000);
                 write_led_color(5, 0x00000000);
                 write_led_color(6, 0x00000000);
-                write_led_color(7, RB_BRIGHT);
+                write_led_color(7, ORANGE);
                 nanosleep(&delay, NULL);
         
          

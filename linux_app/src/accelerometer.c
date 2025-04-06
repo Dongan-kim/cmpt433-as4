@@ -108,7 +108,7 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
 
     time_t now = time(NULL);
     if (now != lastPrint) {
-        //printf("📍 Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", x, y, *targetX, *targetY);
+        //printf("Current X=%.2f Y=%.2f | Target X=%.2f Y=%.2f\n", x, y, *targetX, *targetY);
         lastPrint = now;
     }
 
@@ -116,7 +116,7 @@ Direction process_accel_and_target(float* targetX, float* targetY, float thresho
         struct timespec ts = {0, 100000000};  // 100ms
         nanosleep(&ts, NULL);
         //usleep(500000);
-        //printf("🎯 New Target: X=%.2f Y=%.2f\n", *targetX, *targetY);
+        //printf("New Target: X=%.2f Y=%.2f\n", *targetX, *targetY);
         return DIRECTION_ON_TARGET;
     }
 
